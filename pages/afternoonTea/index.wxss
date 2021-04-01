@@ -1,0 +1,63 @@
+.delicious-container {
+  margin-top: 60rpx;
+}
+.delicious-container .top {
+  display: flex;
+}
+.delicious-container .top .left image {
+  width: 120rpx;
+  height: 120rpx;
+  margin-right: 20rpx;
+  margin-left: 30rpx;
+}
+.delicious-container .top .mid {
+  width: 390rpx;
+}
+.delicious-container .top .mid .name {
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.delicious-container .top .mid .star {
+  display: flex;
+  align-items: center;
+  margin: 10rpx 0;
+}
+.delicious-container .top .mid .star .rating {
+  color: #ee8747;
+  margin: 0 16rpx;
+}
+.delicious-container .top .mid .deliver-fee {
+  color: #a7a7a7;
+}
+.delicious-container .top .right image {
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 135rpx;
+}
+.delicious-container .top .right .deliver-detail {
+  margin-top: 53rpx;
+}
+.delicious-container .top .right .deliver-detail .divide {
+  position: relative;
+  top: -4rpx;
+  margin: 0 12rpx;
+  color: #e5e5e5;
+}
+.delicious-container .top .right .deliver-detail .deliver-time {
+  color: #4ea1f7;
+}
+.delicious-container .discount-container {
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+}
+.delicious-container .discount-container .discount-info {
+  margin-bottom: 5px;
+}
+.delicious-container .discount-container .discount-info .discount-text {
+  margin-left: 5px;
+  font-size: 20rpx;
+}

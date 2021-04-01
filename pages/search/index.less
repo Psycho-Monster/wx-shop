@@ -1,0 +1,109 @@
+.search {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20rpx;
+  height: 140rpx;
+  padding-top: 14rpx;
+  background-color: #fff;
+  .search-input {
+    display: flex;
+    align-items: center;
+    padding-left: 30rpx;
+    width: 100%;
+    height: 80rpx;
+    border: 1px solid #02b6fd;
+    border-radius: 50rpx;
+    .search-text {
+      position: relative;
+      top: -5rpx;
+      margin-left: 20rpx;
+      color: gray;
+    }
+  }
+}
+.scrollX-wrapper {
+  padding-left: 30rpx;
+  white-space: nowrap;
+  .hot-search {
+    display: inline-block;
+    width: 546rpx;
+    border-radius: 50rpx;
+    background-image: linear-gradient(to bottom, #ecf9ff, #fff);
+    border: 1px solid #cdf1ff;
+    padding-left: 32rpx;
+    padding-top: 24rpx;
+    padding-bottom: 20rpx;
+    margin-right: 38rpx;
+    .title {
+      color: #00acf0;
+      font-size: 16px;
+      margin-bottom: 28rpx;
+    }
+    .content {
+      display: flex;
+      margin-bottom: 24rpx;
+      image {
+        width: 100rpx;
+        height: 100rpx;
+        margin-right: 16rpx;
+      }
+      .food-evaluation {
+        font-size: 26rpx;
+        margin-top: 4rpx;
+        margin-bottom: 28rpx;
+        color: #191919;
+      }
+      .hot-value {
+        font-size: 20rpx;
+        color: #9a9b9b;
+      }
+    }
+    .more-content {
+      text-align: center;
+      .more {
+        color: #9c9c9c;
+        font-size: 12px;
+      }
+    }
+  }
+}
+.exclusive-container {
+  margin-left: 24rpx;
+  margin-top: 42rpx;
+  .title {
+    font-weight: bold;
+    font-size: 16px;
+    color: black;
+    margin-bottom: 24rpx;
+  }
+}
+.exclusive-list {
+  display: flex;
+  flex-wrap: wrap;
+  .exclusive-item {
+    display: flex;
+    width: 350rpx;
+    margin-bottom: 35rpx;
+    image {
+      width: 80rpx;
+      height: 80rpx;
+      margin-right: 14rpx;
+    }
+    .name {
+      font-weight: bold;
+    }
+    .consumer-remark {
+      margin-top: 6rpx;
+      margin-bottom: 10rpx;
+      font-size: 20rpx;
+      color: #b2b2b2;
+    }
+    .tag {
+      margin-right: 10rpx;
+    }
+  }
+}

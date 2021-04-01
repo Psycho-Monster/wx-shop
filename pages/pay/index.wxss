@@ -1,0 +1,284 @@
+page {
+  height: auto;
+}
+text {
+  color: black;
+}
+.pay-container {
+  background-image: linear-gradient(to bottom, #61c6f9, #fff);
+  padding: 0 24rpx;
+  padding-bottom: 140rpx;
+}
+.tag-container {
+  padding-top: 24rpx;
+  margin-bottom: 18rpx;
+}
+.tag-container .custom-tag {
+  display: flex;
+  height: 74rpx;
+  align-items: center;
+  padding-left: 24rpx;
+  width: 658rpx;
+}
+.tag-container .custom-tag .icon-laba {
+  margin-right: 14rpx;
+}
+.order-info {
+  height: 296rpx;
+  background-color: #fff;
+  padding: 42rpx 26rpx;
+  border-radius: 10rpx;
+}
+.order-info .address-container .address-text {
+  font-size: 40rpx;
+  color: black;
+}
+.order-info .order-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 40rpx 0;
+}
+.order-info .order-container .order-text,
+.order-info .order-container .order-detail {
+  font-size: 30rpx;
+}
+.order-info .order-container .order-text {
+  color: black;
+  font-weight: bold;
+}
+.order-info .order-container .order-detail {
+  color: #02b6fd;
+}
+.food-info {
+  background-color: #fff;
+  padding: 42rpx 26rpx;
+  border-radius: 10rpx;
+  margin: 20rpx 0;
+}
+.food-info .shop-title {
+  font-size: 28rpx;
+  margin-bottom: 40rpx;
+}
+.food-info .food-list {
+  display: flex;
+  margin-bottom: 36rpx;
+  justify-content: space-between;
+}
+.food-info .food-list image {
+  width: 112rpx;
+  height: 112rpx;
+}
+.food-info .food-list .food-view {
+  display: flex;
+}
+.food-info .food-list .food-detail {
+  margin-left: 20rpx;
+}
+.food-info .food-list .food-detail .food-name {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+.food-info .food-list .food-detail .food-count {
+  color: #a8a8a8;
+}
+.food-info .food-list .food-price {
+  font-size: 14px;
+  font-weight: bold;
+}
+.food-info .deliver-fee {
+  display: flex;
+  justify-content: space-between;
+}
+.food-info .deliver-fee text {
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.food-info .deliver-discount {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8rpx;
+  margin-bottom: 30rpx;
+}
+.food-info .deliver-discount .discount-name {
+  color: #eb6a54;
+}
+.food-info .deliver-discount .prev-price {
+  color: #8e8e8e;
+  text-decoration: line-through;
+}
+.food-info .shop-discount {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.food-info .shop-discount .discount-name {
+  font-weight: bold;
+  font-size: 28rpx;
+}
+.food-info .shop-discount .discount-price {
+  font-weight: bold;
+  font-size: 28rpx;
+  color: #e73e21;
+}
+.food-info .discount-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.food-info .discount-container .discount-detail text {
+  color: #8e8e8e;
+}
+.food-info .discount-container .discount-detail .content {
+  margin-right: 6rpx;
+}
+.food-info .discount-container .common-text {
+  font-size: 14px;
+}
+.food-info .discount-container .price-info {
+  display: flex;
+  align-items: center;
+}
+.food-info .discount-container .totalPrice-container {
+  position: relative;
+  top: -10rpx;
+}
+.food-info .discount-container .price {
+  color: #e9553c;
+  margin-right: 22rpx;
+}
+.food-info .discount-container .total-price {
+  font-size: 20px;
+  font-weight: bold;
+}
+.food-info .discount-container .eat-bean {
+  font-size: 20rpx;
+  color: #e9553c;
+}
+.phone-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100rpx;
+  background-color: #fff;
+  padding: 0 32rpx;
+  margin-bottom: 20rpx;
+}
+.phone-info .phone-detail image {
+  position: relative;
+  top: 6rpx;
+  width: 32rpx;
+  height: 32rpx;
+}
+.phone-info .phone-detail .title {
+  font-size: 28rpx;
+  font-weight: bold;
+  margin: 10rpx;
+}
+.phone-info .phone-detail .icon-wenhao {
+  position: relative;
+  top: 2rpx;
+  color: #8e8e8e;
+}
+.consumer-need {
+  background-color: #fff;
+  padding: 28rpx 26rpx;
+  border-radius: 10rpx;
+  margin-bottom: 124rpx;
+}
+.consumer-need .tableware-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+.consumer-need .tableware-container .tableware-text {
+  font-size: 30rpx;
+  color: black;
+  font-weight: bold;
+}
+.consumer-need .invoice-container {
+  display: flex;
+  justify-content: space-between;
+}
+.consumer-need .invoice-container .invoice-text {
+  font-size: 30rpx;
+  color: black;
+  font-weight: bold;
+}
+.fixed-bottom {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  height: 170rpx;
+  width: 100%;
+  z-index: 10;
+  padding-left: 300rpx;
+  padding-top: 16px;
+  background-color: #fff;
+}
+.fixed-bottom .prev-price {
+  color: black;
+  font-size: 14px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+.fixed-bottom .price-slogan,
+.fixed-bottom .price {
+  color: #e9441a;
+  font-weight: bold;
+}
+.fixed-bottom .price {
+  font-size: 20px;
+}
+.fixed-bottom .discount-sum {
+  margin-top: 8rpx;
+  color: #e9441a;
+}
+.fixed-bottom .submit-order {
+  position: relative;
+  top: 14rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 192rpx;
+  height: 74rpx;
+  background-color: #51b3f7;
+  border-radius: 50rpx;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  margin-left: 24rpx;
+}
+.action-container {
+  display: flex;
+  height: 136rpx;
+  border-top: 1px solid #f8f8f8;
+  margin-top: 20rpx;
+}
+.action-container image {
+  width: 54rpx;
+  height: 46rpx;
+  margin: 0 24rpx;
+}
+.action-container .pay-name {
+  font-size: 28rpx;
+  color: black;
+  margin-right: 468rpx;
+}
+.tableware-actionSheet {
+  padding: 0 36rpx;
+}
+.tableware-actionSheet .van-radio {
+  margin-bottom: 10px;
+}
+.tableware-actionSheet .van-radio__label {
+  font-size: 14px;
+}
+.tableware-actionSheet .van-radio {
+  display: flex;
+  justify-content: space-between;
+}
+.content-item-class {
+  color: #5f5f5f;
+}

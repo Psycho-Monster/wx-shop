@@ -1,0 +1,17 @@
+/**app.wxss**/
+page{
+  height: 100%;
+}
+text{
+  color: #666;
+}
+text {
+  font-size: 24rpx;
+}
+view{
+  font-size: 24rpx;
+}
+view,text{
+  box-sizing: border-box;
+}
+@import "/static/iconfont/iconfont.wxss"

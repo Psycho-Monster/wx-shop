@@ -1,0 +1,83 @@
+.like-container {
+  padding-top: 20rpx;
+}
+.shop-container {
+  padding: 0 20rpx;
+}
+.shop-container .shop {
+  display: flex;
+  height: 200rpx;
+}
+.shop-container .shop .shop-left {
+  margin-right: 16rpx;
+}
+.shop-container .shop .shop-left image {
+  width: 180rpx;
+  height: 184rpx;
+}
+.shop-container .shop .shop-content {
+  width: 357rpx;
+}
+.shop-container .shop .shop-content .shop-header {
+  font-size: 34rpx;
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.shop-container .shop .shop-content .shop-info {
+  margin: 5rpx 0;
+}
+.shop-container .shop .shop-content .shop-info .shop-rating {
+  color: #ff751e;
+  margin-right: 20rpx;
+}
+.shop-container .shop .shop-content .shop-fee .deliver-fee {
+  margin: 0 10rpx 0 20rpx;
+}
+.shop-container .shop .shop-content .shop-fee .shop-oldPrice {
+  color: #b2b2b2;
+  text-decoration: line-through;
+}
+.shop-container .shop .shop-content .shop-slogan {
+  margin: 16rpx 0;
+}
+.shop-container .shop .shop-content .shop-tag {
+  display: flex;
+}
+.shop-container .shop .shop-content .shop-tag .tag-info {
+  margin-right: 10rpx;
+}
+.shop-container .shop .shop-right {
+  position: relative;
+}
+.shop-container .shop .shop-right .shop-menu {
+  position: absolute;
+  right: 0;
+  top: 10rpx;
+  width: 20rpx;
+  height: 30rpx;
+}
+.shop-container .shop .shop-right .shop-menu .square {
+  width: 4rpx;
+  height: 4rpx;
+  margin-bottom: 5rpx;
+  background-color: #656565;
+}
+.shop-container .shop .shop-right .shop-deliver {
+  margin-top: 58rpx;
+}
+.shop-container .shop .shop-right .shop-deliver .deliver-info {
+  font-size: 12px;
+}
+.shop-container .shop .shop-right .shop-deliver .deliver-time {
+  margin-right: 12rpx;
+}
+.shop-container .shop .shop-right .special-deliver {
+  width: 144rpx;
+  color: #51cdfe;
+  background-color: #e6f8ff;
+  text-align: center;
+  margin-top: 10rpx;
+  border-radius: 10rpx;
+}

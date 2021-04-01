@@ -1,0 +1,43 @@
+<!--pages/like/index.wxml-->
+<view class="like-container">
+  <view class="shop-container" wx:for="{{likeShopList}}" wx:key="_id" bindtap="enterShop" wx:for-item="shop"
+    data-shopId="{{shop._id}}">
+    <view class="shop">
+      <view class="shop-left">
+        <image src="{{shop.imagePath}}"></image>
+      </view>
+      <view class="shop-content">
+        <view class="shop-header">{{shop.name}}</view>
+        <view class="shop-info">
+          <text class="shop-rating">{{shop.rating}}分</text>
+          <text class="shop-saleCount">月售{{shop.sellCountPerMonth}}</text>
+        </view>
+        <view class="shop-fee">
+          <text class="shop-price">起送¥{{shop.minPrice}}</text>
+          <text class="shop-price deliver-fee" wx:if="{{shop.deliverFee}}">配送¥{{shop.deliverFee}}</text>
+          <text class="shop-price deliver-fee" wx:else>免配送费</text>
+          <text class="shop-oldPrice" wx:if="{{shop.prevDeliverFee}}">¥{{shop.prevDeliverFee}}</text>
+        </view>
+        <view class="shop-slogan">
+          <van-tag color="#ffeee1" text-color="#f66d15">{{shop.description}}</van-tag>
+        </view>
+        <view class="shop-tag">
+          <view class="tag-info" wx:for="{{shop.discountInfo}}" wx:key="_id">
+            <van-tag type="warning" text-color="#ff6753" plain>{{item.text}}</van-tag>
+          </view>
+        </view>
+      </view>
+      <view class="shop-right">
+        <view class="shop-deliver">
+          <text class="deliver-info deliver-time">{{shop.deliverTime}}分钟</text>
+          <text class="deliver-info" wx:if="{{shop.deliverDistance<1000}}">{{shop.deliverDistance}}m</text>
+          <text class="deliver-info" wx:else>{{shop.deliverDistance/1000}}km</text>
+        </view>
+        <view class="special-deliver">
+          <van-tag color="#e6f8ff" text-color="#51cdfe" wx:if="{{shop.deliverMan}}">{{shop.deliverMan}}</van-tag>
+        </view>
+      </view>
+    </view>
+    <van-divider />
+  </view>
+</view>

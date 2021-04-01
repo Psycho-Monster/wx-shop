@@ -1,0 +1,67 @@
+.delicious-container {
+  margin-top: 60rpx;
+  .top {
+    display: flex;
+    .left {
+      image {
+        width: 120rpx;
+        height: 120rpx;
+        margin-right: 20rpx;
+        margin-left: 30rpx;
+      }
+    }
+    .mid {
+      width: 390rpx;
+      .name {
+        color: black;
+        font-size: 16px;
+        font-weight: bold;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+      .star {
+        display: flex;
+        align-items: center;
+        margin: 10rpx 0;
+        .rating {
+          color: #ee8747;
+          margin: 0 16rpx;
+        }
+      }
+      .deliver-fee {
+        color: #a7a7a7;
+      }
+    }
+    .right {
+      image {
+        width: 30rpx;
+        height: 30rpx;
+        margin-left: 135rpx;
+      }
+      .deliver-detail {
+        margin-top: 53rpx;
+        .divide {
+          position: relative;
+          top: -4rpx;
+          margin: 0 12rpx;
+          color: #e5e5e5;
+        }
+        .deliver-time {
+          color: #4ea1f7;
+        }
+      }
+    }
+  }
+  .discount-container {
+    margin-top: 20rpx;
+    margin-left: 30rpx;
+    .discount-info {
+      margin-bottom: 5px;
+      .discount-text {
+        margin-left: 5px;
+        font-size: 20rpx;
+      }
+    }
+  }
+}

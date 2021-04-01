@@ -1,0 +1,62 @@
+.star {
+  float: left;
+  font-size: 0;
+}
+.star .star-item {
+  display: inline-block;
+  background-repeat: no-repeat;
+}
+.star-48 .star-item {
+  width: 20px;
+  height: 20px;
+  margin-right: 22px;
+  background-size: 20px 20px;
+}
+.star-48 .star-item:last-child {
+  margin-right: 0;
+}
+.star-48 .star-item.on {
+  background-image: url(images/star48_on@2x.png);
+}
+.star-48 .star-item.half {
+  background-image: url(images/star48_half@2x.png);
+}
+.star-48 .star-item.off {
+  background-image: url(images/star48_off@2x.png);
+}
+.star-36 .star-item {
+  width: 15px;
+  height: 15px;
+  margin-right: 6px;
+  background-size: 15px 15px;
+}
+.star-36 .star-item:last-child {
+  margin-right: 0;
+}
+.star-36 .star-item.on {
+  background-image: url(images/star36_on@2x.png);
+}
+.star-36 .star-item.half {
+  background-image: url(images/star36_half@2x.png);
+}
+.star-36 .star-item.off {
+  background-image: url(images/star36_off@2x.png);
+}
+.star-24 .star-item {
+  width: 10px;
+  height: 10px;
+  margin-right: 3px;
+  background-size: 10px 10px;
+}
+.star-24 .star-item:last-child {
+  margin-right: 0;
+}
+.star-24 .star-item.on {
+  background-image: url(https://i.loli.net/2021/03/31/doPWlgRphXVHixt.png);
+}
+.star-24 .star-item.half {
+  background-image: url(https://i.loli.net/2021/03/31/3txpJQvcFI81oj5.png);
+}
+.star-24 .star-item.off {
+  background-image: url(https://i.loli.net/2021/03/31/fzHYA3X7OoJyup9.png);
+}

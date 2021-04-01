@@ -1,0 +1,86 @@
+.like-container {
+  padding-top: 20rpx;
+}
+.shop-container {
+  padding: 0 20rpx;
+  .shop {
+    display: flex;
+    height: 200rpx;
+    .shop-left {
+      margin-right: 16rpx;
+      image {
+        width: 180rpx;
+        height: 184rpx;
+      }
+    }
+    .shop-content {
+      width: 357rpx;
+      .shop-header {
+        font-size: 34rpx;
+        font-weight: bold;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+      .shop-info {
+        margin: 5rpx 0;
+        .shop-rating {
+          color: #ff751e;
+          margin-right: 20rpx;
+        }
+      }
+      .shop-fee {
+        .deliver-fee {
+          margin: 0 10rpx 0 20rpx;
+        }
+        .shop-oldPrice {
+          color: #b2b2b2;
+          text-decoration: line-through;
+        }
+      }
+      .shop-slogan {
+        margin: 16rpx 0;
+      }
+      .shop-tag {
+        display: flex;
+        .tag-info {
+          margin-right: 10rpx;
+        }
+      }
+    }
+    .shop-right {
+      position: relative;
+      .shop-menu {
+        position: absolute;
+        right: 0;
+        top: 10rpx;
+        width: 20rpx;
+        height: 30rpx;
+        .square {
+          width: 4rpx;
+          height: 4rpx;
+          margin-bottom: 5rpx;
+          background-color: #656565;
+        }
+      }
+
+      .shop-deliver {
+        margin-top: 58rpx;
+        .deliver-info {
+          font-size: 12px;
+        }
+        .deliver-time {
+          margin-right: 12rpx;
+        }
+      }
+      .special-deliver {
+        width: 144rpx;
+        color: #51cdfe;
+        background-color: #e6f8ff;
+        text-align: center;
+        margin-top: 10rpx;
+        border-radius: 10rpx;
+      }
+    }
+  }
+}

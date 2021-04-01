@@ -1,0 +1,4 @@
+<!--components/star.wxml-->
+<view class="star star-{{size}}">
+  <view class="star-item {{item}}" wx:for="{{starClasses}}" wx:key="index"></view>
+</view>

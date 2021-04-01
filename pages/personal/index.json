@@ -1,0 +1,9 @@
+{
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "navigationStyle": "default",
+  "navigationBarTitleText": "饿了么",
+  "usingComponents": {
+    "van-divider": "@vant/weapp/divider/index"
+  }
+}

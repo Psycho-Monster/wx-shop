@@ -1,0 +1,8 @@
+<!--pages/rules/index.wxml-->
+<view>
+  <view wx:for="{{ruleList}}" class="rule-list">
+    <text>{{item.text}}</text>
+    <van-divider />
+  </view>
+
+</view>

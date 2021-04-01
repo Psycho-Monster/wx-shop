@@ -1,0 +1,56 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/receive/index",
+    "pages/order/index",
+    "pages/personal/index",
+    "pages/search/index",
+    "pages/shop/index",
+    "pages/pay/index",
+    "pages/rules/index",
+    "pages/like/index",
+    "pages/deliciousFood/index",
+    "pages/dessert/index",
+    "pages/afternoonTea/index",
+    "pages/hamburgerPizza/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#0097ff",
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "color": "#666",
+    "selectedColor": "#0097ff",
+    "position": "bottom",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "外卖",
+        "iconPath": "static/images/index.jpg",
+        "selectedIconPath": "static/images/index_active.jpg"
+      },
+      {
+        "pagePath": "pages/receive/index",
+        "text": "天天领钱",
+        "iconPath": "static/images/receive.jpg",
+        "selectedIconPath": "static/images/receive_active.jpg"
+      },
+      {
+        "pagePath": "pages/order/index",
+        "text": "订单",
+        "iconPath": "static/images/order.jpg",
+        "selectedIconPath": "static/images/order_active.jpg"
+      },
+      {
+        "pagePath": "pages/personal/index",
+        "text": "我的",
+        "iconPath": "static/images/personal.jpg",
+        "selectedIconPath": "static/images/personal_active.jpg"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

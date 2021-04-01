@@ -1,0 +1,40 @@
+<view>
+  <view class="search">
+    <view class="search-input" bindtap="search">
+      <text class="iconfont icon-search"></text>
+      <text class="search-text">一抖勺木桶饭</text>
+    </view>
+  </view>
+  <scroll-view scroll-x="true" class="scrollX-wrapper">
+    <view class="hot-search" wx:for="{{[1,2,3,4]}}">
+      <view class="title">热搜榜</view>
+      <view class="content" wx:for="{{[1,2,3,4]}}">
+        <image src="/static/images/hot_search1.jpg"></image>
+        <view>
+          <view class="food-evaluation">猪杂汤饭不错哦</view>
+          <view class="hot-value">人气值 67489</view>
+        </view>
+      </view>
+      <view class="more-content">
+        <text class="more">更多</text>
+        <text class="iconfont icon-xiajiantou"></text>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="exclusive-container">
+    <view class="title">专属好店</view>
+    <view class="exclusive-list">
+      <view class="exclusive-item" wx:for="{{[1,2,3,4,5]}}">
+        <image src="/static/images/exclusive1.png"></image>
+        <view>
+          <view class="name">一抖勺木桶饭</view>
+          <view class="consumer-remark">"超级推荐土豆回锅肉!"</view>
+          <view>
+            <van-tag plain type="warning" class="tag">20减5</van-tag>
+            <van-tag plain type="warning">45减10</van-tag>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

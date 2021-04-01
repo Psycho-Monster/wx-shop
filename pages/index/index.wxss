@@ -1,0 +1,210 @@
+page {
+  height: 100%;
+}
+.header {
+  display: flex;
+  align-items: center;
+  background-image: linear-gradient(to right, #29caff, #01acf6);
+  padding-top: 68rpx;
+  padding-left: 30rpx;
+}
+.header image {
+  width: 112rpx;
+  height: 42rpx;
+}
+.header .divide {
+  width: 2rpx;
+  height: 42rpx;
+  background-color: #8ee1fe;
+  margin: 0 20rpx;
+}
+.header .navigation {
+  display: flex;
+  align-items: center;
+}
+.header .navigation image {
+  width: 34rpx;
+  height: 38rpx;
+  margin-right: 10rpx;
+}
+.header .navigation text {
+  font-size: 36rpx;
+  color: #fff;
+}
+.header .navigation::after {
+  position: relative;
+  left: 8rpx;
+  top: 8rpx;
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border: 10rpx solid transparent;
+  border-top: 10rpx solid #fff;
+}
+.search {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to right, #29caff, #01acf6);
+  padding: 0 20rpx;
+  height: 140rpx;
+  padding-top: 14rpx;
+}
+.search .search-input {
+  display: flex;
+  align-items: center;
+  padding-left: 30rpx;
+  width: 100%;
+  height: 80rpx;
+  background-color: #fff;
+  border-radius: 50rpx;
+}
+.search .search-input .search-text {
+  position: relative;
+  top: -5rpx;
+  margin-left: 20rpx;
+  color: gray;
+}
+.main-icon {
+  border-radius: 20rpx;
+  padding: 48rpx 30rpx 30rpx 28rpx;
+  background-image: linear-gradient(to bottom, #fff, #f5f5f5);
+}
+.main-icon .icon-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50rpx;
+}
+.main-icon .icon-wrapper .big-icon,
+.main-icon .icon-wrapper .small-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 128rpx;
+}
+.main-icon .icon-wrapper .big-icon image,
+.main-icon .icon-wrapper .small-icon image {
+  width: 104rpx;
+  height: 104rpx;
+  margin-bottom: 5rpx;
+}
+.main-icon .icon-wrapper .small-icon image {
+  width: 50rpx;
+  height: 42rpx;
+  margin-bottom: 5rpx;
+}
+.main-icon .icon-wrapper:last-child {
+  margin-bottom: 0;
+}
+.shop-list .shop-sticky {
+  position: sticky;
+  top: 141rpx;
+  background-color: #fff;
+  z-index: 100;
+  padding: 0 20rpx;
+}
+.shop-list .recommend {
+  font-weight: bold;
+  font-size: 18px;
+  margin: 20rpx 0;
+}
+.shop-list .shop-filter {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 48rpx;
+}
+.shop-list .shop-filter .filter-text {
+  width: 180rpx;
+  height: 60rpx;
+  font-size: 12px;
+  border-radius: 20rpx;
+  background-color: #f3f3f3;
+  text-align: center;
+  line-height: 60rpx;
+  margin-right: 20rpx;
+}
+.shop-list .shop-container {
+  padding: 0 20rpx;
+}
+.shop-list .shop-container .shop {
+  display: flex;
+  height: 240rpx;
+}
+.shop-list .shop-container .shop .shop-left {
+  margin-right: 16rpx;
+}
+.shop-list .shop-container .shop .shop-left image {
+  width: 180rpx;
+  height: 184rpx;
+}
+.shop-list .shop-container .shop .shop-content {
+  width: 357rpx;
+}
+.shop-list .shop-container .shop .shop-content .shop-header {
+  font-size: 34rpx;
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.shop-list .shop-container .shop .shop-content .shop-info {
+  margin: 5rpx 0;
+}
+.shop-list .shop-container .shop .shop-content .shop-info .shop-rating {
+  color: #ff751e;
+  margin-right: 20rpx;
+}
+.shop-list .shop-container .shop .shop-content .shop-fee .deliver-fee {
+  margin: 0 10rpx 0 20rpx;
+}
+.shop-list .shop-container .shop .shop-content .shop-fee .shop-oldPrice {
+  color: #b2b2b2;
+  text-decoration: line-through;
+}
+.shop-list .shop-container .shop .shop-content .shop-slogan {
+  margin: 16rpx 0;
+}
+.shop-list .shop-container .shop .shop-content .shop-tag {
+  display: flex;
+}
+.shop-list .shop-container .shop .shop-content .shop-tag .tag-info {
+  margin-right: 10rpx;
+}
+.shop-list .shop-container .shop .shop-right {
+  position: relative;
+}
+.shop-list .shop-container .shop .shop-right .shop-menu {
+  position: absolute;
+  right: 0;
+  top: 10rpx;
+  width: 20rpx;
+  height: 30rpx;
+}
+.shop-list .shop-container .shop .shop-right .shop-menu .square {
+  width: 4rpx;
+  height: 4rpx;
+  margin-bottom: 5rpx;
+  background-color: #656565;
+}
+.shop-list .shop-container .shop .shop-right .shop-deliver {
+  margin-top: 58rpx;
+}
+.shop-list .shop-container .shop .shop-right .shop-deliver .deliver-info {
+  font-size: 12px;
+}
+.shop-list .shop-container .shop .shop-right .shop-deliver .deliver-time {
+  margin-right: 12rpx;
+}
+.shop-list .shop-container .shop .shop-right .special-deliver {
+  width: 144rpx;
+  color: #51cdfe;
+  background-color: #e6f8ff;
+  text-align: center;
+  margin-top: 10rpx;
+  border-radius: 10rpx;
+}

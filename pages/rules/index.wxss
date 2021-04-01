@@ -1,0 +1,13 @@
+.rule-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100rpx;
+}
+.rule-list text {
+  padding-left: 60rpx;
+}
+.rule-list:nth-child(1) {
+  padding-top: 35rpx;
+  border-top: 1px solid #dddddd;
+}

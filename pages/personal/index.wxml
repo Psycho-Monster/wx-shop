@@ -1,0 +1,81 @@
+<!--pages/personal/index.wxml-->
+<view>
+  <view class="userInfo">
+    <view class="userInfo-left">
+      <view class="userName">
+        <text class="name" bindtap="getUserProfile" wx:if="{{!userInfo.nickName}}">立即登录</text>
+        <text class="name" wx:else>{{userInfo.nickName}}</text>
+        <text class="iconfont icon-iconfonti"></text>
+      </view>
+      <view class="title" wx:if="{{!userInfo.nickName}}">饿不饿都上饿了么</view>
+      <view class="title" wx:else>再忙，也要记得吃饭呦~</view>
+    </view>
+    <view class="userInfo-right">
+      <view class="avatar">
+        <image src="/static/images/login.jpg" wx:if="{{!userInfo.nickName}}"></image>
+        <image src="{{userInfo.avatarUrl}}" wx:else class="user-avatar"></image>
+      </view>
+    </view>
+  </view>
+  <view class="personal-asset">
+    <view class="red-package">
+      <view class="left">
+        <view class="name">红包</view>
+        <view class="count" wx:if="{{!userInfo.nickName}}">登录后查看</view>
+        <view class="count" wx:else>
+          <text class="package-sum">18</text>
+          <text>个未使用</text>
+        </view>
+      </view>
+      <view class="right">
+        <image src="/static/images/red_package.jpg"></image>
+      </view>
+    </view>
+    <view class="red-package">
+      <view class="left">
+        <view class="name">余额</view>
+        <view class="count" wx:if="{{!userInfo.nickName}}">登录后查看</view>
+        <view class="balance" wx:else>¥0</view>
+      </view>
+      <view class="right">
+        <image src="/static/images/wallet.jpg"></image>
+      </view>
+    </view>
+  </view>
+  <view>
+    <view class="personal-list">
+      <view>
+        <view class="personal-item">
+          <image src="/static/images/address.jpg"></image>
+          <text class="name">我的地址</text>
+          <text class="iconfont icon-iconfonti"></text>
+        </view>
+        <van-divider />
+      </view>
+      <view>
+        <view class="personal-item" bindtap="goLikeShopList">
+          <image src="/static/images/like.jpg"></image>
+          <text class="name">我的收藏</text>
+          <text class="iconfont icon-iconfonti"></text>
+        </view>
+        <van-divider />
+      </view>
+      <view>
+        <view class="personal-item">
+          <image src="/static/images/contact.jpg"></image>
+          <text class="name">我的客服</text>
+          <text class="iconfont icon-iconfonti"></text>
+        </view>
+        <van-divider />
+      </view>
+      <view>
+        <view class="personal-item" bindtap="goRules">
+          <image src="/static/images/rule.jpg"></image>
+          <text class="name">规则中心</text>
+          <text class="iconfont icon-iconfonti"></text>
+        </view>
+        <van-divider />
+      </view>
+    </view>
+  </view>
+</view>

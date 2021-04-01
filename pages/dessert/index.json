@@ -1,0 +1,11 @@
+{
+  "navigationBarTextStyle": "white",
+  "navigationStyle": "default",
+  "navigationBarTitleText": "甜品饮品",
+  "navigationBarBackgroundColor": "#4294f7",
+  "usingComponents": {
+    "van-divider": "@vant/weapp/divider/index",
+    "van-tag": "@vant/weapp/tag/index",
+    "Star":"/components/star/star"
+  }
+}

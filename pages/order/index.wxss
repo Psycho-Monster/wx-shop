@@ -1,0 +1,41 @@
+.order-container {
+  background-color: #f4f4f4;
+  height: 100%;
+}
+.order {
+  height: 360rpx;
+  padding-top: 32rpx;
+  background-color: #fff;
+  margin-bottom: 22rpx;
+  padding-bottom: 22rpx;
+}
+.order .order-top {
+  display: flex;
+  align-items: center;
+}
+.order .order-top image {
+  width: 70rpx;
+  height: 70rpx;
+  margin-left: 34rpx;
+  margin-right: 26rpx;
+}
+.order .order-top .order-status {
+  margin-left: 90rpx;
+}
+.order .order-time {
+  margin-left: 128rpx;
+  color: #999;
+  font-size: 24rpx;
+}
+.order .order-food {
+  margin-left: 128rpx;
+  margin-right: 102rpx;
+}
+.order .order-price {
+  color: #333;
+  font-weight: bold;
+}
+.order .order-again {
+  margin-left: 321rpx;
+  margin-right: 26rpx;
+}

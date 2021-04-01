@@ -1,0 +1,144 @@
+<!--pages/pay/index.wxml-->
+<view class="pay-container">
+  <view class="tag-container">
+    <van-tag color="#fcf4cd" text-color="#eb872d" closeable round>
+      <view slot="" class="custom-tag">
+        <view class="iconfont icon-laba"></view>
+        <view>为减少接触，降低风险，请修改下方备注</view>
+      </view>
+    </van-tag>
+  </view>
+  <view class="order-info">
+    <view class="address-container">
+      <text class="address-text">请选择收货地址</text>
+      <text class="iconfont icon-iconfonti"></text>
+    </view>
+    <view class="order-container">
+      <view class="order-text">立即送出</view>
+      <view>
+        <text class="order-detail" bindtap="showDeliverTime">{{deliverTime}}</text>
+        <text class="iconfont icon-iconfonti"></text>
+      </view>
+    </view>
+    <view class="order-container">
+      <view class="order-text">支付方式</view>
+      <view bindtap="showPayType">
+        <text class="order-detail">微信支付</text>
+        <text class="iconfont icon-iconfonti"></text>
+      </view>
+    </view>
+  </view>
+  <view class="food-info">
+    <view class="shop-title">星巴克(深圳石岩星城分店)</view>
+    <view class="food-list" wx:for="{{cartList}}" wx:key="index">
+      <view class="food-view">
+        <image src="{{item.image}}"></image>
+        <view class="food-detail">
+          <view class="food-name">{{item.name}}</view>
+          <view class="food-count">×{{item.count}}</view>
+        </view>
+      </view>
+      <view class="food-price">¥ {{item.price}}</view>
+    </view>
+    <view class="deliver-fee">
+      <text>配送费(蓝骑士专送)</text>
+      <text>¥{{deliverFee}}</text>
+    </view>
+    <view class="deliver-discount">
+      <text class="discount-name">减5元配送费</text>
+      <text class="prev-price">¥{{prevDeliverFee}}</text>
+    </view>
+    <view class="shop-discount" wx:if="{{foodPrice>=70}}">
+      <view>
+        <van-tag type="danger">减</van-tag>
+        <text class="discount-name">店铺满70减2</text>
+      </view>
+      <text class="discount-price">-¥{{discountFee}}</text>
+    </view>
+    <van-divider />
+    <view class="discount-container">
+      <view class="discount-detail">
+        <text class="content">优惠说明</text>
+        <text class="iconfont icon-wenhao"></text>
+      </view>
+      <view>
+        <view class="price-info">
+          <text class="common-text">已优惠</text>
+          <text class="common-text price">¥{{prevDeliverFee-deliverFee}}</text>
+          <view class="totalPrice-container">
+            <text class="common-text">小计¥</text>
+            <text class="total-price">{{totalPrice}}</text>
+          </view>
+        </view>
+        <view>
+          <text class="eat-bean" wx:if="{{totalPrice>=20}}">实付已满20元，返100个吃货豆</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="phone-info">
+    <view class="phone-detail">
+      <image src="/static/images/phone.png"></image>
+      <text class="title">号码保护</text>
+      <text class="iconfont icon-wenhao"></text>
+    </view>
+    <view>
+      <van-radio-group value="{{ callType }}" bind:change="onChange">
+        <van-radio name="safeCall" label-position="left">加密保护中</van-radio>
+      </van-radio-group>
+    </view>
+  </view>
+  <view class="consumer-need">
+    <view class="tableware-container">
+      <view class="tableware-text">餐具份数</view>
+      <view>
+        <text class="tableware-detail" bindtap="showTableware">{{tableWareCount}}</text>
+        <text class="iconfont icon-iconfonti"></text>
+      </view>
+    </view>
+    <view class="invoice-container">
+      <view class="invoice-text">发票</view>
+      <view>
+        <text class="invoice-detail">该店不支持线上开票，请电话联系商户</text>
+      </view>
+    </view>
+  </view>
+  <van-action-sheet show="{{ isShowPayType }}" title="选择支付方式" bind:close="closePayType">
+    <view class="action-container">
+      <image src="/static/images/wx.jpg"></image>
+      <text class="pay-name">微信支付</text>
+      <view bindtap="showOnlyContent">
+        <van-radio-group value="{{ payType }}">
+          <van-radio name="wxPay" icon-size="14px"></van-radio>
+        </van-radio-group>
+      </view>
+    </view>
+  </van-action-sheet>
+  <van-action-sheet show="{{ isShowTableware }}" title="选择本单餐具" bind:close="closeTableware">
+    <view class="tableware-actionSheet">
+      <van-radio-group value="{{ tableWareCount }}" bind:change="changeTablewareCount">
+        <van-radio name="无需餐具" label-position="left" icon-size="16px">无需餐具</van-radio>
+        <van-radio name="依据餐量提供" label-position="left" icon-size="16px">依据餐量提供</van-radio>
+        <van-radio name="1份" label-position="left" icon-size="16px">1份</van-radio>
+        <van-radio name="2份" label-position="left" icon-size="16px">2份</van-radio>
+      </van-radio-group>
+    </view>
+  </van-action-sheet>
+  <van-action-sheet show="{{ isShowDeliverTime }}" title="选择送达时间" bind:close="closeDeliverTime">
+    <view class="deliverTime-actionSheet">
+      <van-tree-select items="{{ deliverList }}" main-active-index="{{ mainActiveIndex }}" active-id="{{ activeId }}"
+        bind:click-item="onClickItem" class="content-item-class" />
+    </view>
+  </van-action-sheet>
+  <view class="fixed-bottom">
+    <view>
+      <view>
+        <text class="prev-price">合计:</text>
+        <text class="price-slogan">¥</text>
+        <text class="price">{{totalPrice}}</text>
+      </view>
+      <view class="discount-sum">已优惠¥5</view>
+    </view>
+    <view class="submit-order">提交订单</view>
+  </view>
+</view>

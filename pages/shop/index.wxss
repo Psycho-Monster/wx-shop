@@ -1,0 +1,466 @@
+.banner {
+  box-sizing: border-box;
+  padding-top: 66rpx;
+  padding-left: 28rpx;
+  height: 264rpx;
+  background-image: url(https://i.loli.net/2021/03/30/ikBgFYAOz37lfWX.png);
+  background-size: 100% 100%;
+  filter: grayscale(50%);
+}
+.banner text {
+  color: #fff;
+  font-size: 44rpx;
+}
+.banner .like,
+.banner .dislike {
+  margin-left: 380rpx;
+}
+.banner .like {
+  color: #ff4b33;
+}
+.shop-info {
+  display: flex;
+  position: absolute;
+  left: 46rpx;
+  top: 136rpx;
+  background-color: #fff;
+  width: 660rpx;
+  height: 180rpx;
+  border-radius: 20rpx;
+  padding-left: 26rpx;
+  padding-top: 10rpx;
+}
+.shop-info .left .title {
+  font-weight: bold;
+  font-size: 19px;
+}
+.shop-info .left .tag {
+  margin: 20rpx 0;
+}
+.shop-info .left .tag .special {
+  margin-right: 10rpx;
+}
+.shop-info .left .discount-tag view {
+  margin-right: 10rpx;
+}
+.shop-info .right image {
+  width: 114rpx;
+  height: 114rpx;
+  margin-left: 40rpx;
+}
+.shop-info .right .discount {
+  margin-left: 17px;
+  margin-top: 2px;
+}
+.shop-info .right .discount .count {
+  font-size: 20rpx;
+  margin-right: 18rpx;
+  color: #a4a4a4;
+}
+.mask {
+  height: 31px;
+  background: #f5f5f5;
+}
+.tab-container {
+  background-color: #f5f5f5;
+  height: 100%;
+}
+.tab-container .order {
+  display: flex;
+  background-color: #fff;
+}
+.tab-container .order .order-left {
+  width: 160rpx;
+}
+.tab-container .order .order-left .scrollY-container {
+  height: 800rpx;
+}
+.tab-container .order .order-left .left-item {
+  height: 90rpx;
+  line-height: 90rpx;
+  color: #767676;
+  font-size: 10px;
+  background-color: #f2f2f2;
+  padding-left: 24rpx;
+}
+.tab-container .order .order-left .left-item .item-container image {
+  position: relative;
+  top: 2px;
+  margin-right: 5px;
+  width: 28rpx;
+  height: 28rpx;
+}
+.tab-container .order .order-left .activeCategory {
+  background-color: #fff;
+}
+.tab-container .order .order-right {
+  width: 0;
+  flex: 1;
+  margin-left: 20rpx;
+}
+.tab-container .order .order-right .scrollY-container {
+  height: 800rpx;
+}
+.tab-container .order .order-right .food-container {
+  margin-bottom: 35rpx;
+}
+.tab-container .order .order-right .food-container .food-header {
+  padding-top: 30rpx;
+}
+.tab-container .order .order-right .food-container .food-header .left {
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 20rpx;
+}
+.tab-container .order .order-right .food-container .food-header .right {
+  color: #b5b5b5;
+}
+.tab-container .order .order-right .food-container .food-info {
+  margin-top: 56rpx;
+  display: flex;
+}
+.tab-container .order .order-right .food-container .food-info image {
+  width: 210rpx;
+  height: 210rpx;
+  margin-right: 20rpx;
+}
+.tab-container .order .order-right .food-container .food-info .food-detail {
+  width: 0;
+  flex: 1;
+  padding-right: 30rpx;
+}
+.tab-container .order .order-right .food-container .food-info .food-detail .top {
+  height: 144rpx;
+}
+.tab-container .order .order-right .food-container .food-info .food-name {
+  font-weight: bold;
+  font-size: 14px;
+}
+.tab-container .order .order-right .food-container .food-info .food-ranking {
+  color: #c58b4e;
+  margin: 12rpx 0;
+}
+.tab-container .order .order-right .food-container .food-info .food-description {
+  margin: 10rpx 0;
+  color: #b0b0b0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.tab-container .order .order-right .food-container .food-info .sale-count {
+  margin-top: 10rpx;
+  color: #b0b0b0;
+}
+.tab-container .order .order-right .food-container .food-info .price-btn {
+  display: flex;
+  align-items: center;
+  margin-top: 30rpx;
+}
+.tab-container .order .order-right .food-container .food-info .price-btn .food-price {
+  width: 80rpx;
+  color: #ff4b33;
+  font-size: 16px;
+  margin-right: 80rpx;
+}
+.tab-container .order .order-right .food-container .food-info .price-btn .has-food {
+  margin-right: 180rpx;
+}
+.tab-container .order .order-right .food-container .food-info .price-btn .increase-btn,
+.tab-container .order .order-right .food-container .food-info .price-btn .decrease-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+}
+.tab-container .order .order-right .food-container .food-info .price-btn .increase-btn {
+  background-color: #02b6fd;
+}
+.tab-container .order .order-right .food-container .food-info .price-btn .increase-btn text {
+  color: #fff;
+}
+.tab-container .order .order-right .food-container .food-info .price-btn .decrease-btn {
+  border: 1px solid #48cafd;
+}
+.tab-container .order .order-right .food-container .food-info .price-btn .decrease-btn text {
+  position: relative;
+  top: 2rpx;
+  color: #02b6fd;
+}
+.tab-container .order .order-right .food-container .food-info .price-btn .food-count {
+  margin: 0 24rpx;
+  font-size: 14px;
+  color: black;
+}
+.tab-container .evaluation {
+  background-color: #fff;
+  padding-left: 32rpx;
+  padding-top: 42rpx;
+  padding-right: 32rpx;
+  height: 100%;
+}
+.tab-container .evaluation-detail {
+  display: flex;
+}
+.tab-container .evaluation-detail .rating-sum {
+  font-size: 25px;
+  font-weight: bold;
+  color: #ec6420;
+  margin-right: 20rpx;
+}
+.tab-container .evaluation-detail .rating-right {
+  display: flex;
+  padding-top: 6rpx;
+}
+.tab-container .evaluation-detail .rating-ratio {
+  font-size: 10px;
+  margin-right: 27rpx;
+  margin-bottom: 6rpx;
+}
+.tab-container .evaluation-detail .rating-ratio,
+.tab-container .evaluation-detail .rating-star text {
+  color: #bfbfbf;
+}
+.tab-container .evaluation-detail .rating-star text {
+  font-size: 14px;
+}
+.tab-container .evaluation-detail .divider {
+  position: relative;
+  top: 6rpx;
+  width: 2rpx;
+  height: 60rpx;
+  background-color: #ededed;
+  margin: 0 30rpx;
+}
+.tab-container .evaluation-detail .rating-category .name {
+  font-size: 11px;
+  color: #e4e4e4;
+  margin-bottom: 4rpx;
+}
+.tab-container .evaluation-detail .rating-category .rating {
+  font-size: 14px;
+  font-weight: bold;
+}
+.tab-container .evaluation-detail .first-category {
+  margin-right: 42rpx;
+}
+.tab-container .filter-btn {
+  display: flex;
+  flex-wrap: wrap;
+}
+.tab-container .filter-btn view {
+  height: 52rpx;
+  background-color: #f5f5f5;
+  text-align: center;
+  line-height: 52rpx;
+  padding: 0 16rpx;
+  margin-right: 16rpx;
+  margin-bottom: 28rpx;
+}
+.tab-container .comment-container {
+  margin-bottom: 88rpx;
+}
+.tab-container .comment-container .header {
+  display: flex;
+  margin-top: 40rpx;
+  margin-bottom: 20rpx;
+}
+.tab-container .comment-container .header image {
+  width: 72rpx;
+  height: 72rpx;
+  margin-right: 30rpx;
+}
+.tab-container .comment-container .header .user-info {
+  display: flex;
+}
+.tab-container .comment-container .header .user-experience {
+  display: flex;
+}
+.tab-container .comment-container .header .user-experience view {
+  margin-right: 32rpx;
+}
+.tab-container .comment-container .header .user-experience .experience-name {
+  font-size: 11px;
+  margin-right: 10rpx;
+  color: #b4b4b4;
+}
+.tab-container .comment-container .header .user-experience .experience-level {
+  font-size: 11px;
+  color: #838383;
+}
+.tab-container .comment-container .header .user-name {
+  width: 450rpx;
+  font-size: 16px;
+  font-weight: bold;
+  color: #191919;
+}
+.tab-container .comment-container .header .user-date {
+  color: #aaa;
+}
+.tab-container .comment-container .content {
+  margin-bottom: 28rpx;
+}
+.tab-container .comment-container .content view {
+  line-height: 40rpx;
+}
+.tab-container .comment-container .content image {
+  width: 380rpx;
+  height: 380rpx;
+  margin: 28rpx 0;
+}
+.tab-container .comment-container .recommend {
+  margin-bottom: 28rpx;
+}
+.tab-container .comment-container .recommend view {
+  margin-right: 14rpx;
+}
+.tab-container .comment-container .reply {
+  padding: 26rpx;
+  background-color: #fafafa;
+}
+.tab-container .comment-container .reply .title {
+  color: #414141;
+  margin-bottom: 30rpx;
+}
+.tab-container .comment-container .reply .shop-content {
+  color: #474747;
+}
+.tab-container .shop-story {
+  margin: 0 30rpx;
+  margin-top: 26rpx;
+  background-color: #fff;
+  padding-bottom: 50rpx;
+}
+.tab-container .shop-story image {
+  width: 696rpx;
+  height: 360rpx;
+  margin-bottom: 40rpx;
+}
+.tab-container .shop-story .info {
+  padding: 0 30rpx;
+}
+.tab-container .shop-story .info .title {
+  font-weight: bold;
+  font-size: 17px;
+  color: #191919;
+  margin-left: 12rpx;
+  margin-right: 270rpx;
+}
+.tab-container .shop-story .info .detail {
+  color: #717171;
+  margin-top: 8rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.tab-container .shop-address {
+  margin: 0 30rpx;
+  margin-top: 20rpx;
+  padding-left: 30rpx;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  margin-bottom: 40rpx;
+  background-color: #fff;
+}
+.tab-container .shop-address .title {
+  font-size: 17px;
+  font-weight: bold;
+}
+.tab-container .shop-address .address-container {
+  display: flex;
+}
+.tab-container .shop-address .address-container .address-detail {
+  margin-top: 6rpx;
+  margin-bottom: 15rpx;
+  width: 530rpx;
+  color: #898989;
+}
+.tab-container .shop-address .address-container .divider {
+  width: 2rpx;
+  height: 92rpx;
+  background-color: #e5e5e5;
+  margin: 0 30rpx;
+}
+.tab-container .shop-address .address-container .phone {
+  position: relative;
+  top: 6px;
+  left: -4px;
+  font-size: 60rpx;
+}
+.tab-container .shop-address .shop-detail .shop_info {
+  font-weight: bold;
+  font-size: 17px;
+  margin-top: 20rpx;
+}
+.tab-container .shop-address .shop-detail .shop-category,
+.tab-container .shop-address .shop-detail .work-time {
+  color: #818181;
+}
+.tab-container .shop-address .shop-detail .shop-category {
+  margin: 15rpx 0;
+}
+.bottom {
+  background-color: #fff;
+}
+.bottom .bottom-bar {
+  text-align: center;
+}
+.bottom .bottom-bar text {
+  color: #f86752;
+}
+.bottom .bottom-order {
+  display: flex;
+  align-items: center;
+  padding-left: 30rpx;
+  height: 90rpx;
+}
+.bottom .bottom-order .icon-container,
+.bottom .bottom-order image {
+  width: 80rpx;
+  height: 74rpx;
+  margin-right: 36rpx;
+}
+.bottom .bottom-order .title-wrapper {
+  margin-right: 200rpx;
+}
+.bottom .bottom-order .title-wrapper .title {
+  font-size: 14px;
+  color: #9c9c9c;
+}
+.bottom .bottom-order .title-wrapper .price-symbol,
+.bottom .bottom-order .title-wrapper .total-price {
+  color: black;
+}
+.bottom .bottom-order .title-wrapper .total-price {
+  font-size: 16px;
+  font-weight: bold;
+}
+.bottom .bottom-order .title-wrapper .sub-title text {
+  font-size: 10px;
+  color: #dadada;
+}
+.bottom .bottom-order .title-wrapper .sub-title .old-price {
+  text-decoration: line-through;
+  margin-left: 8rpx;
+}
+.bottom .bottom-order .order-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 206rpx;
+  height: 66rpx;
+  border-radius: 50rpx;
+  background-color: #999;
+}
+.bottom .bottom-order .order-btn view {
+  color: #fff;
+}
+.bottom .bottom-order .active-btn {
+  background-color: #02b6fd;
+}
+.bottom .bottom-order .active-btn view {
+  font-size: 14px;
+  font-weight: bold;
+}

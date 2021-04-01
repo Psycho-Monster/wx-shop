@@ -1,0 +1,54 @@
+<!--pages/deliciousFood/index.wxml-->
+<view>
+  <scroll-view scroll-y="true" style="height: 100%;" bindscrolltoupper="upper" bindscrolltolower="lower"
+    bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+    <view class="delicious-container" wx:for="{{deliciousShopList}}" wx:key="index" wx:for-item="shop" bindtap="enterShop" data-shopId="{{shop._id}}">
+      <view class="top">
+        <view class="left">
+          <image src="{{shop.imagePath}}"></image>
+        </view>
+        <view class="mid">
+          <view>
+            <van-tag color="#ffe142" text-color="#693d11" wx:if="{{shop.isBrand}}" class="tag">品牌</van-tag>
+            <text class="name">{{shop.name}}</text>
+          </view>
+          <view class="star">
+            <Star score="{{shop.rating}}" size="{{24}}"/>
+            <text class="rating">{{shop.rating}}</text>
+            <text>月售{{shop.sellCountPerMonth}}单</text>
+          </view>
+          <view class="deliver-fee">¥{{shop.minPrice}}起送 | 配送费¥{{shop.deliverFee}}</view>
+        </view>
+        <view class="right">
+          <image src="https://i.loli.net/2021/03/31/cYHzi8NJyFtPQdU.png"></image>
+          <view>
+            <view class="deliver-detail">
+              <text>{{shop.deliverDistance}}m</text>
+              <text class="divide">|</text>
+              <text class="deliver-time">{{shop.deliverTime}}分钟</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="discount-container">
+        <view class="discount-info" wx:if="{{shop.fullReductionText}}">
+          <van-tag color="#df7672">减</van-tag>
+          <text class="discount-text">{{shop.fullReductionText}}</text>
+        </view>
+        <view class="discount-info" wx:if="{{shop.deliverText}}">
+          <van-tag color="#71b040">配</van-tag>
+          <text class="discount-text">{{shop.deliverText}}</text>
+        </view>
+        <view class="discount-info" wx:if="{{shop.specialPriceText}}">
+          <van-tag color="#e28b57">特</van-tag>
+          <text class="discount-text">{{shop.specialPriceText}}</text>
+        </view>
+        <view class="discount-info" wx:if="{{shop.discountText}}">
+          <van-tag color="#3cc791">折</van-tag>
+          <text class="discount-text">{{shop.discountText}}</text>
+        </view>
+      </view>
+      <van-divider />
+    </view>
+  </scroll-view>
+</view>

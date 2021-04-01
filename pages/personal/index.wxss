@@ -1,0 +1,91 @@
+.userInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 280rpx;
+  padding: 0 23rpx;
+}
+.userInfo .userInfo-left .name {
+  font-size: 32px;
+  font-weight: bold;
+  margin-right: 20rpx;
+}
+.userInfo .userInfo-left .title {
+  margin-top: 14rpx;
+  color: #a1a1a1;
+}
+.userInfo .userInfo-right .avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 50%;
+  background-color: #cbe6f3;
+}
+.userInfo .userInfo-right .avatar image {
+  width: 90rpx;
+  height: 90rpx;
+}
+.userInfo .userInfo-right .avatar .user-avatar {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 50%;
+}
+.personal-asset {
+  padding: 0 12rpx;
+  display: flex;
+  height: 180rpx;
+  align-items: center;
+  background-color: #f9f9f9;
+}
+.personal-asset .red-package {
+  display: flex;
+  padding: 0 24rpx;
+  justify-content: space-between;
+  flex: 1;
+  height: 160rpx;
+  background-color: #fff;
+}
+.personal-asset .red-package .left .name {
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-bottom: 28rpx;
+  margin-top: 22rpx;
+}
+.personal-asset .red-package .left .count {
+  color: #888;
+}
+.personal-asset .red-package .left .count .package-sum {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #ff5722;
+}
+.personal-asset .red-package .left .balance {
+  color: #ff5722;
+  font-size: 40rpx;
+}
+.personal-asset .red-package .right {
+  margin-top: 22rpx;
+}
+.personal-asset .red-package .right image {
+  width: 40rpx;
+  height: 40rpx;
+}
+.personal-asset .red-package:nth-child(1) {
+  margin-right: 8rpx;
+}
+.personal-list .personal-item {
+  display: flex;
+  align-items: center;
+  height: 40rpx;
+  margin-top: 28rpx;
+}
+.personal-list .personal-item image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 23rpx;
+}
+.personal-list .personal-item .name {
+  margin: 0 470rpx 0 34rpx;
+}

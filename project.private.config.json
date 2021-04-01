@@ -1,0 +1,84 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/personal/index",
+          "pathName": "pages/personal/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/order/index",
+          "pathName": "pages/order/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/order/index",
+          "pathName": "pages/order/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/search/index",
+          "pathName": "pages/search/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/shop/index",
+          "pathName": "pages/shop/index",
+          "query": "shopId=605c42293b11dc4b6461e902",
+          "scene": null
+        },
+        {
+          "name": "pages/pay/index",
+          "pathName": "pages/pay/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/personal/index",
+          "pathName": "pages/personal/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/rules/index",
+          "pathName": "pages/rules/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/like/index",
+          "pathName": "pages/like/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/deliciousFood/index",
+          "pathName": "pages/deliciousFood/index",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

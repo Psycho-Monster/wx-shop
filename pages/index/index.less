@@ -1,0 +1,216 @@
+page {
+  height: 100%;
+}
+.header {
+  display: flex;
+  align-items: center;
+  background-image: linear-gradient(to right, #29caff, #01acf6);
+  padding-top: 68rpx;
+  padding-left: 30rpx;
+  image {
+    width: 112rpx;
+    height: 42rpx;
+  }
+  .divide {
+    width: 2rpx;
+    height: 42rpx;
+    background-color: #8ee1fe;
+    margin: 0 20rpx;
+  }
+  .navigation {
+    display: flex;
+    align-items: center;
+    image {
+      width: 34rpx;
+      height: 38rpx;
+      margin-right: 10rpx;
+    }
+    text {
+      font-size: 36rpx;
+      color: #fff;
+    }
+    &::after {
+      position: relative;
+      left: 8rpx;
+      top: 8rpx;
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border: 10rpx solid transparent;
+      border-top: 10rpx solid #fff;
+    }
+  }
+}
+.search {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to right, #29caff, #01acf6);
+  padding: 0 20rpx;
+  height: 140rpx;
+  padding-top: 14rpx;
+  .search-input {
+    display: flex;
+    align-items: center;
+    padding-left: 30rpx;
+    width: 100%;
+    height: 80rpx;
+    background-color: #fff;
+    border-radius: 50rpx;
+    .search-text {
+      position: relative;
+      top: -5rpx;
+      margin-left: 20rpx;
+      color: gray;
+    }
+  }
+}
+.main-icon {
+  border-radius: 20rpx;
+  padding: 48rpx 30rpx 30rpx 28rpx;
+  background-image: linear-gradient(to bottom, #fff, #f5f5f5);
+  .icon-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50rpx;
+    .big-icon,
+    .small-icon {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 128rpx;
+      image {
+        width: 104rpx;
+        height: 104rpx;
+        margin-bottom: 5rpx;
+      }
+    }
+    .small-icon {
+      image {
+        width: 50rpx;
+        height: 42rpx;
+        margin-bottom: 5rpx;
+      }
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+.shop-list {
+  .shop-sticky {
+    position: sticky;
+    top: 141rpx;
+    background-color: #fff;
+    z-index: 100;
+    padding: 0 20rpx;
+  }
+  .recommend {
+    font-weight: bold;
+    font-size: 18px;
+    margin: 20rpx 0;
+  }
+  .shop-filter {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 48rpx;
+    .filter-text {
+      width: 180rpx;
+      height: 60rpx;
+      font-size: 12px;
+      border-radius: 20rpx;
+      background-color: #f3f3f3;
+      text-align: center;
+      line-height: 60rpx;
+      margin-right: 20rpx;
+    }
+  }
+  .shop-container {
+    padding: 0 20rpx;
+    .shop {
+      display: flex;
+      height: 240rpx;
+      .shop-left {
+        margin-right: 16rpx;
+        image {
+          width: 180rpx;
+          height: 184rpx;
+        }
+      }
+      .shop-content {
+        width: 357rpx;
+        .shop-header {
+          font-size: 34rpx;
+          font-weight: bold;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+        .shop-info {
+          margin: 5rpx 0;
+          .shop-rating {
+            color: #ff751e;
+            margin-right: 20rpx;
+          }
+        }
+        .shop-fee {
+          .deliver-fee {
+            margin: 0 10rpx 0 20rpx;
+          }
+          .shop-oldPrice {
+            color: #b2b2b2;
+            text-decoration: line-through;
+          }
+        }
+        .shop-slogan {
+          margin: 16rpx 0;
+        }
+        .shop-tag {
+          display: flex;
+          .tag-info {
+            margin-right: 10rpx;
+          }
+        }
+      }
+      .shop-right {
+        position: relative;
+        .shop-menu {
+          position: absolute;
+          right: 0;
+          top: 10rpx;
+          width: 20rpx;
+          height: 30rpx;
+          .square {
+            width: 4rpx;
+            height: 4rpx;
+            margin-bottom: 5rpx;
+            background-color: #656565;
+          }
+        }
+
+        .shop-deliver {
+          margin-top: 58rpx;
+          .deliver-info {
+            font-size: 12px;
+          }
+          .deliver-time {
+            margin-right: 12rpx;
+          }
+        }
+        .special-deliver {
+          width: 144rpx;
+          color: #51cdfe;
+          background-color: #e6f8ff;
+          text-align: center;
+          margin-top: 10rpx;
+          border-radius: 10rpx;
+        }
+      }
+    }
+  }
+}

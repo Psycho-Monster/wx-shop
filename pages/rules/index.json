@@ -1,0 +1,9 @@
+{
+  "navigationBarTextStyle": "black",
+  "navigationStyle": "default",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "资质与规则",
+  "usingComponents": {
+    "van-divider": "@vant/weapp/divider/index"
+  }
+}

@@ -1,0 +1,23 @@
+<view class="order-container">
+  <view class="order" wx:for="{{[1,2,3]}}">
+    <view class="order-top">
+      <image src="/static/images/shop1.jpg"></image>
+      <view>
+        <text>壹号汤粉炒粉饺子(石岩店)</text>
+        <text class="iconfont icon-iconfonti"></text>
+      </view>
+      <text class="order-status">订单已送达</text>
+    </view>
+    <text class="order-time">2021-03-16 11:18</text>
+    <van-divider />
+    <view>
+      <text class="order-food">全家福汤粉 + 荷包蛋 等3件商品</text>
+      <text class="order-price">¥28.77</text>
+    </view>
+    <van-divider />
+    <view>
+      <van-button plain type="info" class="order-again">再来一单</van-button>
+      <van-button plain type="warning">评价得12金币</van-button>
+    </view>
+  </view>
+</view>

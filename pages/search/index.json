@@ -1,0 +1,8 @@
+{
+  "navigationBarTextStyle": "white",
+  "navigationStyle": "default",
+  "navigationBarTitleText": "搜索",
+  "usingComponents": {
+    "van-tag": "@vant/weapp/tag/index"
+  }
+}

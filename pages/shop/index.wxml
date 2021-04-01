@@ -1,0 +1,202 @@
+<!--pages/shop/index.wxml-->
+<view>
+  <view class="banner">
+    <text class="iconfont icon-zuojiantou" bindtap="goBack"></text>
+    <text class="iconfont icon-aixin like" bindtap="likeShop" wx:if="{{isLike}}"></text>
+    <text class="iconfont icon-shoucang dislike" bindtap="likeShop" wx:else></text>
+  </view>
+  <view class="shop-info">
+    <view class="left">
+      <view class="title">{{shopInfo.name}}</view>
+      <view class="tag">
+        <van-tag plain type="primary" class="special">{{shopInfo.deliverMan}}</van-tag>
+        <text class="deliver-info">约{{shopInfo.deliverTime}}分钟 · 月售{{shopInfo.sellCountPerMonth}}</text>
+      </view>
+      <view class="discount-tag">
+        <van-tag type="warning" text-color="#ff6753" plain  wx:for="{{shopInfo.discountInfo}}" wx:key="index">{{item.text}}</van-tag>
+      </view>
+    </view>
+    <view class="right">
+      <image src="{{shopInfo.smallImagePath}}"></image>
+      <view class="discount">
+        <text class="count">{{shopInfo.discountInfo.length}}个优惠</text>
+        <text class="iconfont icon-xiajiantou"></text>
+      </view>
+    </view>
+  </view>
+  <view class="mask"></view>
+  <view class="tab-container">
+    <van-tabs active="{{ active }}" color="#42acf6">
+      <van-tab title="点餐">
+        <view class="order">
+          <view class="order-left">
+            <scroll-view scroll-y="true" class="scrollY-container">
+              <view class="left-item {{item.isActive?'activeCategory':''}}" wx:for="{{leftList}}" wx:key="index"
+                bindtap="chooseCategory" data-index="{{index}}">
+                <view class="item-container">
+                  <image src="{{item.icon}}" wx:if="{{item.icon}}"></image>
+                  <text>{{item.name}}</text>
+                </view>
+              </view>
+            </scroll-view>
+          </view>
+          <view class="order-right">
+            <scroll-view scroll-y="true" class="scrollY-container" scroll-top="{{scrollTop}}">
+              <view class="food-container" wx:for="{{foodList}}" wx:for-item="food" wx:key="index"
+                wx:for-index="foodListIndex">
+                <view class="food-header">
+                  <text class="left">{{food.mainTitle}}</text>
+                  <text class="right">{{food.subTitle}}</text>
+                </view>
+                <view class="food-info" wx:for="{{food.foods}}" wx:key="name" wx:for-index="foodIndex">
+                  <image src="{{item.image}}"></image>
+                  <view class="food-detail">
+                    <view class="top">
+                      <view class="food-name">{{item.name}}</view>
+                      <view class="food-ranking" wx:if="{{item.ranking}}">{{item.ranking}}</view>
+                      <view class="food-description" wx:if="{{item.description}}">{{item.description}}</view>
+                      <view class="sale-count" wx:if="{{item.saleCount}}">月售 {{item.saleCount}}</view>
+                    </view>
+                    <view class="price-btn">
+                      <text class="food-price {{item.count===0?'has-food':''}}">¥{{item.price}}</text>
+                      <view class="decrease-btn" bindtap="decreaseCart" data-food="{{item}}" wx:if="{{item.count>0}}">
+                        <text class="iconfont icon-xianxingtubiaozhizuomoban-04"></text>
+                      </view>
+                      <text wx:if="{{item.count>0}}" class="food-count">{{item.count}}</text>
+                      <view class="increase-btn" bindtap="addCart" data-food="{{item}}"
+                        data-mainTitle="{{food.mainTitle}}">
+                        <text class="iconfont icon-jiahao"></text>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </scroll-view>
+          </view>
+        </view>
+        <view class="bottom">
+          <view class="bottom-bar">
+            <text>配送费减9、满70减2、满70减2</text>
+          </view>
+          <view class="bottom-order">
+            <image src="/static/images/order_box.png" wx:if="{{cartList.length===0}}"></image>
+            <view wx:else class="icon-container">
+              <van-icon name="cart-o" color="#1989fa" info="{{totalLength}}" size="80rpx" />
+            </view>
+            <view class="title-wrapper">
+              <view class="title" wx:if="{{cartList.length===0}}">未选购商品</view>
+              <view wx:else>
+                <text class="price-symbol">¥</text>
+                <text class="total-price">{{totalPrice}}</text>
+              </view>
+              <view class="sub-title">
+                <text>另需配送费¥4</text>
+                <text class="old-price">¥9</text>
+              </view>
+            </view>
+            <view class="order-btn {{totalPrice>=20?'active-btn':''}}">
+              <view wx:if="{{totalPrice<20 && !isChooseNecessity}}">¥20起送</view>
+              <view wx:if="{{totalPrice>=20 &&!isChooseNecessity}}">未点必选品</view>
+              <view wx:if="{{totalPrice<20 &&isChooseNecessity}}">差{{20-totalPrice}}¥起送</view>
+              <view wx:if="{{totalPrice>=20 && isChooseNecessity}}" bindtap="settleAccounts">去结算</view>
+            </view>
+          </view>
+        </view>
+      </van-tab>
+      <van-tab title="评价 {{shopInfo.rating}}">
+        <view class="evaluation">
+          <view class="evaluation-detail">
+            <view class="rating-sum">{{shopInfo.rating}}</view>
+            <view class="rating-right">
+              <view>
+                <view class="rating-ratio">高于附近{{evaluationInfo.ratingRatio}}的商家</view>
+                <view class="rating-star">
+                  <text class="iconfont icon-xingxing"></text>
+                  <text class="iconfont icon-xingxing"></text>
+                  <text class="iconfont icon-xingxing"></text>
+                  <text class="iconfont icon-xingxing"></text>
+                </view>
+              </view>
+              <view class="rating-category first-category" wx:for="{{evaluationInfo.ratingCategoryList}}" wx:key="index">
+                <view class="name">{{item.text}}</view>
+                <view class="rating">{{item.rating}}</view>
+              </view>
+            </view>
+          </view>
+          <van-divider />
+          <view class="filter-btn">
+            <view>全部 464</view>
+            <view>好评 428</view>
+            <view>近期差评 6</view>
+          </view>
+          <view bindtap="showOnlyContent">
+            <van-radio-group value="{{ isOnlyShowContent }}">
+              <van-radio name="{{true}}" icon-size="12px" class="radio-text">只看有内容的评价</van-radio>
+            </van-radio-group>
+          </view>
+          <view class="comment-container" wx:for="{{evaluationInfo.evaluationList}}" wx:key="index">
+            <view class="header">
+              <image wx:if="{{!item.avatar}}" src="https://i.loli.net/2021/03/19/RWrUvTnG9OBLlCd.png"></image>
+              <image wx:else src="{{item.avatar}}"></image>
+              <view>
+                <view class="user-info">
+                  <view class="user-name" wx:if="{{item.isAnonymous}}">匿名用户</view>
+                  <view class="user-name" wx:else>{{item.consumerName}}</view>
+                  <text class="user-date">{{item.time}}</text>
+                </view>
+                <view class="user-experience">
+                  <view wx:for="{{item.userExperienceList}}" wx:for-item="experience" wx:key="index">
+                    <text class="experience-name">{{experience.text}}</text>
+                    <text class="experience-level">{{experience.level}}</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class="content">
+              <view>{{item.content}}</view>
+              <!-- 可能要用富文本编辑器来实现评论内容 -->
+              <!-- <image src="https://i.loli.net/2021/03/19/vIR5HVdMTOgDXom.png"></image> -->
+            </view>
+            <view class="recommend" wx:if="{{item.recommendList.length}}">
+              <van-tag color="#fafafa" text-color="#626262">推荐</van-tag>
+              <van-tag color="#ebf9ff" text-color="#43c9fd" wx:for="{{item.recommendList}}" wx:for-item="recommend" wx:key="index">{{recommend.text}} </van-tag>
+            </view>
+            <view class="reply" wx:if="{{item.reply}}">
+              <view class="title">商家回复</view>
+              <view class="shop-content">
+                {{item.reply}}
+              </view>
+            </view>
+          </view>
+        </view>
+      </van-tab>
+      <van-tab title="商家故事">
+        <view class="shop-story" wx:if="{{shopStory.title}}">
+          <image src="{{shopStory.imagePath}}"></image>
+          <view class="info">
+            <van-tag color="#e6f8ff" text-color="#02b6fd">品牌故事</van-tag>
+            <text class="title">{{shopStory.title}}</text>
+            <text class="iconfont icon-iconfonti"></text>
+            <view class="detail">{{shopStory.introduction}}</view>
+          </view>
+        </view>
+        <view class="shop-address">
+          <view class="title">{{shopStory.shopInfo.name}}</view>
+          <view class="address-container">
+            <view class="address-detail">{{shopStory.shopInfo.address}}</view>
+            <text class="divider"></text>
+            <text class="iconfont icon-dianhua phone"></text>
+          </view>
+          <!-- <view>
+            <image></image>
+          </view> -->
+          <view class="shop-detail">
+            <view class="shop_info">商家信息</view>
+            <view class="shop-category">商家品类: {{shopStory.shopInfo.category}}</view>
+            <view class="work-time">营业时间: {{shopStory.shopInfo.workTime}}</view>
+          </view>
+        </view>
+      </van-tab>
+    </van-tabs>
+  </view>
+</view>
