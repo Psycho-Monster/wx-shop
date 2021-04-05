@@ -139,6 +139,6 @@
       </view>
       <view class="discount-sum">已优惠¥5</view>
     </view>
-    <view class="submit-order">提交订单</view>
+    <view class="submit-order" bindtap="submitOrder">提交订单</view>
   </view>
 </view>

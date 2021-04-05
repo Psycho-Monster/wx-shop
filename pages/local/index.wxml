@@ -2,7 +2,8 @@
 <view>
   <scroll-view scroll-y="true" style="height: 100%;" bindscrolltoupper="upper" bindscrolltolower="lower"
     bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
-    <view class="delicious-container" wx:for="{{deliciousShopList}}" wx:key="index" wx:for-item="shop" bindtap="enterShop" data-shopId="{{shop._id}}">
+    <view class="delicious-container" wx:for="{{deliciousShopList}}" wx:key="index" wx:for-item="shop"
+      bindtap="enterShop" data-shopId="{{shop._id}}">
       <view class="top">
         <view class="left">
           <image src="{{shop.imagePath}}"></image>
@@ -13,7 +14,7 @@
             <text class="name">{{shop.name}}</text>
           </view>
           <view class="star">
-            <Star score="{{shop.rating}}" size="{{24}}"/>
+            <Star score="{{shop.rating}}" size="{{24}}" />
             <text class="rating">{{shop.rating}}</text>
             <text>月售{{shop.sellCountPerMonth}}单</text>
           </view>

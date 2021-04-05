@@ -1,18 +1,18 @@
 <view class="order-container">
-  <view class="order" wx:for="{{[1,2,3]}}">
+  <view class="order" wx:for="{{orderList}}" wx:key="_id">
     <view class="order-top">
-      <image src="/static/images/shop1.jpg"></image>
-      <view>
-        <text>壹号汤粉炒粉饺子(石岩店)</text>
+      <image src="{{item.imagePath}}"></image>
+      <view class="name-container">
+        <text class="name">{{item.name}}</text>
         <text class="iconfont icon-iconfonti"></text>
+        <view class="order-time">{{item.orderInfo.orderTime}}</view>
       </view>
-      <text class="order-status">订单已送达</text>
+      <text class="order-status">{{item.orderStatus}}</text>
     </view>
-    <text class="order-time">2021-03-16 11:18</text>
     <van-divider />
-    <view>
-      <text class="order-food">全家福汤粉 + 荷包蛋 等3件商品</text>
-      <text class="order-price">¥28.77</text>
+    <view bindtap="enterOrderDetail">
+      <text class="order-food">{{item.orderList[0].name}} 等{{item.orderList.length}}件商品</text>
+      <text class="order-price">¥{{item.orderPrice}}</text>
     </view>
     <van-divider />
     <view>

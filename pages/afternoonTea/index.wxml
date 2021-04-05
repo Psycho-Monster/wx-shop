@@ -20,7 +20,8 @@
           <image src="https://i.loli.net/2021/03/31/cYHzi8NJyFtPQdU.png"></image>
           <view>
             <view class="deliver-detail">
-              <text>{{shop.deliverDistance}}m</text>
+              <text wx:if="{{shop.deliverDistance<1000}}">{{shop.deliverDistance}}m</text>
+              <text wx:else>{{shop.deliverDistance/1000}}km</text>
               <text class="divide">|</text>
               <text class="deliver-time">{{shop.deliverTime}}分钟</text>
             </view>

@@ -51,7 +51,7 @@
         <image src="/static/images/share.jpg"></image>
         <text>分享赚钱</text>
       </view>
-      <view class="small-icon">
+      <view class="small-icon" bindtap="enterFried">
         <image src="/static/images/fried.jpg"></image>
         <text>炸鸡炸串</text>
       </view>
@@ -65,15 +65,15 @@
         <image src="/static/images/flower.jpg"></image>
         <text>鲜花绿植</text>
       </view>
-      <view class="small-icon">
+      <view class="small-icon" bindtap="enterForeign">
         <image src="/static/images/korean.jpg"></image>
         <text>日韩料理</text>
       </view>
-      <view class="small-icon">
+      <view class="small-icon" bindtap="enterLocal">
         <image src="/static/images/local.jpg"></image>
         <text>地方美食</text>
       </view>
-      <view class="small-icon">
+      <view class="small-icon" bindtap="enterFastFood">
         <image src="/static/images/fastfood.jpg"></image>
         <text>快餐便当</text>
       </view>

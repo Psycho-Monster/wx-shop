@@ -12,7 +12,12 @@
     "pages/deliciousFood/index",
     "pages/dessert/index",
     "pages/afternoonTea/index",
-    "pages/hamburgerPizza/index"
+    "pages/hamburgerPizza/index",
+    "pages/fried/index",
+    "pages/foreignFood/index",
+    "pages/local/index",
+    "pages/fastFood/index",
+    "pages/orderDetail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

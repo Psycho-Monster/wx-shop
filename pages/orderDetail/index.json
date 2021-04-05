@@ -1,0 +1,9 @@
+{
+  "navigationBarTextStyle": "white",
+  "navigationStyle": "default",
+  "navigationBarTitleText": "订单详情",
+  "usingComponents": {
+    "van-divider": "@vant/weapp/divider/index",
+    "van-button": "@vant/weapp/button/index"
+  }
+}

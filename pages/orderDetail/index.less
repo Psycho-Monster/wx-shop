@@ -1,0 +1,189 @@
+.orderDetail-container {
+  background-image: linear-gradient(to bottom, #4ca7ef, #f3f3f3);
+  padding: 0 24rpx;
+  padding-bottom: 100rpx;
+  .orderStatus-container {
+    padding-top: 46rpx;
+    text {
+      font-size: 44rpx;
+      color: #fff;
+    }
+  }
+  .gratitude-container {
+    height: 244rpx;
+    background-color: #fff;
+    border-radius: 10rpx;
+    margin-top: 46rpx;
+    .gratitude-text {
+      font-size: 34rpx;
+      padding-left: 26rpx;
+      padding-top: 30rpx;
+    }
+    .evaluation-container {
+      margin-left: 18rpx;
+      image {
+        width: 34rpx;
+        height: 34rpx;
+        margin-left: 52rpx;
+      }
+      .evaluation-text {
+        color: #329de7;
+      }
+    }
+  }
+  .compensation-container {
+    display: flex;
+    align-items: center;
+    height: 146rpx;
+    background-color: #fff;
+    border-radius: 10rpx;
+    margin: 20rpx 0;
+    padding: 0 26rpx;
+    .title {
+      font-size: 30rpx;
+    }
+    .content {
+      color: #999;
+    }
+    .arrow-right {
+      text {
+        position: relative;
+        left: 28rpx;
+        font-size: 29px;
+        color: #cccccc;
+      }
+    }
+  }
+  .food-container {
+    background-color: #fff;
+    padding: 0 26rpx;
+    .shop-title {
+      padding: 32rpx 0;
+    }
+    .food {
+      display: flex;
+      margin-bottom: 40rpx;
+      image {
+        width: 96rpx;
+        height: 96rpx;
+        margin-right: 18rpx;
+      }
+      .food-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 496rpx;
+        .food-name {
+          width: 320rpx;
+        }
+        .food-count {
+          color: #c7c7c7;
+          font-size: 22rpx;
+        }
+      }
+      .food-price {
+        font-size: 28rpx;
+        font-weight: bold;
+        color: #181818;
+      }
+    }
+    .packing-fee {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 36rpx;
+      text {
+        font-size: 30rpx;
+      }
+    }
+    .discount-container {
+      display: flex;
+      justify-content: space-between;
+      .icon-container {
+        display: flex;
+      }
+      .prev-icon {
+        width: 40rpx;
+        height: 40rpx;
+        background-color: #ff5128;
+        color: #fff;
+        text-align: center;
+        line-height: 40rpx;
+        border-radius: 10rpx;
+        margin-right: 8rpx;
+      }
+      .discount-fee {
+        color: #ff5229;
+        font-size: 30rpx;
+      }
+    }
+    .totalPrice-container {
+      display: flex;
+      padding-top: 20rpx;
+      padding-bottom: 28rpx;
+      image {
+        width: 30rpx;
+        height: 30rpx;
+      }
+      .call-shop {
+        color: #55b1eb;
+        margin-left: 12rpx;
+        margin-right: 203rpx;
+        font-size: 28rpx;
+      }
+      .discountFee-total {
+        margin-right: 30rpx;
+        text {
+          color: black;
+        }
+        .discount-fee {
+          color: #ff5229;
+        }
+      }
+      .orderPrice-container {
+        position: relative;
+        top: -26rpx;
+        text {
+          color: black;
+        }
+        .order-price {
+          font-size: 50rpx;
+        }
+      }
+    }
+  }
+  .deliverInfo-container,
+  .orderInfo-container {
+    background-color: #fff;
+    margin-top: 20rpx;
+    padding: 36rpx 13rpx;
+    border-radius: 10rpx;
+    text {
+      color: black;
+    }
+    .title {
+      margin-bottom: 30rpx;
+    }
+    .info-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 34rpx;
+      .info-title {
+        color: #a5a5a5;
+      }
+      .address {
+        width: 300rpx;
+        text-indent: 3em;
+      }
+      .divide-line {
+        margin: 0 20rpx;
+        color: #d8d8d8;
+      }
+      .copy {
+        color: #4aa9ea;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

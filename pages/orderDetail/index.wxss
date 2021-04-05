@@ -1,0 +1,195 @@
+.orderDetail-container {
+  background-image: linear-gradient(to bottom, #4ca7ef, #f3f3f3);
+  padding: 0 24rpx;
+  padding-bottom: 100rpx;
+}
+.orderDetail-container .orderStatus-container {
+  padding-top: 46rpx;
+}
+.orderDetail-container .orderStatus-container text {
+  font-size: 44rpx;
+  color: #fff;
+}
+.orderDetail-container .gratitude-container {
+  height: 244rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  margin-top: 46rpx;
+}
+.orderDetail-container .gratitude-container .gratitude-text {
+  font-size: 34rpx;
+  padding-left: 26rpx;
+  padding-top: 30rpx;
+}
+.orderDetail-container .gratitude-container .evaluation-container {
+  margin-left: 18rpx;
+}
+.orderDetail-container .gratitude-container .evaluation-container image {
+  width: 34rpx;
+  height: 34rpx;
+  margin-left: 52rpx;
+}
+.orderDetail-container .gratitude-container .evaluation-container .evaluation-text {
+  color: #329de7;
+}
+.orderDetail-container .compensation-container {
+  display: flex;
+  align-items: center;
+  height: 146rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  margin: 20rpx 0;
+  padding: 0 26rpx;
+}
+.orderDetail-container .compensation-container .title {
+  font-size: 30rpx;
+}
+.orderDetail-container .compensation-container .content {
+  color: #999;
+}
+.orderDetail-container .compensation-container .arrow-right text {
+  position: relative;
+  left: 28rpx;
+  font-size: 29px;
+  color: #cccccc;
+}
+.orderDetail-container .food-container {
+  background-color: #fff;
+  padding: 0 26rpx;
+}
+.orderDetail-container .food-container .shop-title {
+  padding: 32rpx 0;
+}
+.orderDetail-container .food-container .food {
+  display: flex;
+  margin-bottom: 40rpx;
+}
+.orderDetail-container .food-container .food image {
+  width: 96rpx;
+  height: 96rpx;
+  margin-right: 18rpx;
+}
+.orderDetail-container .food-container .food .food-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 496rpx;
+}
+.orderDetail-container .food-container .food .food-info .food-name {
+  width: 320rpx;
+}
+.orderDetail-container .food-container .food .food-info .food-count {
+  color: #c7c7c7;
+  font-size: 22rpx;
+}
+.orderDetail-container .food-container .food .food-price {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #181818;
+}
+.orderDetail-container .food-container .packing-fee {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 36rpx;
+}
+.orderDetail-container .food-container .packing-fee text {
+  font-size: 30rpx;
+}
+.orderDetail-container .food-container .discount-container {
+  display: flex;
+  justify-content: space-between;
+}
+.orderDetail-container .food-container .discount-container .icon-container {
+  display: flex;
+}
+.orderDetail-container .food-container .discount-container .prev-icon {
+  width: 40rpx;
+  height: 40rpx;
+  background-color: #ff5128;
+  color: #fff;
+  text-align: center;
+  line-height: 40rpx;
+  border-radius: 10rpx;
+  margin-right: 8rpx;
+}
+.orderDetail-container .food-container .discount-container .discount-fee {
+  color: #ff5229;
+  font-size: 30rpx;
+}
+.orderDetail-container .food-container .totalPrice-container {
+  display: flex;
+  padding-top: 20rpx;
+  padding-bottom: 28rpx;
+}
+.orderDetail-container .food-container .totalPrice-container image {
+  width: 30rpx;
+  height: 30rpx;
+}
+.orderDetail-container .food-container .totalPrice-container .call-shop {
+  color: #55b1eb;
+  margin-left: 12rpx;
+  margin-right: 203rpx;
+  font-size: 28rpx;
+}
+.orderDetail-container .food-container .totalPrice-container .discountFee-total {
+  margin-right: 30rpx;
+}
+.orderDetail-container .food-container .totalPrice-container .discountFee-total text {
+  color: black;
+}
+.orderDetail-container .food-container .totalPrice-container .discountFee-total .discount-fee {
+  color: #ff5229;
+}
+.orderDetail-container .food-container .totalPrice-container .orderPrice-container {
+  position: relative;
+  top: -26rpx;
+}
+.orderDetail-container .food-container .totalPrice-container .orderPrice-container text {
+  color: black;
+}
+.orderDetail-container .food-container .totalPrice-container .orderPrice-container .order-price {
+  font-size: 50rpx;
+}
+.orderDetail-container .deliverInfo-container,
+.orderDetail-container .orderInfo-container {
+  background-color: #fff;
+  margin-top: 20rpx;
+  padding: 36rpx 13rpx;
+  border-radius: 10rpx;
+}
+.orderDetail-container .deliverInfo-container text,
+.orderDetail-container .orderInfo-container text {
+  color: black;
+}
+.orderDetail-container .deliverInfo-container .title,
+.orderDetail-container .orderInfo-container .title {
+  margin-bottom: 30rpx;
+}
+.orderDetail-container .deliverInfo-container .info-item,
+.orderDetail-container .orderInfo-container .info-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 34rpx;
+}
+.orderDetail-container .deliverInfo-container .info-item .info-title,
+.orderDetail-container .orderInfo-container .info-item .info-title {
+  color: #a5a5a5;
+}
+.orderDetail-container .deliverInfo-container .info-item .address,
+.orderDetail-container .orderInfo-container .info-item .address {
+  width: 300rpx;
+  text-indent: 3em;
+}
+.orderDetail-container .deliverInfo-container .info-item .divide-line,
+.orderDetail-container .orderInfo-container .info-item .divide-line {
+  margin: 0 20rpx;
+  color: #d8d8d8;
+}
+.orderDetail-container .deliverInfo-container .info-item .copy,
+.orderDetail-container .orderInfo-container .info-item .copy {
+  color: #4aa9ea;
+}
+.orderDetail-container .deliverInfo-container .info-item:last-child,
+.orderDetail-container .orderInfo-container .info-item:last-child {
+  margin-bottom: 0;
+}

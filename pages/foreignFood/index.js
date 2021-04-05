@@ -5,14 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    deliciousShopList: []
+    deliciousShopList:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
-    const deliciousShopList = app.globalData.shopList.filter(shop => shop.isHamburgerPizza)
+    const deliciousShopList=app.globalData.shopList.filter(shop=>shop.isForeign)
     this.setData({
       deliciousShopList
     })

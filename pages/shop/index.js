@@ -34,7 +34,7 @@ Page({
       isLike
     } = this.data
     const likeShop = this.data.shopList.find(item => item._id == shopId)
-    const likeShopList = wx.getStorageSync('likeShopList')
+    const likeShopList = wx.getStorageSync('likeShopList') || []
     if (isLike) {
       // 代表该店铺已经收藏过了，现在要取消收藏
       let searchIndex

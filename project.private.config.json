@@ -77,6 +77,12 @@
           "pathName": "pages/deliciousFood/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/orderDetail/index",
+          "pathName": "pages/orderDetail/index",
+          "query": "orderId=60670c1e3b11dc4298fa18c7",
+          "scene": null
         }
       ]
     }

@@ -1,0 +1,98 @@
+<view class="orderDetail-container">
+  <view class="orderStatus-container">
+    <text class="order-status">{{order.orderStatus}}</text>
+    <text class="iconfont icon-iconfonti"></text>
+  </view>
+  <view class="gratitude-container">
+    <view class="gratitude-text">感谢您对饿了么的信任，期待再次光临</view>
+    <van-divider />
+    <view class="evaluation-container">
+      <image src="/static/images/evaluation_star.jpg"></image>
+      <view class="evaluation-text">评价得9金币</view>
+    </view>
+  </view>
+  <view class="compensation-container">
+    <view>
+      <view class="title">食无忧理赔申请</view>
+      <view class="content">如发现食品变质、存在异物或引发就医，均可申请理赔</view>
+    </view>
+    <view class="arrow-right">
+      <text class="iconfont icon-iconfonti"></text>
+    </view>
+  </view>
+  <view class="food-container">
+    <view class="shop-title">{{order.name}}</view>
+    <view>
+      <view class="food" wx:for="{{order.orderList}}" wx:key="index">
+        <image src="{{item.imagePath}}"></image>
+        <view class="food-info">
+          <view class="food-name">{{item.name}}</view>
+          <view class="food-count">× {{item.count}}</view>
+        </view>
+        <view class="food-price">¥{{item.price}}</view>
+      </view>
+    </view>
+    <view class="packing-fee">
+      <text>包装费</text>
+      <text>¥2</text>
+    </view>
+    <view class="discount-container">
+      <view class="icon-container">
+        <view class="prev-icon">¥</view>
+        <text>红包/抵用券</text>
+      </view>
+      <text class="discount-fee">-¥5</text>
+    </view>
+    <van-divider />
+    <view class="totalPrice-container">
+      <image src="/static/images/small-phone.png"></image>
+      <text class="call-shop">电话商家</text>
+      <view class="discountFee-total">
+        <text>已优惠</text>
+        <text class="discount-fee">¥5</text>
+      </view>
+      <view class="orderPrice-container">
+        <text>实付¥</text>
+        <text class="order-price">{{order.orderPrice}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="deliverInfo-container">
+    <view class="title">配送信息</view>
+    <view class="info-item">
+      <text class="info-title">送达时间</text>
+      <text>{{order.deliverInfo.deliverTime}}</text>
+    </view>
+    <view class="info-item">
+      <text class="info-title">送货地址</text>
+      <text class="address">{{order.deliverInfo.deliverAddress}}</text>
+    </view>
+    <view class="info-item">
+      <text class="info-title">配送服务</text>
+      <text>{{order.deliverInfo.deliverService}}</text>
+    </view>
+  </view>
+  <view class="orderInfo-container">
+    <view class="title">订单信息</view>
+    <view class="info-item">
+      <text class="info-title">订单号码</text>
+      <view>
+        <text>{{order.orderInfo.orderNo}}</text>
+        <text class="divide-line">|</text>
+        <text class="copy" bindtap="copy" data-copyText="{{order.orderInfo.orderNo+''}}">复制</text>
+      </view>
+    </view>
+    <view class="info-item">
+      <text class="info-title">下单时间</text>
+      <text>{{order.orderInfo.orderTime}}</text>
+    </view>
+    <view class="info-item">
+      <text class="info-title">支付方式</text>
+      <text>{{order.orderInfo.payType}}</text>
+    </view>
+    <view class="info-item">
+      <text class="info-title">备注</text>
+      <text>{{order.orderInfo.note}}</text>
+    </view>
+  </view>
+</view>

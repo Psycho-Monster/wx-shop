@@ -37,6 +37,26 @@ Page({
       url: '../hamburgerPizza/index'
     })
   },
+  enterFried() {
+    wx.navigateTo({
+      url: '../fried/index'
+    })
+  },
+  enterForeign() {
+    wx.navigateTo({
+      url: '../foreignFood/index'
+    })
+  },
+  enterLocal() {
+    wx.navigateTo({
+      url: '../local/index'
+    })
+  },
+  enterFastFood() {
+    wx.navigateTo({
+      url: '../fastFood/index'
+    })
+  },
   enterShop(e) {
     const {
       shopid
@@ -70,10 +90,10 @@ Page({
       })
     }else if(h>=21){
       this.setData({
-        foodText:'夜宵'
+        foodText:'夜宵',
+        foodImagePath:'https://i.loli.net/2021/04/01/TXes9gjcmL8pMtn.png'
       })
     }
-    
     app.globalData.shopList = shopList
     this.setData({
       shopList

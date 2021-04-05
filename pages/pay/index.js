@@ -1,9 +1,7 @@
-// pages/pay/index.js
+import {
+  request
+} from "../../request/index.js";
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     isShowPayType: false,
     payType: 'wxPay',
@@ -32,6 +30,12 @@ Page({
     if (date.getDay() == 5) week = "周五"
     if (date.getDay() == 6) week = "周六"
     return week;
+  },
+  async submitOrder(){
+    const orderInfo = await request({
+      url: 'order',
+    })
+    console.log(orderInfo)
   },
   onLoad: function (options) {
     const cartList = JSON.parse(options.cartList)
