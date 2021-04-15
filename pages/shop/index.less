@@ -31,8 +31,12 @@
   padding-top: 10rpx;
   .left {
     .title {
+      width: 430rpx;
       font-weight: bold;
       font-size: 19px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
     .tag {
       margin: 20rpx 0;
@@ -156,6 +160,7 @@
           .sale-count {
             margin-top: 10rpx;
             color: #b0b0b0;
+            margin-bottom: 10rpx;
           }
           .price-btn {
             display: flex;
@@ -353,12 +358,16 @@
     }
     .info {
       padding: 0 30rpx;
-      .title {
-        font-weight: bold;
-        font-size: 17px;
-        color: #191919;
-        margin-left: 12rpx;
-        margin-right: 270rpx;
+      .title-container {
+        display: flex;
+        align-items: center;
+        .title {
+          width: 475rpx;
+          font-weight: bold;
+          font-size: 17px;
+          color: #191919;
+          margin-left: 12rpx;
+        }
       }
       .detail {
         color: #717171;
@@ -388,6 +397,7 @@
         margin-bottom: 15rpx;
         width: 530rpx;
         color: #898989;
+        font-size: 22rpx;
       }
       .divider {
         width: 2rpx;
@@ -400,6 +410,14 @@
         top: 6px;
         left: -4px;
         font-size: 60rpx;
+      }
+    }
+    .shop-image {
+      margin-top: 20rpx;
+      image {
+        width: 140rpx;
+        height: 140rpx;
+        margin-right: 10px;
       }
     }
     .shop-detail {

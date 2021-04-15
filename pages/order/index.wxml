@@ -10,14 +10,14 @@
       <text class="order-status">{{item.orderStatus}}</text>
     </view>
     <van-divider />
-    <view bindtap="enterOrderDetail">
-      <text class="order-food">{{item.orderList[0].name}} 等{{item.orderList.length}}件商品</text>
+    <view bindtap="enterOrderDetail" data-orderId="{{item._id}}" class="food-container">
+      <view class="order-food">{{item.orderList[0].name}} 等{{item.orderList.length}}件商品</view>
       <text class="order-price">¥{{item.orderPrice}}</text>
     </view>
     <van-divider />
     <view>
       <van-button plain type="info" class="order-again">再来一单</van-button>
-      <van-button plain type="warning">评价得12金币</van-button>
+      <van-button plain type="warning" bindtap="evaluate" data-index="{{index}}">评价得12金币</van-button>
     </view>
   </view>
 </view>

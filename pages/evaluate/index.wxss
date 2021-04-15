@@ -1,0 +1,114 @@
+.coin-container {
+  background-color: #f5f5f5;
+  text-align: center;
+  padding: 20rpx 0;
+}
+.coin-container .coin-detail {
+  margin-bottom: 14rpx;
+}
+.coin-container .coin-detail .coin,
+.coin-container .coin-detail .current-coin {
+  color: #f2ac38;
+}
+.coin-container .coin-detail .coin {
+  margin-right: 12rpx;
+}
+.coin-container .progress-bar {
+  width: 240rpx;
+  height: 10rpx;
+  background-color: #e3e3e3;
+  margin: 0 auto;
+}
+.deliver-container {
+  display: flex;
+}
+.deliver-container .deliverMan-image {
+  width: 72rpx;
+  height: 72rpx;
+  margin: 0 20rpx;
+}
+.deliver-container .deliver-name {
+  font-size: 28rpx;
+}
+.deliver-container .deliver-time {
+  color: #909090;
+}
+.deliver-container .changeTime-image {
+  position: relative;
+  top: 40rpx;
+  width: 20rpx;
+  height: 20rpx;
+  margin-left: 70rpx;
+}
+.deliver-evaluation {
+  text-align: center;
+  margin-top: 80rpx;
+}
+.deliver-evaluation .title {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.deliver-evaluation .evaluation-image {
+  display: flex;
+  margin-top: 48rpx;
+  margin-left: 190rpx;
+}
+.deliver-evaluation .evaluation-image .image-container {
+  text-align: center;
+  margin-right: 66rpx;
+}
+.deliver-evaluation .evaluation-image .image-container image {
+  width: 80rpx;
+  height: 80rpx;
+}
+.deliver-evaluation .evaluation-image .image-container .description {
+  color: #9d9d9d;
+}
+.shop-container {
+  margin-top: 110rpx;
+}
+.shop-container .shop-info {
+  display: flex;
+  align-items: center;
+}
+.shop-container .shop-info image {
+  width: 74rpx;
+  height: 74rpx;
+  margin: 0 20rpx;
+}
+.shop-container .shop-info .shop-name {
+  width: 471rpx;
+}
+.shop-container .shop-evaluation {
+  text-align: center;
+  margin-top: 80rpx;
+}
+.shop-container .shop-evaluation .title {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.shop-container .shop-evaluation .star-container {
+  margin-top: 50rpx;
+  margin-left: 34rpx;
+}
+.shop-container .shop-evaluation .star-container image {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 38rpx;
+}
+.bottom {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 0 30rpx;
+  padding-top: 36rpx;
+  background-color: #f5f5f5;
+}
+.bottom .inner {
+  background-color: #cccccc;
+  padding: 26rpx 0;
+  text-align: center;
+  font-size: 34rpx;
+  color: #d94d5a;
+  font-weight: bold;
+}

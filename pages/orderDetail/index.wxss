@@ -1,7 +1,58 @@
+.map {
+  width: 100%;
+  height: 390px;
+}
 .orderDetail-container {
   background-image: linear-gradient(to bottom, #4ca7ef, #f3f3f3);
   padding: 0 24rpx;
   padding-bottom: 100rpx;
+}
+.orderDetail-container .laba-container {
+  padding-top: 10px;
+  margin-bottom: 10px;
+}
+.orderDetail-container .laba-container .custom-tag {
+  display: flex;
+  height: 68rpx;
+  align-items: center;
+  padding-left: 24rpx;
+  width: 658rpx;
+}
+.orderDetail-container .laba-container .custom-tag .icon-laba {
+  color: #ea8024;
+  margin-right: 14rpx;
+}
+.orderDetail-container .deliverDetail-container {
+  height: 310rpx;
+  background-color: #fff;
+  padding-top: 42rpx;
+  padding-bottom: 34rpx;
+  margin-bottom: 16rpx;
+}
+.orderDetail-container .deliverDetail-container .top {
+  display: flex;
+  padding: 0 20rpx;
+}
+.orderDetail-container .deliverDetail-container .top .deliver-time {
+  font-size: 34rpx;
+  margin-bottom: 20rpx;
+  margin-right: 320rpx;
+  color: black;
+}
+.orderDetail-container .deliverDetail-container .top .deliver-type {
+  color: #888;
+}
+.orderDetail-container .deliverDetail-container .top image {
+  width: 96rpx;
+  height: 96rpx;
+}
+.orderDetail-container .deliverDetail-container .bottom {
+  margin-left: 36rpx;
+}
+.orderDetail-container .deliverDetail-container .bottom image {
+  width: 36rpx;
+  height: 36rpx;
+  margin-left: 28rpx;
 }
 .orderDetail-container .orderStatus-container {
   padding-top: 46rpx;
@@ -126,9 +177,9 @@
   height: 30rpx;
 }
 .orderDetail-container .food-container .totalPrice-container .call-shop {
+  width: 314rpx;
   color: #55b1eb;
   margin-left: 12rpx;
-  margin-right: 203rpx;
   font-size: 28rpx;
 }
 .orderDetail-container .food-container .totalPrice-container .discountFee-total {
@@ -192,4 +243,8 @@
 .orderDetail-container .deliverInfo-container .info-item:last-child,
 .orderDetail-container .orderInfo-container .info-item:last-child {
   margin-bottom: 0;
+}
+.payToOrderDetail-container {
+  background-image: none;
+  background-color: #f3f3f3;
 }

@@ -13,7 +13,8 @@
         <text class="deliver-info">约{{shopInfo.deliverTime}}分钟 · 月售{{shopInfo.sellCountPerMonth}}</text>
       </view>
       <view class="discount-tag">
-        <van-tag type="warning" text-color="#ff6753" plain  wx:for="{{shopInfo.discountInfo}}" wx:key="index">{{item.text}}</van-tag>
+        <van-tag type="warning" text-color="#ff6753" plain wx:for="{{shopInfo.discountInfo}}" wx:key="index">
+          {{item.text}}</van-tag>
       </view>
     </view>
     <view class="right">
@@ -56,6 +57,8 @@
                       <view class="food-ranking" wx:if="{{item.ranking}}">{{item.ranking}}</view>
                       <view class="food-description" wx:if="{{item.description}}">{{item.description}}</view>
                       <view class="sale-count" wx:if="{{item.saleCount}}">月售 {{item.saleCount}}</view>
+                      <van-tag color="#ffddd9" text-color="#ff5f4a" plain wx:if="{{item.discountText}}">
+                        {{item.discountText}}</van-tag>
                     </view>
                     <view class="price-btn">
                       <text class="food-price {{item.count===0?'has-food':''}}">¥{{item.price}}</text>
@@ -117,7 +120,8 @@
                   <text class="iconfont icon-xingxing"></text>
                 </view>
               </view>
-              <view class="rating-category first-category" wx:for="{{evaluationInfo.ratingCategoryList}}" wx:key="index">
+              <view class="rating-category first-category" wx:for="{{evaluationInfo.ratingCategoryList}}"
+                wx:key="index">
                 <view class="name">{{item.text}}</view>
                 <view class="rating">{{item.rating}}</view>
               </view>
@@ -125,9 +129,9 @@
           </view>
           <van-divider />
           <view class="filter-btn">
-            <view>全部 464</view>
-            <view>好评 428</view>
-            <view>近期差评 6</view>
+            <view>全部 {{evaluationInfo.evaluationList.length}}</view>
+            <view>好评 {{goodEvaluation}}</view>
+            <view>近期差评 {{badEvaluation}}</view>
           </view>
           <view bindtap="showOnlyContent">
             <van-radio-group value="{{ isOnlyShowContent }}">
@@ -159,7 +163,8 @@
             </view>
             <view class="recommend" wx:if="{{item.recommendList.length}}">
               <van-tag color="#fafafa" text-color="#626262">推荐</van-tag>
-              <van-tag color="#ebf9ff" text-color="#43c9fd" wx:for="{{item.recommendList}}" wx:for-item="recommend" wx:key="index">{{recommend.text}} </van-tag>
+              <van-tag color="#ebf9ff" text-color="#43c9fd" wx:for="{{item.recommendList}}" wx:for-item="recommend"
+                wx:key="index">{{recommend.text}} </van-tag>
             </view>
             <view class="reply" wx:if="{{item.reply}}">
               <view class="title">商家回复</view>
@@ -174,22 +179,26 @@
         <view class="shop-story" wx:if="{{shopStory.title}}">
           <image src="{{shopStory.imagePath}}"></image>
           <view class="info">
-            <van-tag color="#e6f8ff" text-color="#02b6fd">品牌故事</van-tag>
-            <text class="title">{{shopStory.title}}</text>
-            <text class="iconfont icon-iconfonti"></text>
+            <view class="title-container">
+              <van-tag color="#e6f8ff" text-color="#02b6fd">品牌故事</van-tag>
+              <view class="title">{{shopStory.title}}</view>
+              <text class="iconfont icon-iconfonti"></text>
+            </view>
             <view class="detail">{{shopStory.introduction}}</view>
           </view>
         </view>
         <view class="shop-address">
-          <view class="title">{{shopStory.shopInfo.name}}</view>
           <view class="address-container">
-            <view class="address-detail">{{shopStory.shopInfo.address}}</view>
+            <view>
+              <view class="title">{{shopStory.shopInfo.name}}</view>
+              <view class="address-detail">{{shopStory.shopInfo.address}}</view>
+            </view>
             <text class="divider"></text>
             <text class="iconfont icon-dianhua phone"></text>
           </view>
-          <!-- <view>
-            <image></image>
-          </view> -->
+          <view class="shop-image">
+            <image wx:for="{{shopStory.shopInfo.imageList}}" src="{{item.imagePath}}" wx:key="index"></image>
+          </view>
           <view class="shop-detail">
             <view class="shop_info">商家信息</view>
             <view class="shop-category">商家品类: {{shopStory.shopInfo.category}}</view>

@@ -18,7 +18,8 @@ Page({
     discountFee: 2,
     totalPrice: 0,
     foodPrice: 0,
-    deliverTime:0
+    deliverTime: 0,
+    shopInfo: {}
   },
   getMyDay(date) {
     let week;
@@ -31,14 +32,67 @@ Page({
     if (date.getDay() == 6) week = "周六"
     return week;
   },
-  async submitOrder(){
-    const orderInfo = await request({
+  async submitOrder() {
+    const {
+      cartList,
+      discountFee,
+      totalPrice,
+      activeId,
+      tableWareCount,
+      shopInfo
+    } = this.data
+    const orderList = []
+    cartList.forEach(item => {
+      orderList.push({
+        name: item.name,
+        price: item.price,
+        count: item.count,
+        image: item.image
+      })
+    })
+    let deliverTime
+    if (activeId === 1) {
+      deliverTime = '尽快送达'
+    } else {
+      deliverTime = this.data.deliverTime
+    }
+    const deliverInfo = {
+      deliverTime,
+      deliverAddress: '元径村十二巷4栋302左飞杰(先生)15915450653',
+      deliverService: '商家配送'
+    }
+    const orderInfo = {
+      note: tableWareCount
+    }
+    const order = {
+      imagePath: shopInfo.imagePath,
+      name: shopInfo.name,
+      orderList,
+      discountPrice:discountFee,
+      orderPrice:totalPrice,
+      deliverInfo,
+      orderInfo,
+      longitude: shopInfo.longitude,
+      latitude: shopInfo.latitude
+    }
+    // 添加订单
+    await request({
+      url: 'order/createOrder',
+      data: order,
+      method:'post',
+    })
+    // 查询所有订单，找到最新添加的订单id，通过该id去跳转到订单详情
+    const allOrderList = await request({
       url: 'order',
     })
-    console.log(orderInfo)
+    const orderid=allOrderList[allOrderList.length-1]._id
+    wx.navigateTo({
+      url: `../orderDetail/index?orderId=${orderid}&isPayToOrderDetail=true`,
+    })
   },
   onLoad: function (options) {
     const cartList = JSON.parse(options.cartList)
+    const shopInfo = JSON.parse(options.shopInfo)
     const {
       deliverFee,
     } = this.data
@@ -72,7 +126,7 @@ Page({
         let finalM = nextM < 10 ? `0${nextM}` : nextM
         text = `尽快送达 | ${nextH}:${finalM}（9元配送费）`
         this.setData({
-          deliverTime:`大约${nextH}:${finalM}送到`
+          deliverTime: `大约${nextH}:${finalM}送到`
         })
       } else {
         let flag = false
@@ -97,7 +151,8 @@ Page({
       cartList,
       totalPrice,
       deliverList,
-      foodPrice
+      foodPrice,
+      shopInfo
     })
   },
   closePayType() {
@@ -134,19 +189,21 @@ Page({
     detail = {}
   }) {
     const activeId = this.data.activeId === detail.id ? null : detail.id;
-    console.log(detail,'detail')
-    const {text,id}=detail
+    const {
+      text,
+      id
+    } = detail
     const d = new Date();
     const week = this.getMyDay(d)
     let deliverStr
-    if(id===1){
-      deliverStr=`大约${text.substring(7,12)}送到`
-    }else{
-      deliverStr=`今日（${week}）${text.substring(0,5)}`
+    if (id === 1) {
+      deliverStr = `大约${text.substring(7,12)}送到`
+    } else {
+      deliverStr = `今日（${week}）${text.substring(0,5)}`
     }
     this.setData({
       activeId,
-      deliverTime:deliverStr,
+      deliverTime: deliverStr,
       isShowDeliverTime: false
     });
   },

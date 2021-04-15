@@ -1,9 +1,35 @@
-<view class="orderDetail-container">
-  <view class="orderStatus-container">
+<view wx:if="{{isPayToOrderDetail}}">
+  <map class="map" longitude="{{order.longitude}}" latitude="{{order.latitude}}" show-location="true" scale="{{14}}">
+  </map>
+</view>
+<view class="orderDetail-container {{isPayToOrderDetail?'payToOrderDetail-container':''}}">
+  <view class="laba-container" wx:if="{{isPayToOrderDetail}}">
+    <van-tag color="#fcf4cd" text-color="#eb872d" closeable round>
+      <view slot="" class="custom-tag">
+        <view class="iconfont icon-laba"></view>
+        <view>商家5分钟内未接单，订单将自动取消</view>
+      </view>
+    </van-tag>
+  </view>
+  <view class="deliverDetail-container" wx:if="{{isPayToOrderDetail}}">
+    <view class="top">
+      <view>
+        <view class="deliver-time">预计15:31送达</view>
+        <view class="deliver-type">蜂鸟快送</view>
+      </view>
+      <image src="{{order.imagePath}}"></image>
+    </view>
+    <van-divider />
+    <view class="bottom">
+      <image src="/static/images/cancel_order.png"></image>
+      <view>取消订单</view>
+    </view>
+  </view>
+  <view class="orderStatus-container" wx:if="{{!isPayToOrderDetail}}">
     <text class="order-status">{{order.orderStatus}}</text>
     <text class="iconfont icon-iconfonti"></text>
   </view>
-  <view class="gratitude-container">
+  <view class="gratitude-container" wx:if="{{!isPayToOrderDetail}}">
     <view class="gratitude-text">感谢您对饿了么的信任，期待再次光临</view>
     <van-divider />
     <view class="evaluation-container">
@@ -11,7 +37,7 @@
       <view class="evaluation-text">评价得9金币</view>
     </view>
   </view>
-  <view class="compensation-container">
+  <view class="compensation-container" wx:if="{{!isPayToOrderDetail}}">
     <view>
       <view class="title">食无忧理赔申请</view>
       <view class="content">如发现食品变质、存在异物或引发就医，均可申请理赔</view>
@@ -24,7 +50,7 @@
     <view class="shop-title">{{order.name}}</view>
     <view>
       <view class="food" wx:for="{{order.orderList}}" wx:key="index">
-        <image src="{{item.imagePath}}"></image>
+        <image src="{{item.image}}"></image>
         <view class="food-info">
           <view class="food-name">{{item.name}}</view>
           <view class="food-count">× {{item.count}}</view>
@@ -46,7 +72,7 @@
     <van-divider />
     <view class="totalPrice-container">
       <image src="/static/images/small-phone.png"></image>
-      <text class="call-shop">电话商家</text>
+      <view class="call-shop">电话商家</view>
       <view class="discountFee-total">
         <text>已优惠</text>
         <text class="discount-fee">¥5</text>

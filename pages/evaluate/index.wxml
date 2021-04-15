@@ -1,0 +1,58 @@
+<view>
+  <view class="coin-container">
+    <view class="coin-detail">
+      <text class="coin">金币</text>
+      <text class="current-coin">1</text>
+      <text class="coin-sum">/4</text>
+    </view>
+    <view class="progress-bar"></view>
+  </view>
+  <view class="deliver-container">
+    <image src="/static/images/deliver_man.png" class="deliverMan-image"></image>
+    <view>
+      <view class="deliver-name">商家配送</view>
+      <view class="deliver-time">01:18(40分钟)</view>
+    </view>
+    <image src="/static/images/change_time.jpg" class="changeTime-image"></image>
+  </view>
+  <view class="deliver-evaluation">
+    <view class="title">配送评价</view>
+    <view class="evaluation-image">
+      <view class="image-container">
+        <image src="/static/images/worst.jpg"></image>
+        <view class="description">非常差</view>
+      </view>
+      <view class="image-container">
+        <image src="/static/images/ordinary.jpg"></image>
+        <view class="description">一般</view>
+      </view>
+      <view class="image-container">
+        <image src="/static/images/satisfied.jpg"></image>
+        <view class="description">超赞</view>
+      </view>
+    </view>
+  </view>
+  <view class="shop-container">
+    <view class="shop-info">
+      <image src="https://i.loli.net/2021/04/02/pIR7HCThuvwSQrW.png"></image>
+      <view class="shop-name">沙县小吃(田心店)</view>
+      <van-radio-group value="{{ isAnonymous }}" bindtap="changeAnonymousStatus">
+        <van-radio name="{{false}}" checked-color="#f1f1f1" icon-size="14px" wx:if="{{!isAnonymous}}">匿名评价</van-radio>
+        <van-radio name="{{true}}" checked-color="#00e168" icon-size="14px" wx:if="{{isAnonymous}}">匿名评价</van-radio>
+      </van-radio-group>
+    </view>
+    <view class="shop-evaluation">
+    <view class="title">商家评价</view>
+    <view class="star-container">
+      <image src="/static/images/star.jpg"></image>
+      <image src="/static/images/star.jpg"></image>
+      <image src="/static/images/star.jpg"></image>
+      <image src="/static/images/star.jpg"></image>
+      <image src="/static/images/star.jpg"></image>
+    </view>
+  </view>
+  </view>
+  <view class="bottom">
+    <view class="inner">请对骑士服务做出评价</view>
+  </view>
+</view>

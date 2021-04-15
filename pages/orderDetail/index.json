@@ -4,6 +4,7 @@
   "navigationBarTitleText": "订单详情",
   "usingComponents": {
     "van-divider": "@vant/weapp/divider/index",
-    "van-button": "@vant/weapp/button/index"
+    "van-button": "@vant/weapp/button/index",
+    "van-tag": "@vant/weapp/tag/index"
   }
 }

@@ -31,8 +31,12 @@
   padding-top: 10rpx;
 }
 .shop-info .left .title {
+  width: 430rpx;
   font-weight: bold;
   font-size: 19px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .shop-info .left .tag {
   margin: 20rpx 0;
@@ -150,6 +154,7 @@
 .tab-container .order .order-right .food-container .food-info .sale-count {
   margin-top: 10rpx;
   color: #b0b0b0;
+  margin-bottom: 10rpx;
 }
 .tab-container .order .order-right .food-container .food-info .price-btn {
   display: flex;
@@ -340,12 +345,16 @@
 .tab-container .shop-story .info {
   padding: 0 30rpx;
 }
-.tab-container .shop-story .info .title {
+.tab-container .shop-story .info .title-container {
+  display: flex;
+  align-items: center;
+}
+.tab-container .shop-story .info .title-container .title {
+  width: 475rpx;
   font-weight: bold;
   font-size: 17px;
   color: #191919;
   margin-left: 12rpx;
-  margin-right: 270rpx;
 }
 .tab-container .shop-story .info .detail {
   color: #717171;
@@ -375,6 +384,7 @@
   margin-bottom: 15rpx;
   width: 530rpx;
   color: #898989;
+  font-size: 22rpx;
 }
 .tab-container .shop-address .address-container .divider {
   width: 2rpx;
@@ -387,6 +397,14 @@
   top: 6px;
   left: -4px;
   font-size: 60rpx;
+}
+.tab-container .shop-address .shop-image {
+  margin-top: 20rpx;
+}
+.tab-container .shop-address .shop-image image {
+  width: 140rpx;
+  height: 140rpx;
+  margin-right: 10px;
 }
 .tab-container .shop-address .shop-detail .shop_info {
   font-weight: bold;

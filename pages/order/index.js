@@ -2,28 +2,35 @@ import {
   request
 } from "../../request/index.js";
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     orderList:[]
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   async onLoad() {
-    const orderList = await request({
+    let orderList = await request({
       url: 'order',
     })
+    orderList.reverse()
     this.setData({
       orderList
     })
   },
-  enterOrderDetail(){
+  enterOrderDetail(e){
+    const {orderid}=e.currentTarget.dataset
     wx.navigateTo({
-      url: '../orderDetail/index',
+      url: `../orderDetail/index?orderId=${orderid}`,
+    })
+  },
+  evaluate(e){
+    const {orderList}=this.data
+    const {index}=e.currentTarget.dataset
+    const {name}=orderList[index]
+    const data={
+      name,
+      foodList:orderList[index].orderList
+    }
+    const orderInfo=JSON.stringify(data)
+    wx.navigateTo({
+      url: `../evaluate/index?orderInfo=${orderInfo}`,
     })
   }
 })

@@ -3,17 +3,32 @@ import {
 } from "../../request/index.js";
 Page({
   data: {
-    order: []
+    order: [],
+    // 记得修改成false
+    isPayToOrderDetail:true,
   },
   async onLoad(options) {
     const {
-      orderId
+      orderId,
+      isPayToOrderDetail
     } = options
+    console.log(options,'options')
     const order = await request({
       url: `order/orderDetail?orderId=${orderId}`,
     })
+    if(isPayToOrderDetail==='true'){
+      this.setData({
+        isPayToOrderDetail:!!isPayToOrderDetail
+      })
+    }
+    const {longitude,latitude}=await wx.getLocation({
+      type: 'gcj02',
+      isHighAccuracy:true
+    })
     this.setData({
-      order
+      order,
+      longitude,
+      latitude
     })
   },
   copy(e) {

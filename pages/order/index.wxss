@@ -24,6 +24,7 @@
   top: 8rpx;
 }
 .order .order-top .name-container .name {
+  color: black;
   font-size: 38rpx;
 }
 .order .order-top .order-status {
@@ -32,13 +33,17 @@
 .order .order-time {
   color: #999;
   font-size: 24rpx;
+  margin-top: 10rpx;
 }
-.order .order-food {
+.order .food-container {
+  display: flex;
+}
+.order .food-container .order-food {
+  width: 530rpx;
   font-size: 28rpx;
   margin-left: 128rpx;
-  margin-right: 102rpx;
 }
-.order .order-price {
+.order .food-container .order-price {
   color: #333;
   font-weight: bold;
 }

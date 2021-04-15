@@ -25,12 +25,6 @@
           "scene": null
         },
         {
-          "name": "pages/order/index",
-          "pathName": "pages/order/index",
-          "query": "",
-          "scene": null
-        },
-        {
           "name": "pages/index/index",
           "pathName": "pages/index/index",
           "query": "",
@@ -82,6 +76,12 @@
           "name": "pages/orderDetail/index",
           "pathName": "pages/orderDetail/index",
           "query": "orderId=60670c1e3b11dc4298fa18c7",
+          "scene": null
+        },
+        {
+          "name": "pages/evaluate/index",
+          "pathName": "pages/evaluate/index",
+          "query": "",
           "scene": null
         }
       ]

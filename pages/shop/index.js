@@ -24,7 +24,9 @@ Page({
     evaluationInfo: {},
     shopList: app.globalData.shopList,
     isLike: false,
-    isShopHasNecessity: false
+    isShopHasNecessity: false,
+    goodEvaluation: 0,
+    badEvaluation: 0
   },
   likeShop() {
     const {
@@ -66,6 +68,8 @@ Page({
       shopStory,
       evaluationInfo
     } = shopInfo
+    const goodEvaluation = evaluationInfo.evaluationList.reduce((prev, item) => prev + item.isSatisfied, 0)
+    const badEvaluation = evaluationInfo.evaluationList.length - goodEvaluation
     app.globalData.foodList = foodList
     let isShopHasNecessityFlag = false
     for (let i = 0; i < foodList.length; i++) {
@@ -92,7 +96,9 @@ Page({
       leftList,
       foodList,
       shopStory,
-      evaluationInfo
+      evaluationInfo,
+      goodEvaluation,
+      badEvaluation
     })
   },
   async onLoad(options) {
@@ -267,12 +273,19 @@ Page({
   settleAccounts() {
     const {
       isChooseNecessity,
-      totalPrice
+      totalPrice,
     } = this.data
     const cartList = JSON.stringify(this.data.cartList)
+    const shopInfoObj = {
+      name: this.data.shopInfo.name,
+      imagePath: this.data.shopInfo.smallImagePath,
+      longitude: this.data.shopInfo.longitude,
+      latitude: this.data.shopInfo.latitude
+    }
+    const shopInfo = JSON.stringify(shopInfoObj)
     if (totalPrice >= 20 && isChooseNecessity) {
       wx.navigateTo({
-        url: `../pay/index?cartList=${cartList}`
+        url: `../pay/index?cartList=${cartList}&shopInfo=${shopInfo}`
       })
     }
   },

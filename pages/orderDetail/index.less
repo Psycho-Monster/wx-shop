@@ -1,7 +1,58 @@
+.map {
+  width: 100%;
+  height: 390px;
+}
 .orderDetail-container {
   background-image: linear-gradient(to bottom, #4ca7ef, #f3f3f3);
   padding: 0 24rpx;
   padding-bottom: 100rpx;
+  .laba-container {
+    padding-top: 10px;
+    margin-bottom: 10px;
+    .custom-tag {
+      display: flex;
+      height: 68rpx;
+      align-items: center;
+      padding-left: 24rpx;
+      width: 658rpx;
+      .icon-laba {
+        color: #ea8024;
+        margin-right: 14rpx;
+      }
+    }
+  }
+  .deliverDetail-container {
+    height: 310rpx;
+    background-color: #fff;
+    padding-top: 42rpx;
+    padding-bottom: 34rpx;
+    margin-bottom: 16rpx;
+    .top {
+      display: flex;
+      padding: 0 20rpx;
+      .deliver-time {
+        font-size: 34rpx;
+        margin-bottom: 20rpx;
+        margin-right: 320rpx;
+        color: black;
+      }
+      .deliver-type {
+        color: #888;
+      }
+      image {
+        width: 96rpx;
+        height: 96rpx;
+      }
+    }
+    .bottom {
+      margin-left: 36rpx;
+      image {
+        width: 36rpx;
+        height: 36rpx;
+        margin-left: 28rpx;
+      }
+    }
+  }
   .orderStatus-container {
     padding-top: 46rpx;
     text {
@@ -125,9 +176,9 @@
         height: 30rpx;
       }
       .call-shop {
+        width: 314rpx;
         color: #55b1eb;
         margin-left: 12rpx;
-        margin-right: 203rpx;
         font-size: 28rpx;
       }
       .discountFee-total {
@@ -186,4 +237,9 @@
       }
     }
   }
+}
+.payToOrderDetail-container {
+  // 从支付页面跳转到订单详情页面时的样式变化
+  background-image: none;
+  background-color: #f3f3f3;
 }
