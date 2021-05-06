@@ -42,7 +42,7 @@
             </scroll-view>
           </view>
           <view class="order-right">
-            <scroll-view scroll-y="true" class="scrollY-container" scroll-top="{{scrollTop}}">
+            <scroll-view scroll-y="true" class="scrollY-container" scroll-top="{{scrollTop}}" bindscroll="handleScroll">
               <view class="food-container" wx:for="{{foodList}}" wx:for-item="food" wx:key="index"
                 wx:for-index="foodListIndex">
                 <view class="food-header">

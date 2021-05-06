@@ -82,9 +82,10 @@ Page({
       method:'post',
     })
     // 查询所有订单，找到最新添加的订单id，通过该id去跳转到订单详情
-    const allOrderList = await request({
+    const {docs} = await request({
       url: 'order',
     })
+    const allOrderList=docs
     const orderid=allOrderList[allOrderList.length-1]._id
     wx.navigateTo({
       url: `../orderDetail/index?orderId=${orderid}&isPayToOrderDetail=true`,

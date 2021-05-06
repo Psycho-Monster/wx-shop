@@ -1,5 +1,6 @@
 <view wx:if="{{isPayToOrderDetail}}">
-  <map class="map" longitude="{{order.longitude}}" latitude="{{order.latitude}}" show-location="true" scale="{{14}}">
+<!-- 记得要改成order.longitude和order.latitude -->
+  <map class="map" longitude="{{order.longitude}}" latitude="{{order.latitude}}" show-location="true" scale="{{14}}" markers="{{markers}}">
   </map>
 </view>
 <view class="orderDetail-container {{isPayToOrderDetail?'payToOrderDetail-container':''}}">

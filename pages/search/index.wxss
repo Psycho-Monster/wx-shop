@@ -29,11 +29,15 @@
   padding-left: 30rpx;
   white-space: nowrap;
 }
+.scrollX-wrapper .test-view {
+  display: flex;
+  width: 700px;
+}
 .scrollX-wrapper .hot-search {
-  display: inline-block;
+  display: block;
   width: 546rpx;
   border-radius: 50rpx;
-  background-image: linear-gradient(to bottom, #ecf9ff, #fff);
+  background-image: linear-gradient(to bottom, #ecf9ff 20%, #fff 80%);
   border: 1px solid #cdf1ff;
   padding-left: 32rpx;
   padding-top: 24rpx;

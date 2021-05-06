@@ -25,7 +25,7 @@
 }
 .order .order-top .name-container .name {
   color: black;
-  font-size: 38rpx;
+  font-size: 30rpx;
 }
 .order .order-top .order-status {
   font-size: 32rpx;
@@ -40,8 +40,9 @@
 }
 .order .food-container .order-food {
   width: 530rpx;
-  font-size: 28rpx;
+  font-size: 26rpx;
   margin-left: 128rpx;
+  color: #727272;
 }
 .order .food-container .order-price {
   color: #333;

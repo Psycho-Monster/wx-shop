@@ -6,25 +6,27 @@
     </view>
   </view>
   <scroll-view scroll-x="true" class="scrollX-wrapper">
-    <view class="hot-search" wx:for="{{[1,2,3,4]}}">
-      <view class="title">热搜榜</view>
-      <view class="content" wx:for="{{[1,2,3,4]}}">
-        <image src="/static/images/hot_search1.jpg"></image>
-        <view>
-          <view class="food-evaluation">猪杂汤饭不错哦</view>
-          <view class="hot-value">人气值 67489</view>
+    <view class="test-view">
+      <view class="hot-search" wx:for="{{rankingList}}" wx:key="index">
+        <view class="title">{{item.title}}</view>
+        <view class="content" wx:for="{{item.showHotSearchList}}" wx:for-item="shop" wx:key="index">
+          <image src="{{shop.image}}"></image>
+          <view>
+            <view class="food-evaluation">{{shop.name}}</view>
+            <view class="hot-value">人气值 {{shop.popularValue}}</view>
+          </view>
         </view>
-      </view>
-      <view class="more-content">
-        <text class="more">更多</text>
-        <text class="iconfont icon-xiajiantou"></text>
+        <view class="more-content">
+          <text class="more" bindtap="showMoreContent">{{contentText}}</text>
+          <text class="iconfont icon-xiajiantou"></text>
+        </view>
       </view>
     </view>
   </scroll-view>
   <view class="exclusive-container">
     <view class="title">专属好店</view>
     <view class="exclusive-list">
-      <view class="exclusive-item" wx:for="{{[1,2,3,4,5]}}">
+      <view class="exclusive-item" wx:for="{{[1,2,3,4,5]}}" wx:key="index">
         <image src="/static/images/exclusive1.png"></image>
         <view>
           <view class="name">一抖勺木桶饭</view>

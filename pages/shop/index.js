@@ -291,5 +291,25 @@ Page({
   },
   goBack() {
     wx.navigateBack()
+  },
+  handleScroll(e) {
+    const {
+      scrollHeightArr,
+      leftList
+    } = this.data
+    const {
+      scrollTop
+    } = e.detail
+    this.data.leftList.forEach(item => {
+      item.isActive = false
+    })
+    scrollHeightArr.forEach((top, index) => {
+      if (scrollTop >= top && scrollTop < scrollHeightArr[index + 1]) {
+        this.data.leftList[index].isActive = true
+      }
+    })
+    this.setData({
+      leftList: this.data.leftList,
+    })
   }
 })

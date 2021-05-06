@@ -18,7 +18,8 @@
     "pages/local/index",
     "pages/fastFood/index",
     "pages/orderDetail/index",
-    "pages/evaluate/index"
+    "pages/evaluate/index",
+    "pages/test/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

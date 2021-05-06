@@ -9,7 +9,9 @@ Page({
   data: {
     shopList: [],
     foodText: '下午茶',
-    foodImagePath: 'https://i.loli.net/2021/04/01/ajAx5LGOKmrhbR1.png'
+    foodImagePath: 'https://i.loli.net/2021/04/01/ajAx5LGOKmrhbR1.png',
+    pageNo: 2,
+    pageSize: 5
   },
   // 事件处理函数
   search() {
@@ -67,7 +69,9 @@ Page({
   },
 
   async onLoad() {
-    const shopList = await request({
+    const {
+      docs
+    } = await request({
       url: 'shops',
     })
     const d = new Date();
@@ -98,9 +102,25 @@ Page({
         foodImagePath: 'https://i.loli.net/2021/04/01/TXes9gjcmL8pMtn.png'
       })
     }
-    app.globalData.shopList = shopList
+    app.globalData.shopList = docs
     this.setData({
+      shopList: docs
+    })
+  },
+  async onReachBottom() {
+    let {
+      pageNo,
+      pageSize,
       shopList
+    } = this.data
+    const {
+      docs
+    } = await request({
+      url: `shops?pageNo=${pageNo}&pageSize=${pageSize}`,
+    })
+    this.setData({
+      shopList: shopList.concat(docs),
+      pageNo: ++pageNo
     })
   },
 })

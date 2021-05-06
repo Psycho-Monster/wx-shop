@@ -1,4 +1,7 @@
 .coin-container {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
   background-color: #f5f5f5;
   text-align: center;
   padding: 20rpx 0;
@@ -11,6 +14,7 @@
   color: #f2ac38;
 }
 .coin-container .coin-detail .coin {
+  font-weight: bold;
   margin-right: 12rpx;
 }
 .coin-container .progress-bar {
@@ -18,6 +22,10 @@
   height: 10rpx;
   background-color: #e3e3e3;
   margin: 0 auto;
+}
+.scrollY-container {
+  height: 1150px;
+  padding-top: 96rpx;
 }
 .deliver-container {
   display: flex;
@@ -45,7 +53,7 @@
   margin-top: 80rpx;
 }
 .deliver-evaluation .title {
-  font-size: 32rpx;
+  font-size: 34rpx;
   font-weight: bold;
 }
 .deliver-evaluation .evaluation-image {
@@ -63,6 +71,64 @@
 }
 .deliver-evaluation .evaluation-image .image-container .description {
   color: #9d9d9d;
+}
+.deliver-evaluation .apology-text {
+  margin-top: 20rpx;
+  color: #ff5940;
+}
+.deliver-evaluation .evaluateText-List {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 48rpx;
+}
+.deliver-evaluation .evaluateText-List .evaluate-item {
+  border: 1px solid #d8d8d8;
+  padding: 20rpx;
+  margin-right: 14rpx;
+  margin-bottom: 14rpx;
+  color: #9f9f9f;
+  border-radius: 10rpx;
+}
+.deliver-evaluation .evaluateText-List .evaluate-item image {
+  position: relative;
+  top: 4rpx;
+  width: 26rpx;
+  height: 26rpx;
+}
+.deliver-evaluation .evaluateText-List .evaluate-item .custom-evaluation {
+  color: #147df4;
+}
+.deliver-evaluation .evaluateText-List .active-item {
+  color: #8ca2be;
+  background-color: #eff2f5;
+  border: 1px solid #899fbc;
+}
+.deliver-evaluation .evaluateText-List .xxx-item {
+  color: #ffaa0c;
+  background-color: #fff6e6;
+  border: 1px solid #ffaa0c;
+}
+.deliver-evaluation .evaluateText-List .active-evaluate-item {
+  border: 1px solid #0097ff;
+  background-color: #e8f3fe;
+}
+.deliver-evaluation .custom-textarea {
+  height: 160rpx;
+  background-color: #fafafa;
+  margin: 0 auto;
+  text-align: left;
+  padding-left: 24rpx;
+  padding-top: 24rpx;
+  font-size: 28rpx;
+}
+.deliver-evaluation .textarea-length {
+  position: relative;
+  top: -25px;
+  left: -45px;
+  font-size: 14px;
+  text-align: right;
+  color: #999999;
 }
 .shop-container {
   margin-top: 110rpx;
@@ -84,7 +150,7 @@
   margin-top: 80rpx;
 }
 .shop-container .shop-evaluation .title {
-  font-size: 32rpx;
+  font-size: 34rpx;
   font-weight: bold;
 }
 .shop-container .shop-evaluation .star-container {
@@ -95,6 +161,90 @@
   width: 50rpx;
   height: 50rpx;
   margin-right: 38rpx;
+}
+.shop-container .shop-evaluation .star-container .apology-text {
+  margin-top: 20rpx;
+  color: #ff5940;
+}
+.shop-container .shop-evaluation .star-container .worse-text,
+.shop-container .shop-evaluation .star-container .ordinary-text,
+.shop-container .shop-evaluation .star-container .satisfied-text {
+  margin-top: 20rpx;
+}
+.shop-container .shop-evaluation .star-container .worse-text {
+  color: #919bac;
+}
+.shop-container .shop-evaluation .star-container .ordinary-text {
+  color: #ffb51f;
+}
+.shop-container .shop-evaluation .star-container .satisfied-text {
+  color: #fd7319;
+}
+.shop-container .shop-evaluation .package-star {
+  display: flex;
+  margin-left: 108rpx;
+  margin-top: 34rpx;
+}
+.shop-container .shop-evaluation .package-star image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 28rpx;
+}
+.shop-container .shop-evaluation .package-star .title {
+  color: #5c5c5c;
+  font-size: 28rpx;
+  margin-right: 30rpx;
+}
+.shop-container .shop-evaluation .package-star .worse-text {
+  color: #919bac;
+}
+.shop-container .shop-evaluation .package-star .ordinary-text {
+  color: #ffb51f;
+}
+.shop-container .shop-evaluation .package-star .satisfied-text {
+  color: #fd7319;
+}
+.shop-container .shop-evaluation .custom-textarea {
+  height: 160rpx;
+  background-color: #fafafa;
+  margin: 0 auto;
+  text-align: left;
+  padding-left: 24rpx;
+  padding-top: 24rpx;
+  font-size: 28rpx;
+  margin-top: 40rpx;
+}
+.shop-container .shop-evaluation .textarea-length {
+  position: relative;
+  top: -25px;
+  left: -45px;
+  text-align: right;
+  color: #999999;
+}
+.shop-container .shop-evaluation .order-container {
+  margin-top: 126rpx;
+}
+.shop-container .shop-evaluation .order-container .title {
+  font-size: 34rpx;
+  margin-bottom: 60rpx;
+}
+.shop-container .shop-evaluation .order-container .order-list {
+  display: flex;
+  padding: 0 66rpx;
+  margin-bottom: 74rpx;
+}
+.shop-container .shop-evaluation .order-container .order-list image {
+  width: 34rpx;
+  height: 34rpx;
+}
+.shop-container .shop-evaluation .order-container .order-list .pros {
+  margin-right: 50rpx;
+}
+.shop-container .shop-evaluation .order-container .order-list .food-name {
+  text-align: left;
+  width: 500rpx;
+  color: #6d6d6d;
+  font-size: 26rpx;
 }
 .bottom {
   position: fixed;

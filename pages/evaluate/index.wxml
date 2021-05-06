@@ -1,58 +1,104 @@
 <view>
-  <view class="coin-container">
+  <!-- <view class="coin-container">
     <view class="coin-detail">
       <text class="coin">金币</text>
-      <text class="current-coin">1</text>
+      <text class="current-coin">{{currentCoin}}</text>
       <text class="coin-sum">/4</text>
     </view>
     <view class="progress-bar"></view>
-  </view>
-  <view class="deliver-container">
-    <image src="/static/images/deliver_man.png" class="deliverMan-image"></image>
-    <view>
-      <view class="deliver-name">商家配送</view>
-      <view class="deliver-time">01:18(40分钟)</view>
-    </view>
-    <image src="/static/images/change_time.jpg" class="changeTime-image"></image>
-  </view>
-  <view class="deliver-evaluation">
-    <view class="title">配送评价</view>
-    <view class="evaluation-image">
-      <view class="image-container">
-        <image src="/static/images/worst.jpg"></image>
-        <view class="description">非常差</view>
+  </view> -->
+  <scroll-view scroll-y="true" class="scrollY-container">
+    <view class="deliver-container">
+      <image src="/static/images/deliver_man.png" class="deliverMan-image"></image>
+      <view>
+        <view class="deliver-name">商家配送</view>
+        <view class="deliver-time">01:18(40分钟)</view>
       </view>
-      <view class="image-container">
-        <image src="/static/images/ordinary.jpg"></image>
-        <view class="description">一般</view>
+      <image src="/static/images/change_time.jpg" class="changeTime-image"></image>
+    </view>
+    <view class="deliver-evaluation">
+      <view class="title">配送评价</view>
+      <view class="evaluation-image">
+        <view class="image-container" wx:for="{{variabledeliverEvaluateImageList}}" wx:key="index"
+          bindtap="evaluateDeliver" data-index="{{index}}">
+          <image src="{{item.imagePath}}"></image>
+          <view class="description">{{item.description}}</view>
+        </view>
       </view>
-      <view class="image-container">
-        <image src="/static/images/satisfied.jpg"></image>
-        <view class="description">超赞</view>
+      <view wx:if="{{apologyText}}" class="apology-text">{{apologyText}}</view>
+      <view class="evaluateText-List">
+        <view wx:for="{{showEvaluateTextList}}" class="evaluate-item {{item.isActive?deliverText==='吐槽'?'active-item':'xxx-item':''}}" wx:key="index" bindtap="defaultEvaluateDeliver" data-index="{{index}}">{{item.text}}</view>
+        <view class="evaluate-item {{isCustomEvaluate?'active-evaluate-item':''}}" wx:if="{{isEvaluateDeliver}}"
+          bindtap="customEvaluate">
+          <image src="{{customEvaluateImage}}"></image>
+          <text class="custom-evaluation">文字评价</text>
+        </view>
+      </view>
+      <view class="textarea-container" wx:if="{{isCustomEvaluate}}">
+        <textarea placeholder="{{placeholderText}}" class="custom-textarea" placeholder-style="color:#c9c9c9;"
+          bindinput="handleInput" />
+        <view class="textarea-length" wx:if="{{customEvaluateText}}">
+          {{customEvaluateText.length}}/140个字
+        </view>
       </view>
     </view>
-  </view>
-  <view class="shop-container">
-    <view class="shop-info">
-      <image src="https://i.loli.net/2021/04/02/pIR7HCThuvwSQrW.png"></image>
-      <view class="shop-name">沙县小吃(田心店)</view>
-      <van-radio-group value="{{ isAnonymous }}" bindtap="changeAnonymousStatus">
-        <van-radio name="{{false}}" checked-color="#f1f1f1" icon-size="14px" wx:if="{{!isAnonymous}}">匿名评价</van-radio>
-        <van-radio name="{{true}}" checked-color="#00e168" icon-size="14px" wx:if="{{isAnonymous}}">匿名评价</van-radio>
-      </van-radio-group>
+    <view class="shop-container">
+      <view class="shop-info">
+        <image src="https://i.loli.net/2021/04/02/pIR7HCThuvwSQrW.png"></image>
+        <view class="shop-name">{{orderInfo.name}}</view>
+        <van-radio-group value="{{ isAnonymous }}" bindtap="changeAnonymousStatus">
+          <van-radio name="{{false}}" checked-color="#f1f1f1" icon-size="14px" wx:if="{{!isAnonymous}}">
+            匿名评价
+          </van-radio>
+          <van-radio name="{{true}}" checked-color="#00e168" icon-size="14px" wx:if="{{isAnonymous}}">
+            匿名评价
+          </van-radio>
+        </van-radio-group>
+      </view>
+      <view class="shop-evaluation">
+        <view class="title">商家评价</view>
+        <view class="star-container">
+          <image src="{{item}}" wx:for="{{variableShopEvaluateImageList}}" bindtap="evaluateShop" data-index="{{index}}" wx:key="index" data-type='shop'></image>
+          <view wx:if="{{shopEvaluationText}}" class="{{shopActiveIndex<2?'worse-text':shopActiveIndex<4?'ordinary-text':'satisfied-text'}} ">
+            {{shopEvaluationText}}
+          </view>
+          <view wx:if="{{shopApologyText}}" class="apology-text">{{shopApologyText}}</view>
+        </view>
+        <view class="package-star">
+          <view class="title">包装</view>
+          <image src="{{item}}" wx:for="{{variablePackageEvaluateImageList}}" wx:key="index" bindtap="evaluateShop" data-index="{{index}}" data-type='package'></image>
+          <view wx:if="{{packageEvaluationText}}" class="{{packageActiveIndex<2?'worse-text':packageActiveIndex<4?'ordinary-text':'satisfied-text'}} ">
+            {{packageEvaluationText}}
+          </view>
+        </view>
+        <view class="package-star">
+          <view class="title">味道</view>
+          <image src="{{item}}" wx:for="{{variableTasteEvaluateImageList}}" wx:key="index" bindtap="evaluateShop" data-index="{{index}}" data-type='taste'></image>
+          <view wx:if="{{tasteEvaluationText}}" class="{{tasteActiveIndex<2?'worse-text':tasteActiveIndex<4?'ordinary-text':'satisfied-text'}} ">
+            {{tasteEvaluationText}}
+          </view>
+        </view>
+        <view wx:if="{{shopActiveIndex!==-1 && packageActiveIndex!==-1 && tasteActiveIndex!==-1}}">
+        <textarea placeholder="{{shopPlaceholderText}}" class="custom-textarea" placeholder-style="color:#c9c9c9;" bindinput="shopInputTextArea" />
+        <view class="textarea-length" wx:if="{{shopEvaluateText}}">
+          {{shopEvaluateText.length}}/140个字
+        </view>
+        <view class="textarea-length" wx:if="{{!shopEvaluateText}}">
+          评价文字得 2 金币
+        </view>
+      </view>
+      <view class="order-container" wx:if="{{shopActiveIndex!==-1 && packageActiveIndex!==-1 && tasteActiveIndex!==-1}}">
+        <view class="title">有没有不错或者较差的食物</view>
+        <view class="order-list" wx:for="{{orderInfo.foodList}}" wx:key="_id">
+          <view class="food-name">{{item.name}}</view>
+          <image src="{{foodEvaluateImageList[index].prosImage}}" class="pros" bindtap="evaluateFood" data-type="pros" data-index="{{index}}"></image>
+          <image src="{{foodEvaluateImageList[index].consImage}}" data-type="cons" data-index="{{index}}" bindtap="evaluateFood"></image>
+        </view>
+      </view>
+      </view>
     </view>
-    <view class="shop-evaluation">
-    <view class="title">商家评价</view>
-    <view class="star-container">
-      <image src="/static/images/star.jpg"></image>
-      <image src="/static/images/star.jpg"></image>
-      <image src="/static/images/star.jpg"></image>
-      <image src="/static/images/star.jpg"></image>
-      <image src="/static/images/star.jpg"></image>
-    </view>
-  </view>
-  </view>
+  </scroll-view>
   <view class="bottom">
-    <view class="inner">请对骑士服务做出评价</view>
+    <view class="inner" bindtap="submitEvaluation">{{buttonText}}</view>
   </view>
 </view>
