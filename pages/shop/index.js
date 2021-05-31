@@ -1,4 +1,3 @@
-// pages/shop/index.js
 import {
   request
 } from "../../request/index.js";
@@ -26,7 +25,9 @@ Page({
     isLike: false,
     isShopHasNecessity: false,
     goodEvaluation: 0,
-    badEvaluation: 0
+    badEvaluation: 0,
+    isShowCartList: false,
+    isShowOverlay: false
   },
   likeShop() {
     const {
@@ -187,7 +188,8 @@ Page({
     } else {
       cartList[searchIndex].count++
     }
-    const totalPrice = cartList.reduce((prev, item) => prev + item.price * item.count, 0)
+    let totalPrice = cartList.reduce((prev, item) => prev + item.price * item.count, 0)
+    totalPrice = parseFloat(totalPrice.toFixed(2))
     const totalLength = cartList.reduce((prev, item) => prev + item.count, 0)
     // 如果该店铺本身就不需要必选品，就不用判断
     if (!isShopHasNecessity) {
@@ -212,7 +214,6 @@ Page({
   decreaseCart(e) {
     const {
       cartList,
-      isChooseNecessity,
     } = this.data
     const {
       food
@@ -244,7 +245,8 @@ Page({
     if (isDelete) {
       cartList.splice(searchIndex, 1)
     }
-    const totalPrice = cartList.reduce((prev, item) => prev + item.price * item.count, 0)
+    let totalPrice = cartList.reduce((prev, item) => prev + item.price * item.count, 0)
+    totalPrice = parseFloat(totalPrice.toFixed(2))
     const totalLength = cartList.reduce((prev, item) => prev + item.count, 0)
     let flag = true
     for (let i = 0; i < cartList.length; i++) {
@@ -262,7 +264,12 @@ Page({
         isChooseNecessity: false
       })
     }
-
+    if (!cartList.length) {
+      this.setData({
+        isShowCartList: false,
+        isShowOverlay: false
+      })
+    }
     this.setData({
       foodList,
       cartList,
@@ -310,6 +317,50 @@ Page({
     })
     this.setData({
       leftList: this.data.leftList,
+    })
+  },
+  showCartList() {
+    const {
+      isShowCartList,
+      cartList,
+      isShowOverlay
+    } = this.data
+    if (!cartList.length) {
+      return
+    }
+    this.setData({
+      isShowCartList: !isShowCartList,
+      isShowOverlay: !isShowOverlay
+    })
+  },
+  onChange(e) {
+    const {
+      index
+    } = e.detail
+    this.setData({
+      active: index
+    })
+  },
+  onClickHide() {
+    this.setData({
+      isShowOverlay: false,
+      isShowCartList: false
+    })
+  },
+  goToFoodDetail(e) {
+    const {
+      food
+    } = e.currentTarget.dataset
+    wx.navigateTo({
+      url: `../foodDetail/index?food=${JSON.stringify(food)}`,
+    })
+  },
+  goToBrandStory(e) {
+    const {
+      shopId
+    } = this.data.shopInfo
+    wx.navigateTo({
+      url: `../brandStory/index?shopId=${shopId}`,
     })
   }
 })

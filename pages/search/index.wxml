@@ -2,10 +2,12 @@
   <view class="search">
     <view class="search-input" bindtap="search">
       <text class="iconfont icon-search"></text>
-      <text class="search-text">一抖勺木桶饭</text>
+      <input type="text" placeholder="{{shopName}}" class="search-text" confirm-type="search"
+        bindinput="handleInput"></input>
     </view>
+    <text class="btn-text" bindtap="searchShop">搜索</text>
   </view>
-  <scroll-view scroll-x="true" class="scrollX-wrapper">
+  <scroll-view scroll-x="true" class="scrollX-wrapper" wx:if="{{!isSearchShop}}">
     <view class="test-view">
       <view class="hot-search" wx:for="{{rankingList}}" wx:key="index">
         <view class="title">{{item.title}}</view>
@@ -13,7 +15,8 @@
           <image src="{{shop.image}}"></image>
           <view>
             <view class="food-evaluation">{{shop.name}}</view>
-            <view class="hot-value">人气值 {{shop.popularValue}}</view>
+            <view class="hot-value" wx:if="{{shop.popularValue}}">人气值 {{shop.popularValue}}</view>
+            <view class="hot-value" wx:if="{{shop.recommendText}}">{{shop.recommendText}}</view>
           </view>
         </view>
         <view class="more-content">
@@ -23,17 +26,69 @@
       </view>
     </view>
   </scroll-view>
-  <view class="exclusive-container">
+  <view class="exclusive-container" wx:if="{{!isSearchShop}}">
     <view class="title">专属好店</view>
     <view class="exclusive-list">
-      <view class="exclusive-item" wx:for="{{[1,2,3,4,5]}}" wx:key="index">
-        <image src="/static/images/exclusive1.png"></image>
+      <view class="exclusive-item" wx:for="{{goodExclusiveStore}}" wx:key="index" wx:for-item="shop">
+        <image src="{{shop.imagePath}}"></image>
         <view>
-          <view class="name">一抖勺木桶饭</view>
-          <view class="consumer-remark">"超级推荐土豆回锅肉!"</view>
+          <view class="name">{{shop.name}}</view>
+          <view class="consumer-remark">{{shop.description}}</view>
           <view>
-            <van-tag plain type="warning" class="tag">20减5</van-tag>
-            <van-tag plain type="warning">45减10</van-tag>
+            <van-tag plain type="warning" class="tag" wx:for="{{shop.discountInfo}}" wx:key="index">{{item.text}}
+            </van-tag>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{isSearchShop}}" class="search-shopList">
+    <view class="shop" wx:for="{{searchShopList}}" wx:for-item="shop">
+      <view class="shop-left">
+        <image src="{{shop.imagePath}}"></image>
+      </view>
+      <view>
+        <view class="top">
+          <view class="shop-content">
+            <view class="shop-header">{{shop.name}}</view>
+            <view class="shop-info">
+              <text class="shop-rating">{{shop.rating}}分</text>
+              <text class="shop-saleCount">月售{{shop.sellCountPerMonth}}</text>
+            </view>
+            <view class="shop-fee">
+              <text class="shop-price">起送¥{{shop.minPrice}}</text>
+              <text class="shop-price deliver-fee" wx:if="{{shop.deliverFee}}">配送¥{{shop.deliverFee}}</text>
+              <text class="shop-price deliver-fee" wx:else>免配送费</text>
+              <text class="shop-oldPrice" wx:if="{{shop.prevDeliverFee}}">¥{{shop.prevDeliverFee}}</text>
+            </view>
+            <view class="shop-slogan">
+              <van-tag color="#ffeee1" text-color="#f66d15">{{shop.description}}</van-tag>
+            </view>
+            <view class="shop-tag">
+              <view class="tag-info" wx:for="{{shop.discountInfo}}" wx:key="_id">
+                <van-tag type="warning" text-color="#ff6753" plain>{{item.text}}</van-tag>
+              </view>
+            </view>
+          </view>
+          <view class="shop-right">
+            <view class="special-deliver">
+              <van-tag color="#e6f8ff" text-color="#51cdfe" wx:if="{{shop.deliverMan}}">{{shop.deliverMan}}</van-tag>
+            </view>
+            <view class="shop-deliver">
+              <text class="deliver-info deliver-time">{{shop.deliverTime}}分钟</text>
+              <text class="deliver-info" wx:if="{{shop.deliverDistance<1000}}">{{shop.deliverDistance}}m</text>
+              <text class="deliver-info" wx:else>{{shop.deliverDistance/1000}}km</text>
+            </view>
+          </view>
+        </view>
+        <view class="signboard-foodList">
+          <view class="signboard-food" wx:for="{{shop.signboardFoodList}}" wx:key="index">
+            <image src="{{item.image}}"></image>
+            <view class="name">{{item.name}}</view>
+            <view>
+              <text class="prev">¥</text>
+              <text class="price">{{item.price}}</text>
+            </view>
           </view>
         </view>
       </view>

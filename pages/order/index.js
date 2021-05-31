@@ -6,12 +6,9 @@ Page({
     orderList: []
   },
   async onLoad() {
-    let {
-      docs
-    } = await request({
-      url: 'order',
+    const orderList = await request({
+      url: 'order/allOrders',
     })
-    const orderList = docs
     orderList.reverse()
     this.setData({
       orderList

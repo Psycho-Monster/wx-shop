@@ -1,11 +1,11 @@
 <!--index.wxml-->
 <view>
   <view class="header">
-    <image src="/static/images/logo.jpg"></image>
+    <image src="/static/images/logo.png"></image>
     <view class="divide"></view>
-    <view class="navigation">
+    <view class="navigation" bindtap="chooseLocation">
       <image src="/static/images/location.jpg"></image>
-      <text>元径村</text>
+      <view class="location">{{location}}</view>
     </view>
   </view>
   <view class="search">
@@ -82,18 +82,30 @@
         <text>送药上门</text>
       </view>
     </view>
+    <!-- 做个轮播图 -->
+    <view>
+      <swiper autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}"
+        class="swiper">
+        <block>
+          <swiper-item class="swiper-item">
+            <image src="https://pic.imgdb.cn/item/60a139ec6ae4f77d35f5934f.jpg"></image>
+          </swiper-item>
+          <swiper-item class="swiper-item">
+            <image src="https://pic.imgdb.cn/item/60a13aa16ae4f77d35fbbd67.jpg"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
   </view>
   <view class="shop-list">
     <view class="shop-sticky">
       <view class="recommend">附近推荐</view>
       <view class="shop-filter">
-        <view class="filter-text">津贴优惠</view>
-        <view class="filter-text">满减优惠</view>
-        <view class="filter-text">下单返红包</view>
-        <view class="filter-text">进店领红包</view>
+        <view class="filter-text {{item.isActive?'active-text':''}}" wx:for="{{shopFilterArr}}" bindtap="filterShop" data-index="{{index}}" wx:key="index">{{item.text}}</view>
       </view>
     </view>
-    <view class="shop-container" wx:for="{{shopList}}" wx:key="_id" bindtap="enterShop" wx:for-item="shop" data-shopId="{{shop._id}}">
+    <view class="shop-container" wx:for="{{shopList}}" wx:key="_id" bindtap="enterShop" wx:for-item="shop"
+      data-shopId="{{shop._id}}">
       <view class="shop">
         <view class="shop-left">
           <image src="{{shop.imagePath}}"></image>
@@ -111,7 +123,7 @@
             <text class="shop-oldPrice" wx:if="{{shop.prevDeliverFee}}">¥{{shop.prevDeliverFee}}</text>
           </view>
           <view class="shop-slogan">
-            <van-tag color="#ffeee1" text-color="#f66d15">{{shop.description}}</van-tag>
+            <van-tag color="#ffeee1" text-color="#f66d15" class="description-tag">{{shop.description}}</van-tag>
           </view>
           <view class="shop-tag">
             <view class="tag-info" wx:for="{{shop.discountInfo}}" wx:key="_id">
@@ -120,7 +132,7 @@
           </view>
         </view>
         <view class="shop-right">
-          <view class="shop-menu">
+          <view class="shop-menu" catchtap="ignoreShop" data-index="{{index}}">
             <view class="square"></view>
             <view class="square"></view>
             <view class="square"></view>
@@ -134,8 +146,20 @@
             <van-tag color="#e6f8ff" text-color="#51cdfe" wx:if="{{shop.deliverMan}}">{{shop.deliverMan}}</van-tag>
           </view>
         </view>
+        <view class="shop-overlay" wx:if="{{shop.isShopDislike}}" catchtap="cancelOverlay" data-index="{{index}}">
+        </view>
+        <view class="dislike-btn" wx:if="{{shop.isShopDislike}}" catchtap="dislikeShop" data-index="{{index}}">不喜欢
+        </view>
       </view>
       <van-divider />
+    </view>
+  </view>
+  <!-- 未登录才会显示的 -->
+  <view class="attract-login" wx:if="{{!isLogin}}">
+    <view class="left-text">登录即可领取新人最高60元礼包哦</view>
+    <view class="right">
+      <image src="https://pic.imgdb.cn/item/60a13d1a6ae4f77d3514055d.jpg"></image>
+      <text class="right-text" bindtap="login">马上领</text>
     </view>
   </view>
 </view>

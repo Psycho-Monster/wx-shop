@@ -12,6 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
+    console.log(app.globalData,'app.globalData')
     const deliciousShopList=app.globalData.shopList.filter(shop=>shop.isDeliciousFood)
     this.setData({
       deliciousShopList

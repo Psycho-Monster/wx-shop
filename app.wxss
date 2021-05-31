@@ -9,11 +9,8 @@ page{
 text{
   color: #666;
 }
-text {
-  font-size: 24rpx;
-}
-view{
-  font-size: 24rpx;
+view,text {
+  font-size: 28rpx;
 }
 view,text{
   box-sizing: border-box;

@@ -60,16 +60,16 @@
       </view>
     </view>
     <view class="packing-fee">
-      <text>包装费</text>
-      <text>¥2</text>
+      <text>配送费</text>
+      <text>¥4</text>
     </view>
-    <view class="discount-container">
+    <!-- <view class="discount-container">
       <view class="icon-container">
         <view class="prev-icon">¥</view>
         <text>红包/抵用券</text>
       </view>
       <text class="discount-fee">-¥5</text>
-    </view>
+    </view> -->
     <van-divider />
     <view class="totalPrice-container">
       <image src="/static/images/small-phone.png"></image>
@@ -79,7 +79,7 @@
         <text class="discount-fee">¥5</text>
       </view>
       <view class="orderPrice-container">
-        <text>实付¥</text>
+        <text class="price-prev">实付¥</text>
         <text class="order-price">{{order.orderPrice}}</text>
       </view>
     </view>
@@ -88,7 +88,7 @@
     <view class="title">配送信息</view>
     <view class="info-item">
       <text class="info-title">送达时间</text>
-      <text>{{order.deliverInfo.deliverTime}}</text>
+      <text class="deliver-time">{{order.deliverInfo.deliverTime}}</text>
     </view>
     <view class="info-item">
       <text class="info-title">送货地址</text>
@@ -96,7 +96,7 @@
     </view>
     <view class="info-item">
       <text class="info-title">配送服务</text>
-      <text>{{order.deliverInfo.deliverService}}</text>
+      <text class="deliver-service">{{order.deliverInfo.deliverService}}</text>
     </view>
   </view>
   <view class="orderInfo-container">

@@ -1,0 +1,34 @@
+.banner {
+  width: 100%;
+  height: 480rpx;
+}
+.content {
+  padding: 0 30rpx;
+}
+.content .header {
+  color: #afafaf;
+  margin-top: 48rpx;
+}
+.content .title,
+.content .brand-introduction {
+  font-weight: bold;
+}
+.content .title {
+  font-size: 46rpx;
+  margin-top: 20rpx;
+  margin-bottom: 92rpx;
+}
+.content .brand-introduction {
+  font-size: 38rpx;
+  margin-bottom: 48rpx;
+}
+.content .article {
+  line-height: 48rpx;
+  color: #999999;
+}
+.bottom-image {
+  width: 100%;
+  height: 480rpx;
+  margin-top: 60rpx;
+  padding-bottom: 112rpx;
+}

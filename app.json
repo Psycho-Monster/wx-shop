@@ -19,7 +19,8 @@
     "pages/fastFood/index",
     "pages/orderDetail/index",
     "pages/evaluate/index",
-    "pages/test/index"
+    "pages/foodDetail/index",
+    "pages/brandStory/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -38,12 +39,6 @@
         "text": "外卖",
         "iconPath": "static/images/index.jpg",
         "selectedIconPath": "static/images/index_active.jpg"
-      },
-      {
-        "pagePath": "pages/receive/index",
-        "text": "天天领钱",
-        "iconPath": "static/images/receive.jpg",
-        "selectedIconPath": "static/images/receive_active.jpg"
       },
       {
         "pagePath": "pages/order/index",

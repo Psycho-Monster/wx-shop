@@ -83,6 +83,24 @@
           "pathName": "pages/evaluate/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/foodDetail/index",
+          "pathName": "pages/foodDetail/index",
+          "query": "shopId=605c3d680c46d12c04c5509a",
+          "scene": null
+        },
+        {
+          "name": "pages/brandStory/index",
+          "pathName": "pages/brandStory/index",
+          "query": "shopId=605c3d680c46d12c04c5509a",
+          "scene": null
+        },
+        {
+          "name": "pages/shop/index",
+          "pathName": "pages/shop/index",
+          "query": "shopId=606317ab3b11dc56d8a41dea",
+          "scene": null
         }
       ]
     }

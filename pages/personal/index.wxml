@@ -4,7 +4,7 @@
     <view class="userInfo-left">
       <view class="userName">
         <text class="name" bindtap="getUserProfile" wx:if="{{!userInfo.nickName}}">立即登录</text>
-        <text class="name" wx:else>{{userInfo.nickName}}</text>
+        <text class="name" wx:else bindtap="showLogoutPopup">{{userInfo.nickName}}</text>
         <text class="iconfont icon-iconfonti"></text>
       </view>
       <view class="title" wx:if="{{!userInfo.nickName}}">饿不饿都上饿了么</view>
@@ -78,4 +78,8 @@
       </view>
     </view>
   </view>
+  <van-popup show="{{ logoutPopUpShow }}" bind:close="onClose"  position="bottom" custom-style="background-color: #1e1e1e;">
+    <view class="log-out" bindtap="logout">退出登录</view>
+    <view class="log-out" bindtap="cancelLogout">取消</view>
+  </van-popup>
 </view>

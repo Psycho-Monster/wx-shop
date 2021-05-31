@@ -1,5 +1,30 @@
 <!--pages/pay/index.wxml-->
 <view class="pay-container">
+  <!-- 模拟微信支付的界面 -->
+  <view class="wx-pay" wx:if="{{isShowWxPay}}">
+    <view class="top">
+      <image src="https://pic.imgdb.cn/item/60a765966ae4f77d3577bc03.jpg" bindtap="closeWxPay"></image>
+      <text class="top-text">请输入支付密码</text>
+    </view>
+    <view class="company-name">上海拉扎斯信息科技有限公司</view>
+    <view class="price-container">
+      <text class="price-prev">¥</text>
+      <text class="price">{{totalPrice}}</text>
+    </view>
+    <van-divider borderColor="#2f2f2f" />
+    <view class="pay-type">
+      <text class="type-text">支付方式</text>
+      <view>
+        <image src="https://pic.imgdb.cn/item/60a76b016ae4f77d359d776a.jpg"></image>
+        <text>零钱</text>
+        <text class="iconfont icon-iconfonti"></text>
+      </view>
+    </view>
+    <view class="password-container">
+      <view class="box" wx:for="{{[1,2,3,4,5,6]}}" wx:key="index">{{password[index]}}</view>
+      <input class="weui-input" auto-focus placeholder="将会获取焦点" class="pay-input" bindinput="handleInput" maxlength="6"/>
+    </view>
+  </view>
   <view class="tag-container">
     <van-tag color="#fcf4cd" text-color="#eb872d" closeable round>
       <view slot="" class="custom-tag">
@@ -10,7 +35,7 @@
   </view>
   <view class="order-info">
     <view class="address-container">
-      <text class="address-text">请选择收货地址</text>
+      <text class="address-text">{{address}}</text>
       <text class="iconfont icon-iconfonti"></text>
     </view>
     <view class="order-container">
@@ -139,6 +164,7 @@
       </view>
       <view class="discount-sum">已优惠¥5</view>
     </view>
-    <view class="submit-order" bindtap="submitOrder">提交订单</view>
+    <view class="submit-order" bindtap="showWxPay">提交订单</view>
   </view>
+  <van-overlay show="{{ isShowOverlay }}" bind:click="closeWxPay" />
 </view>

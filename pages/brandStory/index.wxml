@@ -1,0 +1,11 @@
+<!--pages/brandStory/index.wxml-->
+<view>
+  <image class="banner" src="https://i.loli.net/2021/05/27/JXOHvGquMLycgsw.png"></image>
+  <view class="content">
+    <view class="header">品牌故事 | {{brandStory.header}}</view>
+    <view class="title">{{brandStory.title}}</view>
+    <view class="brand-introduction">品牌介绍</view>
+    <view class="article">{{brandStory.article}}</view>
+    <image class="bottom-image" src="{{brandStory.bottomImage}}" wx:if="{{brandStory.bottomImage}}"></image>
+  </view>
+</view>

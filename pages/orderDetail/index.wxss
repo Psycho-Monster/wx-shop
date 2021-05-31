@@ -169,8 +169,6 @@
 }
 .orderDetail-container .food-container .totalPrice-container {
   display: flex;
-  padding-top: 20rpx;
-  padding-bottom: 28rpx;
 }
 .orderDetail-container .food-container .totalPrice-container image {
   width: 30rpx;
@@ -193,10 +191,14 @@
 }
 .orderDetail-container .food-container .totalPrice-container .orderPrice-container {
   position: relative;
-  top: -26rpx;
+  top: -19rpx;
 }
 .orderDetail-container .food-container .totalPrice-container .orderPrice-container text {
   color: black;
+}
+.orderDetail-container .food-container .totalPrice-container .orderPrice-container .price-prev {
+  font-size: 28rpx;
+  margin-right: 4rpx;
 }
 .orderDetail-container .food-container .totalPrice-container .orderPrice-container .order-price {
   font-size: 50rpx;
@@ -226,10 +228,18 @@
 .orderDetail-container .orderInfo-container .info-item .info-title {
   color: #a5a5a5;
 }
+.orderDetail-container .deliverInfo-container .info-item .deliver-time,
+.orderDetail-container .orderInfo-container .info-item .deliver-time,
+.orderDetail-container .deliverInfo-container .info-item .address,
+.orderDetail-container .orderInfo-container .info-item .address,
+.orderDetail-container .deliverInfo-container .info-item .deliver-service,
+.orderDetail-container .orderInfo-container .info-item .deliver-service {
+  font-size: 28rpx;
+}
 .orderDetail-container .deliverInfo-container .info-item .address,
 .orderDetail-container .orderInfo-container .info-item .address {
   width: 300rpx;
-  text-indent: 3em;
+  text-indent: -2em;
 }
 .orderDetail-container .deliverInfo-container .info-item .divide-line,
 .orderDetail-container .orderInfo-container .info-item .divide-line {

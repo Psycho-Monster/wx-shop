@@ -1,0 +1,25 @@
+<!--pages/foodDetail/index.wxml-->
+<view class="foodDetail-container">
+  <view>
+    <text class="iconfont icon-zuojiantou" bindtap="goBack"></text>
+    <image class="food-image" src="{{food.largeImage}}"></image>
+  </view>
+  <view class="food-info">
+    <view class="left">
+      <view class="food-name">{{food.name}}</view>
+      <view class="food-ranking">{{food.ranking}}</view>
+      <view class="sale-count">月售 {{food.saleCount}}</view>
+      <view>
+        <text class="price-prev">￥</text>
+        <text class="food-price">{{food.price}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="food-detail">
+    <view class="detail-text">商品详情</view>
+    <view class="food-description">
+      <view class="left-text">商品描述</view>
+      <view class="right-text">{{food.fullDescriptionText}}</view>
+    </view>
+  </view>
+</view>

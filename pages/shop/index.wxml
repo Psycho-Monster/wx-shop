@@ -27,7 +27,7 @@
   </view>
   <view class="mask"></view>
   <view class="tab-container">
-    <van-tabs active="{{ active }}" color="#42acf6">
+    <van-tabs active="{{ active }}" color="#42acf6" bind:change="onChange">
       <van-tab title="点餐">
         <view class="order">
           <view class="order-left">
@@ -49,7 +49,7 @@
                   <text class="left">{{food.mainTitle}}</text>
                   <text class="right">{{food.subTitle}}</text>
                 </view>
-                <view class="food-info" wx:for="{{food.foods}}" wx:key="name" wx:for-index="foodIndex">
+                <view class="food-info" wx:for="{{food.foods}}" wx:key="name" wx:for-index="foodIndex" bindtap="goToFoodDetail" data-food="{{item}}">
                   <image src="{{item.image}}"></image>
                   <view class="food-detail">
                     <view class="top">
@@ -62,11 +62,11 @@
                     </view>
                     <view class="price-btn">
                       <text class="food-price {{item.count===0?'has-food':''}}">¥{{item.price}}</text>
-                      <view class="decrease-btn" bindtap="decreaseCart" data-food="{{item}}" wx:if="{{item.count>0}}">
+                      <view class="decrease-btn" catchtap="decreaseCart" data-food="{{item}}" wx:if="{{item.count>0}}">
                         <text class="iconfont icon-xianxingtubiaozhizuomoban-04"></text>
                       </view>
                       <text wx:if="{{item.count>0}}" class="food-count">{{item.count}}</text>
-                      <view class="increase-btn" bindtap="addCart" data-food="{{item}}"
+                      <view class="increase-btn" catchtap="addCart" data-food="{{item}}"
                         data-mainTitle="{{food.mainTitle}}">
                         <text class="iconfont icon-jiahao"></text>
                       </view>
@@ -75,34 +75,6 @@
                 </view>
               </view>
             </scroll-view>
-          </view>
-        </view>
-        <view class="bottom">
-          <view class="bottom-bar">
-            <text>配送费减9、满70减2、满70减2</text>
-          </view>
-          <view class="bottom-order">
-            <image src="/static/images/order_box.png" wx:if="{{cartList.length===0}}"></image>
-            <view wx:else class="icon-container">
-              <van-icon name="cart-o" color="#1989fa" info="{{totalLength}}" size="80rpx" />
-            </view>
-            <view class="title-wrapper">
-              <view class="title" wx:if="{{cartList.length===0}}">未选购商品</view>
-              <view wx:else>
-                <text class="price-symbol">¥</text>
-                <text class="total-price">{{totalPrice}}</text>
-              </view>
-              <view class="sub-title">
-                <text>另需配送费¥4</text>
-                <text class="old-price">¥9</text>
-              </view>
-            </view>
-            <view class="order-btn {{totalPrice>=20?'active-btn':''}}">
-              <view wx:if="{{totalPrice<20 && !isChooseNecessity}}">¥20起送</view>
-              <view wx:if="{{totalPrice>=20 &&!isChooseNecessity}}">未点必选品</view>
-              <view wx:if="{{totalPrice<20 &&isChooseNecessity}}">差{{20-totalPrice}}¥起送</view>
-              <view wx:if="{{totalPrice>=20 && isChooseNecessity}}" bindtap="settleAccounts">去结算</view>
-            </view>
           </view>
         </view>
       </van-tab>
@@ -177,8 +149,8 @@
       </van-tab>
       <van-tab title="商家故事">
         <view class="shop-story" wx:if="{{shopStory.title}}">
-          <image src="{{shopStory.imagePath}}"></image>
-          <view class="info">
+          <image src="{{shopStory.imagePath}}" wx:if="{{shopStory.imagePath}}"></image>
+          <view class="info" bindtap="goToBrandStory">
             <view class="title-container">
               <van-tag color="#e6f8ff" text-color="#02b6fd">品牌故事</van-tag>
               <view class="title">{{shopStory.title}}</view>
@@ -207,5 +179,63 @@
         </view>
       </van-tab>
     </van-tabs>
+  </view>
+  <view class="bottom" wx:if="{{active===0}}">
+    <view class="bottom-bar">
+      <text class="discount-text">配送费减9、满70减2、满70减2</text>
+    </view>
+    <view class="mid" wx:if="{{isShowCartList}}">
+      <view class="top">
+        <text class="left-text">已选商品</text>
+        <view class="clear-cart">
+          <image src="https://pic.imgdb.cn/item/60a5f9a56ae4f77d35d83b9c.jpg"></image>
+          <text>清空</text>
+        </view>
+      </view>
+      <view class="food-info" wx:for="{{cartList}}" wx:key="name" wx:for-index="foodIndex">
+        <image src="{{item.image}}"></image>
+        <view class="food-detail">
+          <view class="top">
+            <view class="food-name">{{item.name}}</view>
+          </view>
+          <view class="price-btn">
+            <text class="food-price {{item.count===0?'has-food':''}}">¥{{item.price}}</text>
+            <view class="decrease-btn" bindtap="decreaseCart" data-food="{{item}}" wx:if="{{item.count>0}}">
+              <text class="iconfont icon-xianxingtubiaozhizuomoban-04"></text>
+            </view>
+            <text wx:if="{{item.count>0}}" class="food-count">{{item.count}}</text>
+            <view class="increase-btn" bindtap="addCart" data-food="{{item}}" data-mainTitle="{{food.mainTitle}}">
+              <text class="iconfont icon-jiahao"></text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="bottom-order" catchtap="showCartList">
+      <image src="/static/images/order_box.png" wx:if="{{cartList.length===0}}"></image>
+      <view wx:else class="icon-container">
+        <van-icon name="cart-o" color="#1989fa" info="{{totalLength}}" size="80rpx" />
+      </view>
+      <view class="title-wrapper">
+        <view class="title" wx:if="{{cartList.length===0}}">未选购商品</view>
+        <view wx:else>
+          <text class="price-symbol">¥</text>
+          <text class="total-price">{{totalPrice}}</text>
+        </view>
+        <view class="sub-title">
+          <text>另需配送费¥4</text>
+          <text class="old-price">¥9</text>
+        </view>
+      </view>
+      <view class="order-btn {{totalPrice>=20?'active-btn':''}}">
+        <view wx:if="{{totalPrice<20 && !isChooseNecessity}}">¥20起送</view>
+        <view wx:if="{{totalPrice>=20 &&!isChooseNecessity}}">未点必选品</view>
+        <view wx:if="{{totalPrice<20 &&isChooseNecessity}}">未到起送价</view>
+        <view wx:if="{{totalPrice>=20 && isChooseNecessity}}" catchtap="settleAccounts">去结算</view>
+      </view>
+    </view>
+  </view>
+  <view>
+    <van-overlay show="{{ isShowOverlay }}" bind:click="onClickHide" />
   </view>
 </view>

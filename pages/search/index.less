@@ -3,7 +3,6 @@
   top: 0;
   z-index: 100;
   display: flex;
-  justify-content: center;
   align-items: center;
   padding: 0 20rpx;
   height: 140rpx;
@@ -13,16 +12,18 @@
     display: flex;
     align-items: center;
     padding-left: 30rpx;
-    width: 100%;
+    width: 88%;
     height: 80rpx;
     border: 1px solid #02b6fd;
     border-radius: 50rpx;
+    margin-right: 24rpx;
     .search-text {
-      position: relative;
-      top: -5rpx;
+      width: 540rpx;
       margin-left: 20rpx;
-      color: gray;
     }
+  }
+  .btn-text {
+    color: #02b6fd;
   }
 }
 .scrollX-wrapper {
@@ -30,7 +31,7 @@
   white-space: nowrap;
   .test-view {
     display: flex;
-    width: 700px;
+    width: 1000px;
   }
   .hot-search {
     // display: inline-block;
@@ -85,30 +86,137 @@
     color: black;
     margin-bottom: 24rpx;
   }
-}
-.exclusive-list {
-  display: flex;
-  flex-wrap: wrap;
-  .exclusive-item {
+  .exclusive-list {
     display: flex;
-    width: 350rpx;
-    margin-bottom: 35rpx;
-    image {
-      width: 80rpx;
-      height: 80rpx;
-      margin-right: 14rpx;
+    flex-wrap: wrap;
+    .exclusive-item {
+      display: flex;
+      width: 360rpx;
+      margin-bottom: 35rpx;
+      image {
+        width: 80rpx;
+        height: 80rpx;
+        margin-right: 14rpx;
+      }
+      .name {
+        font-weight: bold;
+      }
+      .consumer-remark {
+        margin-top: 6rpx;
+        margin-bottom: 10rpx;
+        font-size: 20rpx;
+        color: #b2b2b2;
+      }
+      .tag {
+        margin-right: 10rpx;
+      }
     }
-    .name {
-      font-weight: bold;
+  }
+}
+.search-shopList {
+  padding: 20rpx;
+  .shop {
+    display: flex;
+    height: 240rpx;
+    .shop-left {
+      margin-right: 16rpx;
+      image {
+        width: 150rpx;
+        height: 150rpx;
+      }
     }
-    .consumer-remark {
-      margin-top: 6rpx;
-      margin-bottom: 10rpx;
-      font-size: 20rpx;
-      color: #b2b2b2;
+    .top {
+      display: flex;
+      .shop-content {
+        width: 390rpx;
+        .shop-header {
+          font-size: 34rpx;
+          font-weight: bold;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+        .shop-info {
+          margin: 5rpx 0;
+          .shop-rating {
+            color: #ff751e;
+            margin-right: 20rpx;
+          }
+        }
+        .shop-fee {
+          .deliver-fee {
+            margin: 0 10rpx 0 20rpx;
+          }
+          .shop-oldPrice {
+            color: #b2b2b2;
+            text-decoration: line-through;
+          }
+        }
+        .shop-slogan {
+          margin: 16rpx 0;
+        }
+        .shop-tag {
+          display: flex;
+          .tag-info {
+            margin-right: 10rpx;
+          }
+        }
+      }
+      .shop-right {
+        position: relative;
+        .shop-menu {
+          position: absolute;
+          right: 0;
+          top: 10rpx;
+          width: 20rpx;
+          height: 30rpx;
+          .square {
+            width: 4rpx;
+            height: 4rpx;
+            margin-bottom: 5rpx;
+            background-color: #656565;
+          }
+        }
+        .shop-deliver {
+          margin-top: 10rpx;
+          .deliver-info {
+            font-size: 12px;
+          }
+          .deliver-time {
+            margin-right: 12rpx;
+          }
+        }
+        .special-deliver {
+          width: 144rpx;
+          color: #51cdfe;
+          background-color: #e6f8ff;
+          text-align: center;
+          margin-top: 58rpx;
+          border-radius: 10rpx;
+        }
+      }
     }
-    .tag {
-      margin-right: 10rpx;
+    .signboard-foodList {
+      display: flex;
+      margin-top: 10rpx;
+      .signboard-food {
+        margin-right: 10rpx;
+        image {
+          width: 160rpx;
+          height: 160rpx;
+        }
+        .name {
+          font-size: 26rpx;
+          color: black;
+        }
+        .prev,
+        .price {
+          color: #ea573b;
+        }
+        .price {
+          font-size: 36rpx;
+        }
+      }
     }
   }
 }

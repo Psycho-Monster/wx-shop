@@ -15,11 +15,15 @@ Page({
     deliverList: [],
     deliverFee: 4,
     prevDeliverFee: 9,
-    discountFee: 2,
+    discountFee: 5,
     totalPrice: 0,
     foodPrice: 0,
     deliverTime: 0,
-    shopInfo: {}
+    shopInfo: {},
+    address: '宝安区创业一路(深圳市宝安区政府)',
+    isShowWxPay: false,
+    isShowOverlay: false,
+    password: ''
   },
   getMyDay(date) {
     let week;
@@ -31,6 +35,20 @@ Page({
     if (date.getDay() == 5) week = "周五"
     if (date.getDay() == 6) week = "周六"
     return week;
+  },
+  showWxPay() {
+    // 要唤起微信支付的界面
+    wx.showLoading({
+      title: "加载中",
+      mask: true
+    });
+    setTimeout(() => {
+      wx.hideLoading();
+      this.setData({
+        isShowWxPay: true,
+        isShowOverlay: true
+      })
+    }, 2000);
   },
   async submitOrder() {
     const {
@@ -68,8 +86,8 @@ Page({
       imagePath: shopInfo.imagePath,
       name: shopInfo.name,
       orderList,
-      discountPrice:discountFee,
-      orderPrice:totalPrice,
+      discountPrice: discountFee,
+      orderPrice: totalPrice,
       deliverInfo,
       orderInfo,
       longitude: shopInfo.longitude,
@@ -79,14 +97,13 @@ Page({
     await request({
       url: 'order/createOrder',
       data: order,
-      method:'post',
+      method: 'post',
     })
     // 查询所有订单，找到最新添加的订单id，通过该id去跳转到订单详情
-    const {docs} = await request({
-      url: 'order',
+    const allOrderList = await request({
+      url: 'order/allOrders',
     })
-    const allOrderList=docs
-    const orderid=allOrderList[allOrderList.length-1]._id
+    const orderid = allOrderList[allOrderList.length - 1]._id
     wx.navigateTo({
       url: `../orderDetail/index?orderId=${orderid}&isPayToOrderDetail=true`,
     })
@@ -101,9 +118,6 @@ Page({
       discountFee
     } = this.data
     const foodPrice = cartList.reduce((prev, item) => prev + item.price * item.count, 0)
-    if (foodPrice < 70) {
-      discountFee = 0
-    }
     const totalPrice = foodPrice + deliverFee - discountFee
     const deliverList = []
     const deliverObj = {
@@ -217,5 +231,39 @@ Page({
     this.setData({
       isShowDeliverTime: true
     })
+  },
+  closeWxPay() {
+    this.setData({
+      isShowWxPay: false,
+      isShowOverlay: false
+    })
+  },
+  handleInput(e) {
+    const {
+      value
+    } = e.detail
+    this.setData({
+      password: value
+    })
+    if (value.length === 6) {
+      wx.showLoading({
+        title: "支付中",
+        mask: true
+      });
+      setTimeout(() => {
+        wx.hideLoading();
+        this.setData({
+          isShowWxPay: false,
+          isShowOverlay: false,
+          password: ''
+        })
+        wx.showToast({
+          title: '支付成功',
+        })
+        setTimeout(() => {
+          this.submitOrder()
+        }, 1500);
+      }, 2000);
+    }
   }
 })

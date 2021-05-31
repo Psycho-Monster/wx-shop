@@ -25,7 +25,7 @@ Page({
       markers: [{
         latitude: order.latitude,
         longitude: order.longitude,
-        iconPath: '../../static/images/supermarket.jpg',
+        iconPath: order.imagePath,
         width: 30,
         height: 30,
         callout: {

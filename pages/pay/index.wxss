@@ -5,6 +5,7 @@ text {
   color: black;
 }
 .pay-container {
+  position: relative;
   background-image: linear-gradient(to bottom, #61c6f9, #fff);
   padding: 0 24rpx;
   padding-bottom: 140rpx;
@@ -32,6 +33,9 @@ text {
 .order-info .address-container .address-text {
   font-size: 40rpx;
   color: black;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .order-info .order-container {
   display: flex;
@@ -212,7 +216,6 @@ text {
   display: flex;
   height: 170rpx;
   width: 100%;
-  z-index: 10;
   padding-left: 300rpx;
   padding-top: 16px;
   background-color: #fff;
@@ -281,4 +284,90 @@ text {
 }
 .content-item-class {
   color: #5f5f5f;
+}
+.wx-pay {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 24rpx;
+  width: 580rpx;
+  height: 560rpx;
+  margin-left: -290rpx;
+  background-color: #2c2c2c;
+  padding: 50rpx 34rpx;
+  border-radius: 20rpx;
+}
+.wx-pay view,
+.wx-pay text {
+  color: #fff;
+}
+.wx-pay .top image {
+  position: relative;
+  top: 6rpx;
+  width: 30rpx;
+  height: 30rpx;
+}
+.wx-pay .top .top-text {
+  margin-left: 137rpx;
+  color: #fff;
+}
+.wx-pay .company-name {
+  margin-top: 54rpx;
+}
+.wx-pay .company-name,
+.wx-pay .price-container {
+  text-align: center;
+}
+.wx-pay .price-container {
+  margin-top: 32rpx;
+}
+.wx-pay .price-container .price-prev {
+  font-size: 38rpx;
+  margin-right: 16rpx;
+}
+.wx-pay .price-container .price {
+  position: relative;
+  top: 12rpx;
+  font-size: 54rpx;
+}
+.wx-pay .pay-type {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 46rpx;
+}
+.wx-pay .pay-type .type-text {
+  color: #6c706c;
+}
+.wx-pay .pay-type image {
+  position: relative;
+  top: 6rpx;
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 6rpx;
+}
+.wx-pay .pay-type .icon-iconfonti {
+  color: #6c6c6c;
+}
+.wx-pay .password-container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+.wx-pay .password-container .box {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 10rpx;
+  background-color: #373737;
+  text-align: center;
+  line-height: 72rpx;
+  font-size: 80rpx;
+}
+.wx-pay .password-container .pay-input {
+  position: absolute;
+  width: 100%;
+  height: 72rpx;
+  left: -200rpx;
+  opacity: 0;
+  color: transparent;
 }

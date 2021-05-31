@@ -169,8 +169,6 @@
     }
     .totalPrice-container {
       display: flex;
-      padding-top: 20rpx;
-      padding-bottom: 28rpx;
       image {
         width: 30rpx;
         height: 30rpx;
@@ -192,9 +190,13 @@
       }
       .orderPrice-container {
         position: relative;
-        top: -26rpx;
+        top: -19rpx;
         text {
           color: black;
+        }
+        .price-prev {
+          font-size: 28rpx;
+          margin-right: 4rpx;
         }
         .order-price {
           font-size: 50rpx;
@@ -221,9 +223,14 @@
       .info-title {
         color: #a5a5a5;
       }
+      .deliver-time,
+      .address,
+      .deliver-service {
+        font-size: 28rpx;
+      }
       .address {
         width: 300rpx;
-        text-indent: 3em;
+        text-indent: -2em;
       }
       .divide-line {
         margin: 0 20rpx;

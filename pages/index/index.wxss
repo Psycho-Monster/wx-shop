@@ -9,8 +9,8 @@ page {
   padding-left: 30rpx;
 }
 .header image {
-  width: 112rpx;
-  height: 42rpx;
+  width: 72rpx;
+  height: 60rpx;
 }
 .header .divide {
   width: 2rpx;
@@ -27,9 +27,13 @@ page {
   height: 38rpx;
   margin-right: 10rpx;
 }
-.header .navigation text {
+.header .navigation .location {
+  width: 240rpx;
   font-size: 36rpx;
   color: #fff;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .header .navigation::after {
   position: relative;
@@ -59,7 +63,7 @@ page {
   align-items: center;
   padding-left: 30rpx;
   width: 100%;
-  height: 80rpx;
+  height: 62rpx;
   background-color: #fff;
   border-radius: 50rpx;
 }
@@ -77,7 +81,7 @@ page {
 .main-icon .icon-wrapper {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 50rpx;
+  margin-bottom: 42rpx;
 }
 .main-icon .icon-wrapper .big-icon,
 .main-icon .icon-wrapper .small-icon {
@@ -89,14 +93,14 @@ page {
 }
 .main-icon .icon-wrapper .big-icon image,
 .main-icon .icon-wrapper .small-icon image {
-  width: 104rpx;
-  height: 104rpx;
+  width: 90rpx;
+  height: 90rpx;
   margin-bottom: 5rpx;
 }
 .main-icon .icon-wrapper .small-icon image {
-  width: 50rpx;
+  width: 44rpx;
   height: 42rpx;
-  margin-bottom: 5rpx;
+  margin-bottom: 14rpx;
 }
 .main-icon .icon-wrapper:last-child {
   margin-bottom: 0;
@@ -128,10 +132,15 @@ page {
   line-height: 60rpx;
   margin-right: 20rpx;
 }
+.shop-list .shop-filter .active-text {
+  background-color: #d2ecfd;
+  color: #6ab7f9;
+}
 .shop-list .shop-container {
   padding: 0 20rpx;
 }
 .shop-list .shop-container .shop {
+  position: relative;
   display: flex;
   height: 240rpx;
 }
@@ -167,7 +176,13 @@ page {
   text-decoration: line-through;
 }
 .shop-list .shop-container .shop .shop-content .shop-slogan {
-  margin: 16rpx 0;
+  margin-top: 10rpx;
+  margin-bottom: 16rpx;
+}
+.shop-list .shop-container .shop .shop-content .shop-slogan .description-tag .van-tag {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .shop-list .shop-container .shop .shop-content .shop-tag {
   display: flex;
@@ -207,4 +222,67 @@ page {
   text-align: center;
   margin-top: 10rpx;
   border-radius: 10rpx;
+}
+.shop-list .shop-container .shop .shop-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 240rpx;
+  background-color: black;
+  opacity: 0.5;
+}
+.shop-list .shop-container .shop .dislike-btn {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -60rpx;
+  margin-top: -60rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.swiper {
+  height: 162rpx;
+}
+.swiper .swiper-item image {
+  width: 100%;
+  height: 162rpx;
+}
+.attract-login {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  height: 100rpx;
+  background-color: #37414c;
+  padding: 0 24rpx;
+}
+.attract-login .left-text,
+.attract-login .right-text {
+  font-size: 28rpx;
+  color: #fff;
+}
+.attract-login .right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 160rpx;
+  height: 54rpx;
+  border-radius: 20rpx;
+  background-color: #49a3f8;
+  margin-left: 100rpx;
+}
+.attract-login .right image {
+  width: 30rpx;
+  height: 30rpx;
 }

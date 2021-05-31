@@ -2,7 +2,8 @@
 // 获取应用实例
 Page({
   data: {
-    userInfo:{}
+    userInfo:{},
+    logoutPopUpShow:false
   },
   onLoad() {
     const userInfo=wx.getStorageSync('userInfo')?wx.getStorageSync('userInfo'):{}
@@ -28,6 +29,25 @@ Page({
   goLikeShopList(){
     wx.navigateTo({
       url: '../like/index',
+    })
+  },
+  showLogoutPopup(){
+    this.setData({
+      logoutPopUpShow:true
+    })
+  },
+  logout(){
+    wx.clearStorageSync('userInfo')
+    wx.switchTab({
+      url: '../index/index',
+    })
+    this.setData({
+      logoutPopUpShow:false
+    })
+  },
+  cancelLogout(){
+    this.setData({
+      logoutPopUpShow:false
     })
   }
 })

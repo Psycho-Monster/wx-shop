@@ -139,7 +139,7 @@
             flex: 1;
             padding-right: 30rpx;
             .top {
-              height: 144rpx;
+              height: 190rpx;
             }
           }
           .food-name {
@@ -149,6 +149,9 @@
           .food-ranking {
             color: #c58b4e;
             margin: 12rpx 0;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
           }
           .food-description {
             margin: 10rpx 0;
@@ -165,7 +168,7 @@
           .price-btn {
             display: flex;
             align-items: center;
-            margin-top: 30rpx;
+            // margin-top: 30rpx;
             .food-price {
               width: 80rpx;
               color: #ff4b33;
@@ -437,11 +440,103 @@
   }
 }
 .bottom {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
   background-color: #fff;
+  z-index: 2;
   .bottom-bar {
+    height: 40rpx;
     text-align: center;
-    text {
-      color: #f86752;
+    line-height: 40rpx;
+    background-color: #f6f0db;
+    .discount-text {
+      color: black;
+    }
+  }
+  .mid {
+    padding: 40rpx 22rpx;
+    .top {
+      display: flex;
+      justify-content: space-between;
+      .left-text {
+        color: black;
+        font-size: 28rpx;
+        font-weight: bold;
+      }
+      .clear-cart {
+        display: flex;
+        align-items: center;
+        image {
+          width: 24rpx;
+          height: 24rpx;
+          margin-right: 12rpx;
+        }
+      }
+    }
+    .food-info {
+      margin-top: 36rpx;
+      display: flex;
+      image {
+        width: 120rpx;
+        height: 120rpx;
+        margin-right: 20rpx;
+      }
+      .food-detail {
+        width: 0;
+        flex: 1;
+        padding-right: 30rpx;
+        .top {
+          height: 60rpx;
+        }
+      }
+      .food-name {
+        font-weight: bold;
+        font-size: 14px;
+      }
+      .price-btn {
+        display: flex;
+        align-items: center;
+        margin-top: 30rpx;
+        .food-price {
+          width: 80rpx;
+          color: #ff4b33;
+          font-size: 16px;
+          margin-right: 320rpx;
+          font-weight: bold;
+        }
+        .has-food {
+          margin-right: 180rpx;
+        }
+        .increase-btn,
+        .decrease-btn {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 40rpx;
+          height: 40rpx;
+          border-radius: 50%;
+        }
+        .increase-btn {
+          background-color: #02b6fd;
+          text {
+            color: #fff;
+          }
+        }
+        .decrease-btn {
+          border: 1px solid #48cafd;
+          text {
+            position: relative;
+            top: 2rpx;
+            color: #02b6fd;
+          }
+        }
+        .food-count {
+          margin: 0 24rpx;
+          font-size: 14px;
+          color: black;
+        }
+      }
     }
   }
   .bottom-order {

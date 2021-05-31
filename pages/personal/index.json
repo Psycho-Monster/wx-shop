@@ -2,8 +2,9 @@
   "navigationBarBackgroundColor": "#fff",
   "navigationBarTextStyle": "black",
   "navigationStyle": "default",
-  "navigationBarTitleText": "饿了么",
+  "navigationBarTitleText": "个人中心",
   "usingComponents": {
-    "van-divider": "@vant/weapp/divider/index"
+    "van-divider": "@vant/weapp/divider/index",
+    "van-popup": "@vant/weapp/popup/index"
   }
 }

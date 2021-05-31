@@ -134,7 +134,7 @@
   padding-right: 30rpx;
 }
 .tab-container .order .order-right .food-container .food-info .food-detail .top {
-  height: 144rpx;
+  height: 190rpx;
 }
 .tab-container .order .order-right .food-container .food-info .food-name {
   font-weight: bold;
@@ -143,6 +143,9 @@
 .tab-container .order .order-right .food-container .food-info .food-ranking {
   color: #c58b4e;
   margin: 12rpx 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .tab-container .order .order-right .food-container .food-info .food-description {
   margin: 10rpx 0;
@@ -159,7 +162,6 @@
 .tab-container .order .order-right .food-container .food-info .price-btn {
   display: flex;
   align-items: center;
-  margin-top: 30rpx;
 }
 .tab-container .order .order-right .food-container .food-info .price-btn .food-price {
   width: 80rpx;
@@ -419,13 +421,105 @@
   margin: 15rpx 0;
 }
 .bottom {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
   background-color: #fff;
+  z-index: 2;
 }
 .bottom .bottom-bar {
+  height: 40rpx;
   text-align: center;
+  line-height: 40rpx;
+  background-color: #f6f0db;
 }
-.bottom .bottom-bar text {
-  color: #f86752;
+.bottom .bottom-bar .discount-text {
+  color: black;
+}
+.bottom .mid {
+  padding: 40rpx 22rpx;
+}
+.bottom .mid .top {
+  display: flex;
+  justify-content: space-between;
+}
+.bottom .mid .top .left-text {
+  color: black;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.bottom .mid .top .clear-cart {
+  display: flex;
+  align-items: center;
+}
+.bottom .mid .top .clear-cart image {
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 12rpx;
+}
+.bottom .mid .food-info {
+  margin-top: 36rpx;
+  display: flex;
+}
+.bottom .mid .food-info image {
+  width: 120rpx;
+  height: 120rpx;
+  margin-right: 20rpx;
+}
+.bottom .mid .food-info .food-detail {
+  width: 0;
+  flex: 1;
+  padding-right: 30rpx;
+}
+.bottom .mid .food-info .food-detail .top {
+  height: 60rpx;
+}
+.bottom .mid .food-info .food-name {
+  font-weight: bold;
+  font-size: 14px;
+}
+.bottom .mid .food-info .price-btn {
+  display: flex;
+  align-items: center;
+  margin-top: 30rpx;
+}
+.bottom .mid .food-info .price-btn .food-price {
+  width: 80rpx;
+  color: #ff4b33;
+  font-size: 16px;
+  margin-right: 320rpx;
+  font-weight: bold;
+}
+.bottom .mid .food-info .price-btn .has-food {
+  margin-right: 180rpx;
+}
+.bottom .mid .food-info .price-btn .increase-btn,
+.bottom .mid .food-info .price-btn .decrease-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+}
+.bottom .mid .food-info .price-btn .increase-btn {
+  background-color: #02b6fd;
+}
+.bottom .mid .food-info .price-btn .increase-btn text {
+  color: #fff;
+}
+.bottom .mid .food-info .price-btn .decrease-btn {
+  border: 1px solid #48cafd;
+}
+.bottom .mid .food-info .price-btn .decrease-btn text {
+  position: relative;
+  top: 2rpx;
+  color: #02b6fd;
+}
+.bottom .mid .food-info .price-btn .food-count {
+  margin: 0 24rpx;
+  font-size: 14px;
+  color: black;
 }
 .bottom .bottom-order {
   display: flex;
