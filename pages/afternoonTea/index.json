@@ -1,7 +1,7 @@
 {
   "navigationBarTextStyle": "white",
   "navigationStyle": "default",
-  "navigationBarTitleText": "下午茶",
+  "navigationBarTitleText": "早餐",
   "navigationBarBackgroundColor": "#4294f7",
   "usingComponents": {
     "van-divider": "@vant/weapp/divider/index",

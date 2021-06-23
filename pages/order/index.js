@@ -5,7 +5,7 @@ Page({
   data: {
     orderList: []
   },
-  async onLoad() {
+  async onShow() {
     const orderList = await request({
       url: 'order/allOrders',
     })
@@ -31,13 +31,14 @@ Page({
     } = e.currentTarget.dataset
     const {
       name,
-      foodId
+      foodId,
+      _id
     } = orderList[index]
-    console.log(foodId, 'foodId')
     const data = {
       name,
       foodList: orderList[index].orderList,
-      foodId
+      foodId,
+      orderId: _id
     }
     const orderInfo = JSON.stringify(data)
     wx.navigateTo({

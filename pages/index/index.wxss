@@ -152,7 +152,7 @@ page {
   height: 184rpx;
 }
 .shop-list .shop-container .shop .shop-content {
-  width: 357rpx;
+  width: 345rpx;
 }
 .shop-list .shop-container .shop .shop-content .shop-header {
   font-size: 34rpx;

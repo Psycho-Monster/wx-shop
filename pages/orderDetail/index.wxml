@@ -1,6 +1,7 @@
 <view wx:if="{{isPayToOrderDetail}}">
-<!-- 记得要改成order.longitude和order.latitude -->
-  <map class="map" longitude="{{order.longitude}}" latitude="{{order.latitude}}" show-location="true" scale="{{14}}" markers="{{markers}}">
+  <!-- 记得要改成order.longitude和order.latitude -->
+  <map class="map" longitude="{{order.longitude}}" latitude="{{order.latitude}}" show-location="true" scale="{{14}}"
+    markers="{{markers}}">
   </map>
 </view>
 <view class="orderDetail-container {{isPayToOrderDetail?'payToOrderDetail-container':''}}">
@@ -15,13 +16,13 @@
   <view class="deliverDetail-container" wx:if="{{isPayToOrderDetail}}">
     <view class="top">
       <view>
-        <view class="deliver-time">预计15:31送达</view>
+        <view class="deliver-time">预计09:30送达</view>
         <view class="deliver-type">蜂鸟快送</view>
       </view>
       <image src="{{order.imagePath}}"></image>
     </view>
     <van-divider />
-    <view class="bottom">
+    <view class="bottom" bindtap="submitCancelOrder">
       <image src="/static/images/cancel_order.png"></image>
       <view>取消订单</view>
     </view>
@@ -31,12 +32,7 @@
     <text class="iconfont icon-iconfonti"></text>
   </view>
   <view class="gratitude-container" wx:if="{{!isPayToOrderDetail}}">
-    <view class="gratitude-text">感谢您对饿了么的信任，期待再次光临</view>
-    <van-divider />
-    <view class="evaluation-container">
-      <image src="/static/images/evaluation_star.jpg"></image>
-      <view class="evaluation-text">评价得9金币</view>
-    </view>
+    <view class="gratitude-text">感谢您对该外卖小程序的信任，期待再次光临</view>
   </view>
   <view class="compensation-container" wx:if="{{!isPayToOrderDetail}}">
     <view>
@@ -46,6 +42,10 @@
     <view class="arrow-right">
       <text class="iconfont icon-iconfonti"></text>
     </view>
+  </view>
+  <view class="bottom1" bindtap="submitCancelOrder" wx:if="{{!isPayToOrderDetail && order.orderStatus!=='订单已取消'}}">
+    <image src="/static/images/cancel_order.png"></image>
+    <view>取消订单</view>
   </view>
   <view class="food-container">
     <view class="shop-title">{{order.name}}</view>
@@ -63,13 +63,6 @@
       <text>配送费</text>
       <text>¥4</text>
     </view>
-    <!-- <view class="discount-container">
-      <view class="icon-container">
-        <view class="prev-icon">¥</view>
-        <text>红包/抵用券</text>
-      </view>
-      <text class="discount-fee">-¥5</text>
-    </view> -->
     <van-divider />
     <view class="totalPrice-container">
       <image src="/static/images/small-phone.png"></image>

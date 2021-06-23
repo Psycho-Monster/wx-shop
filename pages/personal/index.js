@@ -5,13 +5,12 @@ Page({
     userInfo:{},
     logoutPopUpShow:false
   },
-  onLoad() {
+  onShow() {
     const userInfo=wx.getStorageSync('userInfo')?wx.getStorageSync('userInfo'):{}
     this.setData({
       userInfo
     })
   },
-  
   async getUserProfile() {
     const {userInfo}=await wx.getUserProfile({
       desc: '展示用户信息'

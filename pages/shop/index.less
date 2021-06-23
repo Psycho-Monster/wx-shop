@@ -79,7 +79,7 @@
     display: flex;
     background-color: #fff;
     .order-left {
-      width: 160rpx;
+      width: 180rpx;
       .scrollY-container {
         height: 800rpx;
       }
@@ -130,16 +130,17 @@
           margin-top: 56rpx;
           display: flex;
           image {
-            width: 210rpx;
-            height: 210rpx;
-            margin-right: 20rpx;
+            width: 176rpx;
+            height: 176rpx;
+            margin-right: 16rpx;
           }
           .food-detail {
             width: 0;
             flex: 1;
             padding-right: 30rpx;
             .top {
-              height: 190rpx;
+              // height: 160rpx;
+              margin-bottom: 20rpx;
             }
           }
           .food-name {
@@ -214,9 +215,8 @@
   // 评价
   .evaluation {
     background-color: #fff;
-    padding-left: 32rpx;
+    padding: 0 32rpx;
     padding-top: 42rpx;
-    padding-right: 32rpx;
     height: 100%;
   }
   .evaluation-detail {
@@ -291,7 +291,9 @@
         margin-right: 30rpx;
       }
       .user-info {
+        width: 540rpx;
         display: flex;
+        justify-content: space-between;
       }
       .user-experience {
         display: flex;
@@ -309,10 +311,9 @@
         }
       }
       .user-name {
-        width: 450rpx;
+        // width: 435rpx;
         font-size: 16px;
         font-weight: bold;
-        // margin-right: 160px;
         color: #191919;
       }
       .user-date {
@@ -365,7 +366,7 @@
         display: flex;
         align-items: center;
         .title {
-          width: 475rpx;
+          width: 450rpx;
           font-weight: bold;
           font-size: 17px;
           color: #191919;

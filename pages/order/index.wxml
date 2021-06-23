@@ -15,9 +15,10 @@
       <text class="order-price">¥{{item.orderPrice}}</text>
     </view>
     <van-divider />
-    <view>
+    <view wx:if="{{item.orderStatus==='订单已完成'}}">
       <van-button plain type="info" class="order-again">再来一单</van-button>
-      <van-button plain type="warning" bindtap="evaluate" data-index="{{index}}">评价得12金币</van-button>
+      <van-button plain type="warning" bindtap="evaluate" data-index="{{index}}" wx:if="{{!item.isEvaluate}}">评价得12金币</van-button>
+      <van-button plain type="warning" wx:else>评价已完成</van-button>
     </view>
   </view>
 </view>

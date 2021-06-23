@@ -145,7 +145,7 @@ text {
 }
 .food-info .discount-container .totalPrice-container {
   position: relative;
-  top: -10rpx;
+  top: -3rpx;
 }
 .food-info .discount-container .price {
   color: #e9553c;

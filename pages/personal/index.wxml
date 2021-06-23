@@ -7,7 +7,7 @@
         <text class="name" wx:else bindtap="showLogoutPopup">{{userInfo.nickName}}</text>
         <text class="iconfont icon-iconfonti"></text>
       </view>
-      <view class="title" wx:if="{{!userInfo.nickName}}">饿不饿都上饿了么</view>
+      <view class="title" wx:if="{{!userInfo.nickName}}">人是铁,饭是钢,一顿不吃饿得慌</view>
       <view class="title" wx:else>再忙，也要记得吃饭呦~</view>
     </view>
     <view class="userInfo-right">

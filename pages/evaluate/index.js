@@ -499,8 +499,11 @@ Page({
       shopEvaluationText,
       packageEvaluationText,
       tasteEvaluationText,
-      content 
+      content
     } = this.data
+    const {
+      orderId
+    } = orderInfo
     const recommendList = []
     const foodList = orderInfo.foodList
     if (buttonText === '请对骑士服务做出评价') {
@@ -538,7 +541,7 @@ Page({
     }
     const data = {
       avatar: '',
-      consumerName: 'xiaofieji',
+      consumerName: 'xiaofeiji',
       isAnonymous,
       isSatisfied,
       userExperienceList: [{
@@ -556,14 +559,18 @@ Page({
       }],
       content,
       recommendList,
-      foodId:orderInfo.foodId
+      foodId: orderInfo.foodId
     }
-    const res = await request({
+    // 添加评论
+    await request({
       url: 'order/evaluateOrder',
       method: 'post',
       data
     })
-    console.log(res, 'res')
+    // 修改订单为已评论状态
+    await request({
+      url: `order/evaluationStatus?orderId=${orderId}`,
+    })
   },
   defaultEvaluateDeliver(e) {
     const {
@@ -574,8 +581,6 @@ Page({
       showEvaluateTextList
     } = this.data
     showEvaluateTextList[index].isActive = showEvaluateTextList[index].isActive ? false : true
-    console.log(index, 'index')
-    console.log(showEvaluateTextList, 'showEvaluateTextList')
     this.setData({
       showEvaluateTextList
     })

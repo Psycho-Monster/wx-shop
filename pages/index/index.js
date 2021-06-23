@@ -97,13 +97,13 @@ Page({
     } = await request({
       url: 'shops',
     })
-
+    const filterShops = docs.filter(item => item.shopStatus)
     const shopList = await request({
       url: 'shops/allShops',
     })
     app.globalData.shopList = shopList
     this.setData({
-      shopList: docs
+      shopList: filterShops
     })
   },
   onLoad() {
@@ -158,8 +158,9 @@ Page({
     } = await request({
       url: `shops?pageNo=${pageNo}&pageSize=${pageSize}`,
     })
+    const filterShops = docs.filter(item => item.shopStatus)
     this.setData({
-      shopList: shopList.concat(docs),
+      shopList: shopList.concat(filterShops),
       pageNo: ++pageNo
     })
   },

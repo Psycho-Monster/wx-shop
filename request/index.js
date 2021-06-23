@@ -1,14 +1,6 @@
 // 同时发送异步代码的次数
 let ajaxTimes = 0;
 export const request = (params) => {
-  // 判断 url中是否带有 /my/ 请求的是私有的路径 带上header token
-  // let header = {
-  //   ...params.header
-  // };
-  // if (params.url.includes("/my/")) {
-  //   // 拼接header 带上token
-  //   header["Authorization"] = wx.getStorageSync("token");
-  // }
   ajaxTimes++;
   // 显示加载中 效果
   wx.showLoading({
@@ -16,7 +8,9 @@ export const request = (params) => {
     mask: true
   });
   // 定义公共的url
-  const baseUrl = "http://localhost:3000/";
+   const baseUrl = "http://172.20.10.6:3000/";  //热点
+  // const baseUrl = "http://10.8.225.135:3000/";  // 宿舍WIFI
+  
   return new Promise((resolve, reject) => {
     wx.request({
       ...params,
@@ -32,9 +26,11 @@ export const request = (params) => {
         ajaxTimes--;
         if (ajaxTimes === 0) {
           //  关闭正在等待的图标
-          wx.hideLoading();
+          wx.hideLoading({fail(){console.log('hideErr')}});
         }
       }
     });
+  }).catch(err=>{
+    console.log(err,'err')
   })
 }

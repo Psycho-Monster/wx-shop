@@ -15,7 +15,7 @@ Page({
     deliverList: [],
     deliverFee: 4,
     prevDeliverFee: 9,
-    discountFee: 5,
+    discountFee: 2,
     totalPrice: 0,
     foodPrice: 0,
     deliverTime: 0,
@@ -112,13 +112,33 @@ Page({
     const cartList = JSON.parse(options.cartList)
     const shopInfo = JSON.parse(options.shopInfo)
     const {
+      isNeedDeliverFee,
+      discountInfo
+    } = shopInfo
+    const {
       deliverFee,
     } = this.data
-    let {
-      discountFee
-    } = this.data
+    // let {
+    //   discountFee
+    // } = this.data
     const foodPrice = cartList.reduce((prev, item) => prev + item.price * item.count, 0)
-    const totalPrice = foodPrice + deliverFee - discountFee
+    const manjianPrice = parseInt(discountInfo[0].text.slice(0, 2))
+    const discountFee=parseInt(discountInfo[0].text.slice(3))
+    this.setData({
+      manjianPrice,
+      discountFee
+    })
+    let totalPrice
+    // foodPrice isNeedDeliverFee
+    if (foodPrice >= manjianPrice && isNeedDeliverFee) {
+      totalPrice = foodPrice + deliverFee - discountFee
+    } else if (foodPrice < manjianPrice && isNeedDeliverFee) {
+      totalPrice = foodPrice + deliverFee
+    } else if (foodPrice >= manjianPrice && !isNeedDeliverFee) {
+      totalPrice = foodPrice - discountFee
+    } else {
+      totalPrice = foodPrice
+    }
     const deliverList = []
     const deliverObj = {
       text: '',
@@ -135,6 +155,8 @@ Page({
       nextM = nextM - 60
       nextH = nextH + 1
     }
+    nextH = nextH >= 24 ? nextH - 24 : nextH
+    nextH = nextH < 10 ? '0' + nextH : nextH
     for (let i = 1; i < 8; i++) {
       let text
       if (i === 1) {
@@ -151,7 +173,7 @@ Page({
           nextM = nextM - 60
         }
         if (flag) {
-          nextH += 1
+          nextH = parseInt(nextH) + 1 < 10 ? '0' + (parseInt(nextH) + 1) : parseInt(nextH) + 1
         }
         let finalM = nextM < 10 ? `0${nextM}` : nextM
         text = `${nextH}:${finalM}（9元配送费）`
@@ -235,15 +257,20 @@ Page({
   closeWxPay() {
     this.setData({
       isShowWxPay: false,
-      isShowOverlay: false
+      isShowOverlay: false,
+      password: ''
     })
   },
   handleInput(e) {
     const {
       value
     } = e.detail
+    let str = ''
+    for (let i = 0; i < value.length; i++) {
+      str += '·'
+    }
     this.setData({
-      password: value
+      password: str
     })
     if (value.length === 6) {
       wx.showLoading({

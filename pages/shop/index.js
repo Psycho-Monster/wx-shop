@@ -27,7 +27,8 @@ Page({
     goodEvaluation: 0,
     badEvaluation: 0,
     isShowCartList: false,
-    isShowOverlay: false
+    isShowOverlay: false,
+    filterEvaluationList: [],
   },
   likeShop() {
     const {
@@ -99,7 +100,8 @@ Page({
       shopStory,
       evaluationInfo,
       goodEvaluation,
-      badEvaluation
+      badEvaluation,
+      filterEvaluationList: evaluationInfo.evaluationList
     })
   },
   async onLoad(options) {
@@ -287,7 +289,9 @@ Page({
       name: this.data.shopInfo.name,
       imagePath: this.data.shopInfo.smallImagePath,
       longitude: this.data.shopInfo.longitude,
-      latitude: this.data.shopInfo.latitude
+      latitude: this.data.shopInfo.latitude,
+      isNeedDeliverFee: this.data.shopInfo.isNeedDeliverFee,
+      discountInfo: this.data.shopInfo.discountInfo
     }
     const shopInfo = JSON.stringify(shopInfoObj)
     if (totalPrice >= 20 && isChooseNecessity) {
@@ -329,8 +333,8 @@ Page({
       return
     }
     this.setData({
-      isShowCartList: !isShowCartList,
-      isShowOverlay: !isShowOverlay
+      isShowOverlay: !isShowOverlay,
+      isShowCartList: !isShowCartList
     })
   },
   onChange(e) {
@@ -361,6 +365,44 @@ Page({
     } = this.data.shopInfo
     wx.navigateTo({
       url: `../brandStory/index?shopId=${shopId}`,
+    })
+  },
+  showAllEvaluation() {
+    const {
+      evaluationList
+    } = this.data.evaluationInfo
+    this.setData({
+      filterEvaluationList: evaluationList
+    })
+  },
+  showGoodEvaluation() {
+    const {
+      evaluationList
+    } = this.data.evaluationInfo
+    const res = []
+    for (let i = 0; i < evaluationList.length; i++) {
+      const item = evaluationList[i];
+      if (item.isSatisfied) {
+        res.push(item)
+      }
+    }
+    this.setData({
+      filterEvaluationList: res
+    })
+  },
+  showBadEvaluation() {
+    const {
+      evaluationList
+    } = this.data.evaluationInfo
+    const res = []
+    for (let i = 0; i < evaluationList.length; i++) {
+      const item = evaluationList[i];
+      if (!item.isSatisfied) {
+        res.push(item)
+      }
+    }
+    this.setData({
+      filterEvaluationList: res
     })
   }
 })

@@ -49,7 +49,8 @@
                   <text class="left">{{food.mainTitle}}</text>
                   <text class="right">{{food.subTitle}}</text>
                 </view>
-                <view class="food-info" wx:for="{{food.foods}}" wx:key="name" wx:for-index="foodIndex" bindtap="goToFoodDetail" data-food="{{item}}">
+                <view class="food-info" wx:for="{{food.foods}}" wx:key="name" wx:for-index="foodIndex"
+                  bindtap="goToFoodDetail" data-food="{{item}}">
                   <image src="{{item.image}}"></image>
                   <view class="food-detail">
                     <view class="top">
@@ -101,16 +102,16 @@
           </view>
           <van-divider />
           <view class="filter-btn">
-            <view>全部 {{evaluationInfo.evaluationList.length}}</view>
-            <view>好评 {{goodEvaluation}}</view>
-            <view>近期差评 {{badEvaluation}}</view>
+            <view bindtap="showAllEvaluation">全部 {{evaluationInfo.evaluationList.length}}</view>
+            <view bindtap="showGoodEvaluation">好评 {{goodEvaluation}}</view>
+            <view bindtap="showBadEvaluation">近期差评 {{badEvaluation}}</view>
           </view>
           <view bindtap="showOnlyContent">
             <van-radio-group value="{{ isOnlyShowContent }}">
               <van-radio name="{{true}}" icon-size="12px" class="radio-text">只看有内容的评价</van-radio>
             </van-radio-group>
           </view>
-          <view class="comment-container" wx:for="{{evaluationInfo.evaluationList}}" wx:key="index">
+          <view class="comment-container" wx:for="{{filterEvaluationList}}" wx:key="index">
             <view class="header">
               <image wx:if="{{!item.avatar}}" src="https://i.loli.net/2021/03/19/RWrUvTnG9OBLlCd.png"></image>
               <image wx:else src="{{item.avatar}}"></image>
@@ -130,8 +131,6 @@
             </view>
             <view class="content">
               <view>{{item.content}}</view>
-              <!-- 可能要用富文本编辑器来实现评论内容 -->
-              <!-- <image src="https://i.loli.net/2021/03/19/vIR5HVdMTOgDXom.png"></image> -->
             </view>
             <view class="recommend" wx:if="{{item.recommendList.length}}">
               <van-tag color="#fafafa" text-color="#626262">推荐</van-tag>
@@ -182,35 +181,37 @@
   </view>
   <view class="bottom" wx:if="{{active===0}}">
     <view class="bottom-bar">
-      <text class="discount-text">配送费减9、满70减2、满70减2</text>
+      <text class="discount-text">{{shopInfo.discountInfo[0].text}}、{{shopInfo.discountInfo[1].text}}</text>
     </view>
-    <view class="mid" wx:if="{{isShowCartList}}">
-      <view class="top">
-        <text class="left-text">已选商品</text>
-        <view class="clear-cart">
-          <image src="https://pic.imgdb.cn/item/60a5f9a56ae4f77d35d83b9c.jpg"></image>
-          <text>清空</text>
-        </view>
-      </view>
-      <view class="food-info" wx:for="{{cartList}}" wx:key="name" wx:for-index="foodIndex">
-        <image src="{{item.image}}"></image>
-        <view class="food-detail">
-          <view class="top">
-            <view class="food-name">{{item.name}}</view>
-          </view>
-          <view class="price-btn">
-            <text class="food-price {{item.count===0?'has-food':''}}">¥{{item.price}}</text>
-            <view class="decrease-btn" bindtap="decreaseCart" data-food="{{item}}" wx:if="{{item.count>0}}">
-              <text class="iconfont icon-xianxingtubiaozhizuomoban-04"></text>
-            </view>
-            <text wx:if="{{item.count>0}}" class="food-count">{{item.count}}</text>
-            <view class="increase-btn" bindtap="addCart" data-food="{{item}}" data-mainTitle="{{food.mainTitle}}">
-              <text class="iconfont icon-jiahao"></text>
-            </view>
+    <van-transition show="{{ isShowCartList }}" custom-class="block" name="slide-up">
+      <view class="mid" wx:if="{{isShowCartList}}">
+        <view class="top">
+          <text class="left-text">已选商品</text>
+          <view class="clear-cart">
+            <image src="https://pic.imgdb.cn/item/60a5f9a56ae4f77d35d83b9c.jpg"></image>
+            <text>清空</text>
           </view>
         </view>
+        <view class="food-info" wx:for="{{cartList}}" wx:key="name" wx:for-index="foodIndex">
+          <image src="{{item.image}}"></image>
+          <view class="food-detail">
+            <view class="top">
+              <view class="food-name">{{item.name}}</view>
+            </view>
+            <view class="price-btn">
+              <text class="food-price {{item.count===0?'has-food':''}}">¥{{item.price}}</text>
+              <view class="decrease-btn" bindtap="decreaseCart" data-food="{{item}}" wx:if="{{item.count>0}}">
+                <text class="iconfont icon-xianxingtubiaozhizuomoban-04"></text>
+              </view>
+              <text wx:if="{{item.count>0}}" class="food-count">{{item.count}}</text>
+              <view class="increase-btn" bindtap="addCart" data-food="{{item}}" data-mainTitle="{{food.mainTitle}}">
+                <text class="iconfont icon-jiahao"></text>
+              </view>
+            </view>
+          </view>
+        </view>
       </view>
-    </view>
+    </van-transition>
     <view class="bottom-order" catchtap="showCartList">
       <image src="/static/images/order_box.png" wx:if="{{cartList.length===0}}"></image>
       <view wx:else class="icon-container">

@@ -5,7 +5,7 @@ Page({
   data: {
     order: [],
     // 记得修改成false
-    isPayToOrderDetail: true,
+    isPayToOrderDetail: false,
   },
   async onLoad(options) {
     const {
@@ -47,6 +47,16 @@ Page({
     } = e.currentTarget.dataset
     wx.setClipboardData({
       data: copytext
+    })
+  },
+  async submitCancelOrder() {
+    const orderId = this.data.order._id
+    await request({
+      url: `order/cancelOrder?orderId=${orderId}`,
+      method: 'POST'
+    })
+    wx.showToast({
+      title: '取消成功',
     })
   }
 })

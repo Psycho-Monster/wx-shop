@@ -62,13 +62,13 @@
   color: #fff;
 }
 .orderDetail-container .gratitude-container {
-  height: 244rpx;
+  height: 100rpx;
   background-color: #fff;
   border-radius: 10rpx;
   margin-top: 46rpx;
 }
 .orderDetail-container .gratitude-container .gratitude-text {
-  font-size: 34rpx;
+  font-size: 32rpx;
   padding-left: 26rpx;
   padding-top: 30rpx;
 }
@@ -175,7 +175,7 @@
   height: 30rpx;
 }
 .orderDetail-container .food-container .totalPrice-container .call-shop {
-  width: 314rpx;
+  width: 260rpx;
   color: #55b1eb;
   margin-left: 12rpx;
   font-size: 28rpx;
@@ -238,7 +238,7 @@
 }
 .orderDetail-container .deliverInfo-container .info-item .address,
 .orderDetail-container .orderInfo-container .info-item .address {
-  width: 300rpx;
+  width: 288rpx;
   text-indent: -2em;
 }
 .orderDetail-container .deliverInfo-container .info-item .divide-line,
@@ -257,4 +257,14 @@
 .payToOrderDetail-container {
   background-image: none;
   background-color: #f3f3f3;
+}
+.bottom1 {
+  background-color: #fff;
+  margin-bottom: 20rpx;
+  padding: 10rpx;
+}
+.bottom1 image {
+  width: 36rpx;
+  height: 36rpx;
+  margin-left: 28rpx;
 }

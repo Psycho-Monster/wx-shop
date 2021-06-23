@@ -74,7 +74,7 @@
   background-color: #fff;
 }
 .tab-container .order .order-left {
-  width: 160rpx;
+  width: 180rpx;
 }
 .tab-container .order .order-left .scrollY-container {
   height: 800rpx;
@@ -124,9 +124,9 @@
   display: flex;
 }
 .tab-container .order .order-right .food-container .food-info image {
-  width: 210rpx;
-  height: 210rpx;
-  margin-right: 20rpx;
+  width: 176rpx;
+  height: 176rpx;
+  margin-right: 16rpx;
 }
 .tab-container .order .order-right .food-container .food-info .food-detail {
   width: 0;
@@ -134,7 +134,7 @@
   padding-right: 30rpx;
 }
 .tab-container .order .order-right .food-container .food-info .food-detail .top {
-  height: 190rpx;
+  margin-bottom: 20rpx;
 }
 .tab-container .order .order-right .food-container .food-info .food-name {
   font-weight: bold;
@@ -202,9 +202,8 @@
 }
 .tab-container .evaluation {
   background-color: #fff;
-  padding-left: 32rpx;
+  padding: 0 32rpx;
   padding-top: 42rpx;
-  padding-right: 32rpx;
   height: 100%;
 }
 .tab-container .evaluation-detail {
@@ -279,7 +278,9 @@
   margin-right: 30rpx;
 }
 .tab-container .comment-container .header .user-info {
+  width: 540rpx;
   display: flex;
+  justify-content: space-between;
 }
 .tab-container .comment-container .header .user-experience {
   display: flex;
@@ -297,7 +298,6 @@
   color: #838383;
 }
 .tab-container .comment-container .header .user-name {
-  width: 450rpx;
   font-size: 16px;
   font-weight: bold;
   color: #191919;
@@ -352,7 +352,7 @@
   align-items: center;
 }
 .tab-container .shop-story .info .title-container .title {
-  width: 475rpx;
+  width: 450rpx;
   font-weight: bold;
   font-size: 17px;
   color: #191919;

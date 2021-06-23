@@ -22,7 +22,7 @@
     </view>
     <view class="password-container">
       <view class="box" wx:for="{{[1,2,3,4,5,6]}}" wx:key="index">{{password[index]}}</view>
-      <input class="weui-input" auto-focus placeholder="将会获取焦点" class="pay-input" bindinput="handleInput" maxlength="6"/>
+      <input class="weui-input" auto-focus class="pay-input" bindinput="handleInput" maxlength="6" type="number" />
     </view>
   </view>
   <view class="tag-container">
@@ -65,18 +65,18 @@
       </view>
       <view class="food-price">¥ {{item.price}}</view>
     </view>
-    <view class="deliver-fee">
+    <view class="deliver-fee" wx:if="{{shopInfo.isNeedDeliverFee}}">
       <text>配送费(蓝骑士专送)</text>
       <text>¥{{deliverFee}}</text>
     </view>
-    <view class="deliver-discount">
+    <view class="deliver-discount" wx:if="{{shopInfo.isNeedDeliverFee}}">
       <text class="discount-name">减5元配送费</text>
       <text class="prev-price">¥{{prevDeliverFee}}</text>
     </view>
-    <view class="shop-discount" wx:if="{{foodPrice>=70}}">
+    <view class="shop-discount" wx:if="{{foodPrice>=manjianPrice}}">
       <view>
         <van-tag type="danger">减</van-tag>
-        <text class="discount-name">店铺满70减2</text>
+        <text class="discount-name">店铺满{{manjianPrice}}减{{discountFee}}</text>
       </view>
       <text class="discount-price">-¥{{discountFee}}</text>
     </view>
@@ -89,14 +89,13 @@
       <view>
         <view class="price-info">
           <text class="common-text">已优惠</text>
-          <text class="common-text price">¥{{prevDeliverFee-deliverFee}}</text>
+          <text class="common-text price"
+            wx:if="{{shopInfo.isNeedDeliverFee}}">¥{{prevDeliverFee-deliverFee+discountFee}}</text>
+          <text class="common-text price" wx:else>¥{{discountFee}}</text>
           <view class="totalPrice-container">
             <text class="common-text">小计¥</text>
             <text class="total-price">{{totalPrice}}</text>
           </view>
-        </view>
-        <view>
-          <text class="eat-bean" wx:if="{{totalPrice>=20}}">实付已满20元，返100个吃货豆</text>
         </view>
       </view>
     </view>

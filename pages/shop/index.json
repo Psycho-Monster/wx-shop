@@ -8,6 +8,7 @@
     "van-radio": "@vant/weapp/radio/index",
     "van-radio-group": "@vant/weapp/radio-group/index",
     "van-icon": "@vant/weapp/icon/index",
-    "van-overlay": "@vant/weapp/overlay/index"
+    "van-overlay": "@vant/weapp/overlay/index",
+    "van-transition": "@vant/weapp/transition/index"
   }
 }
